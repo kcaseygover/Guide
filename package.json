@@ -1,0 +1,35 @@
+{
+  "name": "guide",
+  "private": true,
+  "scripts": {
+  "lint": "eslint",
+  "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "6.18.0",
+    "bcrypt": "^0.8.7",
+    "classnames": "^2.2.5",
+    "meteor-node-stubs": "~0.2.0",
+    "react": "^15.4.0",
+    "react-addons-pure-render-mixin": "^15.4.0",
+    "react-dom": "^15.4.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^3.10.2",
+    "eslint-plugin-meteor": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreasHart/Guide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreasHart/Guide/issues"
+  },
+  "homepage": "https://github.com/AndreasHart/Guide#readme",
+  "description": ""
+}
