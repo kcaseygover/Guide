@@ -1,4 +1,13 @@
 {
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "meteor": true,
+    "node": true,
+    "browser": true
+  },
   "plugins": ["meteor"],
   "extends": ["plugin:meteor/recommended"]
 }
