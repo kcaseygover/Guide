@@ -22,3 +22,6 @@ react-meteor-data
 accounts-ui
 accounts-password
 practicalmeteor:mocha
+kadira:flow-router
+jagi:astronomy
+jagi:astronomy-timestamp-behavior

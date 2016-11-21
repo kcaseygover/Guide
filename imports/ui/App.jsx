@@ -13,7 +13,6 @@ import classnames from 'classnames';
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       hideCompleted: false,
     };
@@ -25,12 +24,11 @@ class App extends Component {
 
     // Find the text field via the React ref
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-
     Meteor.call('tasks.insert', text);
-
     // Clear form
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
+
   toggleHideCompleted() {
     this.setState({
       hideCompleted: !this.state.hideCompleted,
@@ -43,6 +41,7 @@ class App extends Component {
     if (this.state.hideCompleted) {
       filteredTasks = filteredTasks.filter(task => !task.checked);
     }
+
     return filteredTasks.map((task) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
       const showPrivateButton = task.owner === currentUserId;
