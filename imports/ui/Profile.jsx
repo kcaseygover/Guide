@@ -3,6 +3,13 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 export default class Profile extends Component {
+
+  handleProfileSubmit() {
+
+    console.log("anything");
+    Meteor.call('profiles.addUserProfile');
+  }
+
   toggleChecked() {
     // Set the checked property to the opposite of its current value
     Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
@@ -18,7 +25,8 @@ export default class Profile extends Component {
     // so that we can style them nicely in CSS
 
     return (
-      <form className= "profile">
+      <div>
+      <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
         <label>
           First Name:
           <input  className="first" type="text"/>
@@ -36,17 +44,19 @@ export default class Profile extends Component {
           Bio:
           <input  className="bio" type="text"/>
         </label>
-         <br/>
         <label>
           Interests:
-          <input className="last" type="text"/>
+          <input className="interests" type="text"/>
+        </label>
+        <br/>
+        <label>
+          <input type="submit"/>
         </label>
         <label>
           Do you want to be a guide?
           <input className="guide?" type="checkbox"/>
         </label>
-
-
+        </form>
       <li className="guideInfo">
         <label>
           Certifications:
@@ -57,7 +67,7 @@ export default class Profile extends Component {
           <input  className="certs" type="text"/>
         </label>
       </li>
-      </form>
+      </div>
 
     );
   }

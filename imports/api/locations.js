@@ -3,7 +3,7 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import { Class } from 'meteor/jagi:astronomy';
 
-const Locations = new Mongo.Collection('locations');
+export const Locations = new Mongo.Collection('locations');
 
  Locations.schema = new SimpleSchema({
   id: {type: Number},

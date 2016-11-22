@@ -5,7 +5,12 @@ import ReactDOM from 'react-dom';
 import { Tasks } from '../api/tasks.js';
 import Task from './Task.jsx';
 
+import { Events } from '../api/events.js';
+import Event from './Event.jsx';
+
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+
+import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
 
 import { Meteor } from 'meteor/meteor';
@@ -21,12 +26,11 @@ class App extends Component {
   }
 
 
-  handleSubmit(event) {
-    event.preventDefault();
-
+  handleSubmit(ev) {
+    ev.preventDefault();
     // Find the text field via the React ref
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-    Meteor.call('tasks.insert', text);
+    Meteor.call('events.insert', text);
     // Clear form
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
@@ -52,6 +56,26 @@ class App extends Component {
         <Task
           key={task._id}
           task={task}
+          showPrivateButton={showPrivateButton}
+        />
+      );
+    });
+  }
+
+  renderEvents() {
+    let filteredEvents = this.props.events;
+    if (this.state.hideCompleted) {
+      filteredEvents = filteredEvents.filter(event => !event.checked);
+    }
+
+    return filteredEvents.map((event) => {
+      const currentUserId = this.props.currentUser && this.props.currentUser._id;
+      const showPrivateButton = event.owner === currentUserId;
+
+      return (
+        <Event
+          key={event._id}
+          event={event}
           showPrivateButton={showPrivateButton}
         />
       );
@@ -92,6 +116,9 @@ class App extends Component {
 
         <Profile/>
         <ul>
+          {this.renderEvents()}
+        </ul>
+        <ul>
           {this.renderTasks()}
         </ul>
       </div>
@@ -103,15 +130,18 @@ App.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
   currentUser: PropTypes.object,
-
+  events: PropTypes.array.isRequired
 };
 
 export default createContainer(() => {
 
    Meteor.subscribe('tasks');
+   Meteor.subscribe('users');
+   Meteor.subscribe('events');
 
   return {
-   tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+   events: Events.find({}, { sort: { createdAt: -1 } }).fetch(),
+   tasks:  Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
    currentUser:  Meteor.user(),
   };
