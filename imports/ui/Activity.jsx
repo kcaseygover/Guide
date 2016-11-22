@@ -9,9 +9,9 @@ export default class Activity extends Component {
 render() {
 
   return (
-    <li>
+    <div>
       {this.props.activity.name}
-    </li>
+    </div>
     )
   }
 }

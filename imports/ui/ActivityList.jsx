@@ -8,7 +8,6 @@ import Activity from './Activity.jsx';
 export default class ActivityList extends Component {
   constructor(props) {
     super(props);
-    console.log('this.props in ActivityList',this.props);
       this.state = { search: '' };
 
   }
@@ -21,7 +20,7 @@ updateSearch(event) {
 }
 
 render() {
-  console.log("in ActivityList, in render, this.props:    ", this.props)
+
   let filteredActivities = this.props.activities.filter(
     (activity) => {
       return activity.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;

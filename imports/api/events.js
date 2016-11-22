@@ -1,4 +1,4 @@
-mport { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/jagi:astronomy';
 
 const Events = new Mongo.Collection('events');
 

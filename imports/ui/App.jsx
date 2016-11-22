@@ -60,8 +60,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("this props:   ", this.props)
-        console.log("this props activities:   ", this.props.activities)
 
     return (
       <div className="container">
@@ -98,7 +96,8 @@ class App extends Component {
           {this.renderTasks()}
         </ul>
 
-        <h1>Activity List</h1>
+        <h1>Browse Events</h1>
+        <h3>By Activity</h3>
         <ActivityList activities={activities}/>
 
       </div>
