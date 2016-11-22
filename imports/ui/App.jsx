@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
+
 import { Tasks } from '../api/tasks.js';
+import Task from './Task.jsx';
 
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import Profile from './Profile.jsx';
 
-import Task from './Task.jsx';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
@@ -56,6 +58,7 @@ class App extends Component {
     });
   }
 
+
   render() {
     return (
       <div className="container">
@@ -87,7 +90,7 @@ class App extends Component {
 
 
 
-
+        <Profile/>
         <ul>
           {this.renderTasks()}
         </ul>
