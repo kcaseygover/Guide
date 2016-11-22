@@ -9,6 +9,9 @@ import Task from './Task.jsx';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
+import ActivityList from './ActivityList.jsx';
+
+let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 // App component - represents the whole app
 class App extends Component {
   constructor(props) {
@@ -57,6 +60,9 @@ class App extends Component {
   }
 
   render() {
+    console.log("this props:   ", this.props)
+        console.log("this props activities:   ", this.props.activities)
+
     return (
       <div className="container">
         <header>
@@ -91,6 +97,10 @@ class App extends Component {
         <ul>
           {this.renderTasks()}
         </ul>
+
+        <h1>Activity List</h1>
+        <ActivityList activities={activities}/>
+
       </div>
     );
   }
@@ -100,6 +110,7 @@ App.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
   currentUser: PropTypes.object,
+
 
 };
 
@@ -111,5 +122,7 @@ export default createContainer(() => {
    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
    currentUser:  Meteor.user(),
+   activities: activities.name,
+
   };
 }, App);
