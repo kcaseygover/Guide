@@ -21,12 +21,12 @@ updateSearch(event) {
 }
 
 render() {
-  // console.log("in ActivityList, in render, this.props:    ", this.props)
-  // let filteredActivities = this.props.activities.filter(
-  //   (activity) => {
-  //     return activity.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-  //   }
-  // );
+  console.log("in ActivityList, in render, this.props:    ", this.props)
+  let filteredActivities = this.props.activities.filter(
+    (activity) => {
+      return activity.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    }
+  );
 
   return (
 
@@ -39,7 +39,7 @@ render() {
       <ul>
 
 
-         <li>{this.props.activities.map((activity) => {
+         <li>{filteredActivities.map((activity) => {
           return <Activity activity={activity}
             key={activity.id}/>
         })}
@@ -57,11 +57,3 @@ ActivityList.propTypes = {
   // We can use propTypes to indicate it is required
 
 };
-// <ul>
-//         <li>{filteredActivities.map((activity) => {
-//           return <Activity activity={activity}
-//             key={activity.id}/>
-//         })}
-//         </li>
-//         <li> Hiking </li>
-//       </ul>
