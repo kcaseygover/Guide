@@ -94,35 +94,32 @@ class App extends Component {
   render() {
 
     return (
-      <div className="container">
-        <header>
-         <h1>Guide List ({this.props.incompleteCount})</h1>
+      <div>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <header>
+                <h1>Guide List ({this.props.incompleteCount})</h1>
 
-           <label className="hide-completed">
-            <input
-              type="checkbox"
-              readOnly
-              checked={this.state.hideCompleted}
-              onClick={this.toggleHideCompleted.bind(this)}
-            />
-            Hide Completed Events
-          </label>
+                <label className="hide-completed">
+                <input
+                  type="checkbox"
+                  readOnly
+                  checked={this.state.hideCompleted}
+                  onClick={this.toggleHideCompleted.bind(this)}
+                  />
+                  Hide Completed Events
+                </label>
 
-          <AccountsUIWrapper />
-</header>
+                <AccountsUIWrapper />
+              </header>
+            </div>
+          </div>
+        </nav>
+<div className="container">
    <Profile/>
-           { this.props.currentUser ?
-            <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
-              <input
-                type="text"
-                ref="textInput"
-                placeholder="Type to add new Events"
-              />
-            </form> : ''
-
-          }
-<NewEvent/>
-
+   <h3>Complete To Add Your Event</h3>
+           { this.props.currentUser ? <NewEvent/> :""  }
 
         <div>
           {this.renderEvents()}
@@ -135,6 +132,7 @@ class App extends Component {
         <h1>Browse Events</h1>
         <h3>By Activity</h3>
         <ActivityList activities={activities}/>
+</div>
 </div>
       </div>
     );
@@ -163,3 +161,12 @@ export default createContainer(() => {
    activities: activities.name,
   };
 }, App);
+
+
+ // <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
+ //              <input
+ //                type="text"
+ //                ref="textInput"
+ //                placeholder="Type to add new Events"
+ //              />
+ //            </form> : ''
