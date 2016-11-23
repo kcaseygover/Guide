@@ -16,18 +16,18 @@ import { Class } from 'meteor/jagi:astronomy';
 
 Meteor.methods({
 
-  'profiles.addUserProfile'(text) {
+  'profiles.addUserProfile'(info) {
 
     // Make sure the user is logged in before inserting his profile
 
-    console.log( 'profiles.addUserProfile', text );
+    //console.log( 'profiles.addUserProfile', text );
     user = Meteor.users.find(this.userId)
-    console.log('user',user)
+    console.log('user:::::::', user)
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
 
-    Meteor.users.update({_id:Meteor.user()._id}, text);
+    Meteor.users.update(this.userId, {$set:{info}});
 
   }
 });
