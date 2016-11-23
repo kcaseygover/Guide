@@ -19,7 +19,7 @@ export default class Profile extends Component {
     dob:"",
     bio:"",
     interests:""
-  }
+    }
   }
 
   handleProfileSubmit() {
@@ -28,8 +28,11 @@ export default class Profile extends Component {
   }
 
   _handleChange(name, value) {
-        this.setState({name: value})
+        this.setState({...this.state, [name]: value})
     }
+  // _handleChange(name, e) {
+  //       this.setState({name: e.target.value})
+  //   }
   updateNewFirstName(e) {
     this.setState({first_name: e.target.value});
   }
@@ -54,16 +57,16 @@ export default class Profile extends Component {
       <div>
       <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
           First Name:
-          <input  className="first" type="text" onChange={this._handleChange('first_name', ev)} />
+          <input  className="first" type="text" value={this.state.first_name} onChange={this._handleChange('first_name', event)} />
           Last Name:
-          <input className="last" type="text"  onChange={this._handleChange('last_name', ev)} />
+          <input className="last" type="text"  onChange={this._handleChange('last_name', event)} />
         <br/>
           DOB:
-          <input className="dob" type="date" onChange={this._handleChange('dob', ev)}/>
+          <input className="dob" type="date" onChange={this._handleChange('dob', event)}/>
           Bio:
-          <input  className="bio" type="text" onChange={this._handleChange('bio', ev)}/>
+          <input  className="bio" type="text" onChange={this._handleChange('bio', event)}/>
           Interests:
-          <input className="interests" type="text"  onChange={this._handleChange('interests', ev)}/>
+          <input className="interests" type="text"  onChange={this._handleChange('interests', event)}/>
         <br/>
           <input type="submit"/>
           Do you want to be a guide?
