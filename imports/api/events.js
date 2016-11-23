@@ -40,7 +40,7 @@ if (Meteor.isServer) {
 Meteor.methods({
 
   'events.insert'(text) {
-    check(text, String);
+    check(text, Object);
 
     Events.insert({
       text,
