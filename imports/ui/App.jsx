@@ -108,7 +108,8 @@ class App extends Component {
           </label>
 
           <AccountsUIWrapper />
-
+          </header>
+          <Profile/>
            { this.props.currentUser ?
             <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
               <input
@@ -118,23 +119,28 @@ class App extends Component {
               />
             </form> : ''
           }
-        </header>
+
 
 
 
         <Profile/>
         <GuideProfile/>
         <ul>
-          {this.renderEvents()}
-        </ul>
-        <ul>
-          {this.renderTasks()}
-        </ul>
 
+
+
+        <div>
+          {this.renderEvents()}
+        </div>
+        <div>
+          {this.renderTasks()}
+        </div>
+        <br/>
+        <div>
         <h1>Browse Events</h1>
         <h3>By Activity</h3>
         <ActivityList activities={activities}/>
-
+      </div>
       </div>
     );
   }

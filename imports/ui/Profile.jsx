@@ -49,7 +49,8 @@ export default class Profile extends Component {
             Interests:
             <input className="interests" type="text" value={this.state.interests}  onChange={this.updateInterests}/>
           <br/>
-            <input type="submit"/>
+            <input className="btn btn-default" type="submit"/>
+
         </form>
       </div>
 
