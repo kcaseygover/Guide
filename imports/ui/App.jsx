@@ -14,6 +14,8 @@ import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
 import GuideProfile from './GuideProfile.jsx';
 
+import NewEvent from './NewEvent.jsx';
+
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
@@ -118,10 +120,9 @@ class App extends Component {
                 placeholder="Type to add new Events"
               />
             </form> : ''
+
           }
-
-
-
+<NewEvent/>
 
         <Profile/>
         <GuideProfile/>
