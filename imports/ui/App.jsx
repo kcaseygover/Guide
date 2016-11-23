@@ -6,7 +6,7 @@ import { Tasks } from '../api/tasks.js';
 import Task from './Task.jsx';
 
 import { Events } from '../api/events.js';
-import Event from './Event.jsx';
+import ListEvent from './ListEvent.jsx';
 
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
@@ -130,7 +130,7 @@ class App extends Component {
           {this.renderEvents()}
         </div>
         <div>
-          {this.renderTasks()}
+          <ListEvent/>
         </div>
         <br/>
         <div>
