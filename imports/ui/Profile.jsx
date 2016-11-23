@@ -5,17 +5,15 @@ import classnames from 'classnames';
 export default class Profile extends Component {
   constructor(props){
     super(props);
-    this.updateNewFirstName = this.updateNewFirstName.bind(this);
-    this.updateNewLastName = this.updateNewLastName.bind(this);
-    this.updateNewDob = this.updateNewDob.bind(this);
-    this.updateNewBio = this.updateNewBio.bind(this);
-    this.updateNewInterests = this.updateNewInterests.bind(this);
-
-    this._handleChange = this._handleChange.bind(this)
+    this.updateFirstName = this.updateFirstName.bind(this);
+    this.updateLastName = this.updateLastName.bind(this);
+    this.updateDob = this.updateDob.bind(this);
+    this.updateBio = this.updateBio.bind(this);
+    this.updateInterests = this.updateInterests.bind(this);
 
     this.state = {
-    first_name:"",
-    last_name:"",
+    firstName:"",
+    lastName:"",
     dob:"",
     bio:"",
     interests:""
@@ -27,27 +25,11 @@ export default class Profile extends Component {
     Meteor.call('profiles.addUserProfile', {profile});
   }
 
-  _handleChange(name, value) {
-        this.setState({...this.state, [name]: value})
-    }
-  // _handleChange(name, e) {
-  //       this.setState({name: e.target.value})
-  //   }
-  updateNewFirstName(e) {
-    this.setState({first_name: e.target.value});
-  }
-  updateNewLastName(e) {
-    this.setState({last_name: e.target.value});
-  }
-  updateNewDob(e) {
-    this.setState({dob: e.target.value});
-  }
-  updateNewBio(e) {
-    this.setState({bio: e.target.value});
-  }
-  updateNewInterests(e) {
-    this.setState({interests: e.target.value});
-  }
+  updateFirstName(e) {this.setState({firstName: e.target.value});}
+  updateLastName(e) {this.setState({lastName: e.target.value});}
+  updateDob(e) {this.setState({dob: e.target.value});}
+  updateBio(e) {this.setState({bio: e.target.value});}
+  updateInterests(e) {this.setState({interests: e.target.value});}
 
   render() {
     // Give tasks a different className when they are checked off,
@@ -55,29 +37,21 @@ export default class Profile extends Component {
 
     return (
       <div>
-      <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
-          First Name:
-          <input  className="first" type="text" value={this.state.first_name} onChange={this._handleChange('first_name', event)} />
-          Last Name:
-          <input className="last" type="text"  onChange={this._handleChange('last_name', event)} />
-        <br/>
-          DOB:
-          <input className="dob" type="date" onChange={this._handleChange('dob', event)}/>
-          Bio:
-          <input  className="bio" type="text" onChange={this._handleChange('bio', event)}/>
-          Interests:
-          <input className="interests" type="text"  onChange={this._handleChange('interests', event)}/>
-        <br/>
-          <input type="submit"/>
-          Do you want to be a guide?
-          <input className="guide?" type="checkbox"/>
+        <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
+            First Name:
+            <input  className="first" type="text"  name='first_name'  onChange={this.updateFirstName} />
+            Last Name:
+            <input className="last" type="text"  onChange={this.updateNewLastName} />
+          <br/>
+            DOB:
+            <input className="dob" type="date" onChange={this.updateNewDob}/>
+            Bio:
+            <input  className="bio" type="text" onChange={this.updateNewBio}/>
+            Interests:
+            <input className="interests" type="text"  onChange={this.updateNewInterests}/>
+          <br/>
+            <input type="submit"/>
         </form>
-      <li className="guideInfo">
-          Certifications:
-          <input  className="certs" type="text"/>
-          Expeirience:
-          <input  className="certs" type="text"/>
-      </li>
       </div>
 
     );

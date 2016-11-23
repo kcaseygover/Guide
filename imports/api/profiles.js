@@ -22,7 +22,7 @@ Meteor.methods({
 
     console.log( 'profiles.addUserProfile', text );
     user = Meteor.users.find(this.userId)
-    console.log(user)
+    console.log('user',user)
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
