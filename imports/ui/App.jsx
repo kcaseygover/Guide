@@ -1,11 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
+
 import { Tasks } from '../api/tasks.js';
+import Task from './Task.jsx';
+
+import { Events } from '../api/events.js';
+import Event from './Event.jsx';
 
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
-import Task from './Task.jsx';
+import { Profiles } from '../api/profiles.js';
+import Profile from './Profile.jsx';
+
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
@@ -23,11 +30,13 @@ class App extends Component {
 
 
   handleSubmit(event) {
+    console.log(this);
     event.preventDefault();
-
     // Find the text field via the React ref
+
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-    Meteor.call('tasks.insert', text);
+
+    Meteor.call('events.insert', text);
     // Clear form
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
@@ -59,6 +68,27 @@ class App extends Component {
     });
   }
 
+  renderEvents() {
+    let filteredEvents = this.props.events;
+    if (this.state.hideCompleted) {
+      filteredEvents = filteredEvents.filter(event => !event.checked);
+    }
+
+    return filteredEvents.map((event) => {
+      const currentUserId = this.props.currentUser && this.props.currentUser._id;
+      const showPrivateButton = event.owner === currentUserId;
+
+      return (
+        <Event
+          key={event._id}
+          event={event}
+          showPrivateButton={showPrivateButton}
+        />
+      );
+    });
+  }
+
+
   render() {
 
     return (
@@ -73,7 +103,7 @@ class App extends Component {
               checked={this.state.hideCompleted}
               onClick={this.toggleHideCompleted.bind(this)}
             />
-            Hide Completed Tasks
+            Hide Completed Events
           </label>
 
           <AccountsUIWrapper />
@@ -83,7 +113,7 @@ class App extends Component {
               <input
                 type="text"
                 ref="textInput"
-                placeholder="Type to add new tasks"
+                placeholder="Type to add new Events"
               />
             </form> : ''
           }
@@ -91,7 +121,10 @@ class App extends Component {
 
 
 
-
+        <Profile/>
+        <ul>
+          {this.renderEvents()}
+        </ul>
         <ul>
           {this.renderTasks()}
         </ul>
@@ -109,19 +142,21 @@ App.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
   currentUser: PropTypes.object,
-
+  events: PropTypes.array.isRequired
 
 };
 
 export default createContainer(() => {
 
    Meteor.subscribe('tasks');
+   Meteor.subscribe('users');
+   Meteor.subscribe('events');
 
   return {
-   tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+   events: Events.find({}, { sort: { createdAt: -1 } }).fetch(),
+   tasks:  Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
    currentUser:  Meteor.user(),
    activities: activities.name,
-
   };
 }, App);

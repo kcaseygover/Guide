@@ -2,8 +2,12 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
+import { Class } from 'meteor/jagi:astronomy';
+
 
 export const Tasks = new Mongo.Collection('tasks');
+
+
 
 if (Meteor.isServer) {
   // This code only runs on the server
@@ -19,6 +23,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
+
   'tasks.insert'(text) {
     check(text, String);
 
@@ -34,6 +39,7 @@ Meteor.methods({
       username: Meteor.users.findOne(this.userId).username,
     });
   },
+
   'tasks.remove'(taskId) {
     check(taskId, String);
 
@@ -45,10 +51,10 @@ Meteor.methods({
 
     Tasks.remove(taskId);
   },
+
   'tasks.setChecked'(taskId, setChecked) {
     check(taskId, String);
     check(setChecked, Boolean);
-
 
     const task = Tasks.findOne(taskId);
     if (task.private && task.owner !== this.userId) {
