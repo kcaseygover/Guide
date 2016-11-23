@@ -21,8 +21,7 @@ export default class Profile extends Component {
   }
 
   handleProfileSubmit() {
-    let profile = this.state;
-    Meteor.call('profiles.addUserProfile', {profile});
+    Meteor.call('profiles.addUserProfile', this.state);
   }
 
   updateFirstName(e) {this.setState({firstName: e.target.value});}
@@ -39,16 +38,16 @@ export default class Profile extends Component {
       <div>
         <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
             First Name:
-            <input  className="first" type="text"  name='first_name'  onChange={this.updateFirstName} />
+            <input  className="first" type="text"  name='first_name' value={this.state.firstName}  onChange={this.updateFirstName} />
             Last Name:
-            <input className="last" type="text"  onChange={this.updateNewLastName} />
+            <input className="last" type="text" value={this.state.lastName}  onChange={this.updateNewLastName} />
           <br/>
             DOB:
-            <input className="dob" type="date" onChange={this.updateNewDob}/>
+            <input className="dob" type="date" value={this.state.dob} onChange={this.updateNewDob}/>
             Bio:
-            <input  className="bio" type="text" onChange={this.updateNewBio}/>
+            <input  className="bio" type="text" value={this.state.bio} onChange={this.updateNewBio}/>
             Interests:
-            <input className="interests" type="text"  onChange={this.updateNewInterests}/>
+            <input className="interests" type="text" value={this.state.interests}  onChange={this.updateNewInterests}/>
           <br/>
             <input type="submit"/>
         </form>
