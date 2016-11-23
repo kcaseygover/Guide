@@ -38,22 +38,18 @@ if (Meteor.isServer) {
 
 
 Meteor.methods({
+
   'events.insert'(text) {
     check(text, String);
 
-    // Make sure the user is logged in before inserting a event
-    if (! this.userId ) {
-      throw new Meteor.Error('not-authorized');
-    }
-
     Events.insert({
-      name: text,
+      text,
       createdAt: new Date(),
       owner: this.userId,
-      username: Meteor.users.findOne(this.userId).username,
+
     });
   },
-  'eventss.remove'(eventId) {
+  'events.remove'(eventId) {
     check(eventId, String);
 
     const event = Events.findOne(eventId);
@@ -65,7 +61,7 @@ Meteor.methods({
     Events.remove(eventId);
   },
 
-  'eventss.setChecked'(eventId, setChecked) {
+  'events.setChecked'(eventId, setChecked) {
     check(eventId, String);
     check(setChecked, Boolean);
 
@@ -77,7 +73,7 @@ Meteor.methods({
 
     Events.update(eventId, { $set: { checked: setChecked } });
   },
-  'eventss.setPrivate'(eventId, setToPrivate) {
+  'events.setPrivate'(eventId, setToPrivate) {
     check(eventId, String);
     check(setToPrivate, Boolean);
 

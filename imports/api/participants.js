@@ -8,6 +8,6 @@ const Locations = new Mongo.Collection('locations');
  Locations.schema = new SimpleSchema({
   id: {type: Number},
   user_id: {type: String},
-  event_id: {type: String}
+  event_id: {type: String},
   gps: {type: String},
 })

@@ -17,10 +17,16 @@ export default class Event extends Component {
     Meteor.call('events.remove', this.props.event._id);
   }
 
+
   render() {
 
+      const eventClassName = classnames({
+      checked: this.props.event.checked,
+      private: this.props.event.private,
+    });
+
     return (
-      <li className='events'>
+      <li className={eventClassName}>
         <button className="delete" onClick={this.deleteThisEvent.bind(this)}>
           &times;
         </button>
@@ -34,12 +40,12 @@ export default class Event extends Component {
 
         { this.props.showPrivateButton ? (
           <button className="toggle-private" onClick={this.togglePrivate.bind(this)}>
-            { this.props.task.private ? 'Private' : 'Public' }
+            { this.props.event.private ? 'Private' : 'Public' }
           </button>
         ) : ''}
 
         <span className="text">
-        <strong>{this.props.event.name}</strong>: {this.props.event.text}
+        <strong>{this.props.event.text}</strong>
         </span>
 
       </li>

@@ -26,10 +26,13 @@ class App extends Component {
   }
 
 
-  handleSubmit(ev) {
-    ev.preventDefault();
+  handleSubmit(event) {
+    console.log(this);
+    event.preventDefault();
     // Find the text field via the React ref
+
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+
     Meteor.call('events.insert', text);
     // Clear form
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
@@ -96,7 +99,7 @@ class App extends Component {
               checked={this.state.hideCompleted}
               onClick={this.toggleHideCompleted.bind(this)}
             />
-            Hide Completed Tasks
+            Hide Completed Events
           </label>
 
           <AccountsUIWrapper />
@@ -106,7 +109,7 @@ class App extends Component {
               <input
                 type="text"
                 ref="textInput"
-                placeholder="Type to add new tasks"
+                placeholder="Type to add new Events"
               />
             </form> : ''
           }

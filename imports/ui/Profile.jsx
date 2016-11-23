@@ -3,23 +3,49 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 export default class Profile extends Component {
+  constructor(props){
+    super(props);
+    this.updateNewFirstName = this.updateNewFirstName.bind(this);
+    this.updateNewLastName = this.updateNewLastName.bind(this);
+    this.updateNewDob = this.updateNewDob.bind(this);
+    this.updateNewBio = this.updateNewBio.bind(this);
+    this.updateNewInterests = this.updateNewInterests.bind(this);
+
+    this._handleChange = this._handleChange.bind(this)
+
+    this.state = {
+    first_name:"",
+    last_name:"",
+    dob:"",
+    bio:"",
+    interests:""
+  }
+  }
 
   handleProfileSubmit() {
-
-    console.log("anything");
-    Meteor.call('profiles.addUserProfile');
+    let profile = this.state;
+    Meteor.call('profiles.addUserProfile', {profile});
   }
 
-  toggleChecked() {
-    // Set the checked property to the opposite of its current value
-    Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
+  _handleChange(name, value) {
+        this.setState({name: value})
+    }
+  updateNewFirstName(e) {
+    this.setState({first_name: e.target.value});
   }
-  togglePrivate() {
-    Meteor.call('tasks.setPrivate', this.props.task._id, ! this.props.task.private);
+  updateNewLastName(e) {
+    this.setState({last_name: e.target.value});
   }
-  deleteThisTask() {
-    Meteor.call('tasks.remove', this.props.task._id);
+  updateNewDob(e) {
+    this.setState({dob: e.target.value});
   }
+  updateNewBio(e) {
+    this.setState({bio: e.target.value});
+  }
+  updateNewInterests(e) {
+    this.setState({interests: e.target.value});
+  }
+
   render() {
     // Give tasks a different className when they are checked off,
     // so that we can style them nicely in CSS
@@ -27,45 +53,27 @@ export default class Profile extends Component {
     return (
       <div>
       <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
-        <label>
           First Name:
-          <input  className="first" type="text"/>
-        </label>
-        <label>
+          <input  className="first" type="text" onChange={this._handleChange('first_name', ev)} />
           Last Name:
-          <input className="last" type="text"/>
-        </label>
+          <input className="last" type="text"  onChange={this._handleChange('last_name', ev)} />
         <br/>
-        <label>
           DOB:
-          <input className="dob" type="date"/>
-        </label>
-        <label>
+          <input className="dob" type="date" onChange={this._handleChange('dob', ev)}/>
           Bio:
-          <input  className="bio" type="text"/>
-        </label>
-        <label>
+          <input  className="bio" type="text" onChange={this._handleChange('bio', ev)}/>
           Interests:
-          <input className="interests" type="text"/>
-        </label>
+          <input className="interests" type="text"  onChange={this._handleChange('interests', ev)}/>
         <br/>
-        <label>
           <input type="submit"/>
-        </label>
-        <label>
           Do you want to be a guide?
           <input className="guide?" type="checkbox"/>
-        </label>
         </form>
       <li className="guideInfo">
-        <label>
           Certifications:
           <input  className="certs" type="text"/>
-        </label>
-        <label>
           Expeirience:
           <input  className="certs" type="text"/>
-        </label>
       </li>
       </div>
 

@@ -23,6 +23,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
+
   'tasks.insert'(text) {
     check(text, String);
 

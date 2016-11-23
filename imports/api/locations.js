@@ -6,7 +6,7 @@ import { Class } from 'meteor/jagi:astronomy';
 export const Locations = new Mongo.Collection('locations');
 
  Locations.schema = new SimpleSchema({
-  id: {type: Number},
+
   name: {type: String},
   address: {type: String},
   gps: {type: String},
