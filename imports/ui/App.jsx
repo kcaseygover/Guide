@@ -12,6 +12,7 @@ import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
+import GuideProfile from './GuideProfile.jsx';
 
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
@@ -122,6 +123,7 @@ class App extends Component {
 
 
         <Profile/>
+        <GuideProfile/>
         <ul>
           {this.renderEvents()}
         </ul>
