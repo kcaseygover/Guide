@@ -1,11 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
+import { createContainer } from 'meteor/react-meteor-data';
+
+import { Activities } from '../api/activities.js';
 
 import Activity from './Activity.jsx';
 
 
-export default class ActivityList extends Component {
+class ActivityList extends Component {
   constructor(props) {
     super(props);
       this.state = { search: '' };
@@ -52,8 +55,17 @@ render() {
   }
 }
 
-ActivityList.propTypes = {
-  // This component gets the task to display through a React prop.
-  // We can use propTypes to indicate it is required
+// ActivityList.propTypes = {
+//   activities: proptype.object,
+// };
 
-};
+
+export default createContainer(() => {
+
+   Meteor.subscribe('activities');
+
+  return {
+   activities: Activities.find({}, { sort: { createdAt: -1 } }).fetch(),
+   currentUser:  Meteor.user()
+  };
+}, ActivityList);

@@ -7,7 +7,7 @@ import Event from './Event.jsx';
 import ListEvent from './ListEvent.jsx';
 import NewEvent from './NewEvent';
 
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import InterestInParticipating from './InterestInParticipating';
 
 import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
@@ -17,6 +17,8 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 import ActivityList from './ActivityList.jsx';
+import NewActivityTag from './NewActivityTag.jsx';
+import NavBar from './NavBar.jsx';
 
 let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 // App component - represents the whole app
@@ -35,34 +37,21 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 
     return (
       <div>
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <header>
-                <h1>Guide List </h1>
-                <AccountsUIWrapper />
-              </header>
-            </div>
-          </div>
-        </nav>
+        <NavBar/>
         <div className="row">
           <div className="col-sm-4">
             <div id="profile_page" className="container">
               <Profile/>
               <GuideProfile/>
-              { newEvent }
+              <NewEvent/>
             </div>
           </div>
-          <div className="col-sm-8">
-            <div id="event_page" className="container">
-              <div>
-                <ListEvent/>
-              </div>
-              <div>
-                <h3>By Activity</h3>
-                <ActivityList activities={activities}/>
-              </div>
-            </div>
+        </div>
+        <div className="col-sm-8">
+          <div id="event_page" className="container">
+            <ListEvent/>
+            <InterestInParticipating/>
+            <NewActivityTag/>
           </div>
         </div>
       </div>
@@ -72,7 +61,7 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 
 App.propTypes = {
   currentUser: PropTypes.object,
-  activities: PropTypes.string
+  activities: PropTypes.sgtring
 };
 
 export default createContainer(() => {

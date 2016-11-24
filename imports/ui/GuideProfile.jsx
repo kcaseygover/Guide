@@ -19,7 +19,7 @@ export default class Profile extends Component {
   }
 
   handleProfileSubmit() {
-    Meteor.call('profiles.addGuideProfile', this.state);
+    Meteor.call('profiles.editGuideProfile', this.state);
   }
 
   updateCerts(e) {this.setState({certifications: e.target.value});}
@@ -35,7 +35,7 @@ export default class Profile extends Component {
     return (
       <div>
         <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
-            Please outline your plan for event:
+            Please outline your plan for events:
             <input  className="plan" type="text"  name='plan' value={this.state.plan}  onChange={this.updatePlan} />
             Cetifications:
             <input  className="certs" type="text"  name='certs' value={this.state.certifications}  onChange={this.updateCerts} />

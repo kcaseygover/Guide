@@ -16,7 +16,7 @@ import { Class } from 'meteor/jagi:astronomy';
 
 Meteor.methods({
 
-  'profiles.addUserProfile'(info) {
+  'profiles.editUserProfile'(info) {
 
     // Make sure the user is logged in before inserting his profile
 
@@ -31,7 +31,7 @@ Meteor.methods({
     Roles.addUsersToRoles(this.userId , 'user');
   },
 
-  'profiles.addGuideProfile'(guideInfo) {
+  'profiles.editGuideProfile'(guideInfo) {
 
     // Make sure the user is logged in before inserting his profile
 
