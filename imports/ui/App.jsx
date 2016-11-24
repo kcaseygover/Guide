@@ -71,73 +71,49 @@ class App extends Component {
     });
   }
 
-  renderEvents() {
-    let filteredEvents = this.props.events;
-    if (this.state.hideCompleted) {
-      filteredEvents = filteredEvents.filter(event => !event.checked);
-    }
 
-    return filteredEvents.map((event) => {
-      const currentUserId = this.props.currentUser && this.props.currentUser._id;
-      const showPrivateButton = event.owner === currentUserId;
-
-      return (
-        <Event
-          key={event._id}
-          event={event}
-          showPrivateButton={showPrivateButton}
-        />
-      );
-    });
-  }
 
 
   render() {
+    let newEvent
+    if (this.props.currentUser) {
+      newEvent = <NewEvent/>
+    }
 
     return (
-<<<<<<< HEAD
       <div>
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
               <header>
                 <h1>Guide List ({this.props.incompleteCount})</h1>
-
                 <label className="hide-completed">
-                <input
-                  type="checkbox"
-                  readOnly
-                  checked={this.state.hideCompleted}
-                  onClick={this.toggleHideCompleted.bind(this)}
-                  />
+                  <input type="checkbox" readOnly checked={this.state.hideCompleted} onClick={this.toggleHideCompleted.bind(this)}/>
                   Hide Completed Events
                 </label>
-
                 <AccountsUIWrapper />
               </header>
             </div>
           </div>
         </nav>
-      <div className="container">
-        <Profile/>
-        <GuideProfile/>
-        <h3>Complete To Add Your Event</h3>
-           { this.props.currentUser ? <NewEvent/> : "" }
-        <div>
-          {this.renderEvents()}
-        </div>
-        <div>
-          <ListEvent/>
-        </div>
-        <br/>
-        <div>
-          <h1>Browse Events</h1>
-          <h3>By Activity</h3>
-          <ActivityList activities={activities}/>
-
+        <div className="container">
+          <Profile/>
+          <GuideProfile/>
+             { newEvent }
+          <div>
+            {this.renderEvents()}
+          </div>
+          <div>
+            <ListEvent/>
+          </div>
+          <br/>
+          <div>
+            <h1>Browse Events</h1>
+            <h3>By Activity</h3>
+            <ActivityList activities={activities}/>
+          </div>
         </div>
       </div>
-
     );
   }
 }
@@ -165,11 +141,3 @@ export default createContainer(() => {
   };
 }, App);
 
-
- // <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
- //              <input
- //                type="text"
- //                ref="textInput"
- //                placeholder="Type to add new Events"
- //              />
- //            </form> : ''
