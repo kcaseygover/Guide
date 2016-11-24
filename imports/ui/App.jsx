@@ -7,7 +7,7 @@ import Event from './Event.jsx';
 import ListEvent from './ListEvent.jsx';
 import NewEvent from './NewEvent';
 
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import InterestInParticipating from './InterestInParticipating';
 
 import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
@@ -17,6 +17,8 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 import ActivityList from './ActivityList.jsx';
+import NewActivityTag from './NewActivityTag.jsx';
+import NavBar from './NavBar.jsx';
 
 let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 // App component - represents the whole app
@@ -32,21 +34,14 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 
     return (
       <div>
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <header>
-                <h1>Guide List </h1>
-                <AccountsUIWrapper />
-              </header>
-            </div>
-          </div>
-        </nav>
+        <NavBar/>
         <div className="container">
           <Profile/>
           <GuideProfile/>
           <ListEvent/>
           <NewEvent/>
+          <InterestInParticipating/>
+          <NewActivityTag/>
       </div>
       </div>
     )
@@ -55,7 +50,7 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 
 App.propTypes = {
   currentUser: PropTypes.object,
-  activities: PropTypes.string
+  activities: PropTypes.sgtring
 };
 
 export default createContainer(() => {
