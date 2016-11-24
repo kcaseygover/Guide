@@ -45,6 +45,7 @@ export default class NewEvent extends Component {
 
     return (
       <div>
+      <h3>Complete To Add Your Event</h3>
         <form className= "new_event" onSubmit={this.handleNewEventSubmit.bind(this)}>
             Activity:
             <input  className="activity" type="text"  value={this.state.activity}  onChange={this.updateActivity} />
