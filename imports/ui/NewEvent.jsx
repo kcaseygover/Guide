@@ -18,16 +18,11 @@ export default class NewEvent extends Component {
     location:"",
     startTime:"",
     endTime:"",
+    min:"",
+    max:"",
     price:""
     }
   }
-
-  // addNewEvent(event) {
-  //   event.preventDefault();
-  //   console.log("this in addNewEvent::::   ", this)
-
-  // }
-
 
   handleNewEventSubmit() {
     Meteor.call('events.insert', this.state);
@@ -37,6 +32,8 @@ export default class NewEvent extends Component {
   updateLocation(e) {this.setState({location: e.target.value});}
   updateStartTime(e) {this.setState({startTime: e.target.value});}
   updateEndTime(e) {this.setState({endTime: e.target.value});}
+  updateMin(e) {this.setState({min: e.target.value});}
+  updateMax(e) {this.setState({max: e.target.value});}
   updatePrice(e) {this.setState({price: e.target.value});}
 
   render() {
@@ -59,8 +56,12 @@ export default class NewEvent extends Component {
             End Date & Time:
             <input className="end_time" type="datetime-local" value={this.state.endTime} onChange={this.updateEndTime}/>
           <br/>
+            Min Participants:
+            <input  className="max" type="text"  value={this.state.max}  onChange={this.updateMin} />
+            Max Participants:
+            <input  className="min" type="text"  value={this.state.min}  onChange={this.updateMax} />
             Price:
-            <input className="price" type="text" value={this.state.price}  onChange={this.updatePrice}/>
+            <input className="price" type="text" value={this.state.price}  onChange={this.updatePrice} />
           <br/>
             <input className="btn btn-default" type="submit"/>
 

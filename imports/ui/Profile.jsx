@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
+import Dropzone from 'react-dropzone';
 
 export default class Profile extends Component {
   constructor(props){
@@ -16,12 +17,18 @@ export default class Profile extends Component {
     lastName:"",
     dob:"",
     bio:"",
-    interests:""
+    interests:"",
+    files:""
     }
   }
 
+  onDrop(acceptedFiles, rejectedFiles) {
+      console.log('Accepted files: ', acceptedFiles);
+      console.log('Rejected files: ', rejectedFiles);
+    }
+
   handleProfileSubmit() {
-    Meteor.call('profiles.addUserProfile', this.state);
+    Meteor.call('profiles.editUserProfile', this.state);
   }
 
   updateFirstName(e) {this.setState({firstName: e.target.value});}
@@ -49,6 +56,11 @@ export default class Profile extends Component {
             Interests:
             <input className="interests" type="text" value={this.state.interests}  onChange={this.updateInterests}/>
           <br/>
+
+            <Dropzone onDrop={this.onDrop}>
+              <div>Try dropping some files here, or click to select files to upload.</div>
+            </Dropzone>
+
             <input className="btn btn-default" type="submit"/>
 
         </form>
