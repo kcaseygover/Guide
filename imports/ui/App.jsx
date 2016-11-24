@@ -6,12 +6,13 @@ import { Tasks } from '../api/tasks.js';
 import Task from './Task.jsx';
 
 import { Events } from '../api/events.js';
-import Event from './Event.jsx';
+import ListEvent from './ListEvent.jsx';
 
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
+import GuideProfile from './GuideProfile.jsx';
 
 import NewEvent from './NewEvent.jsx';
 
@@ -94,6 +95,7 @@ class App extends Component {
   render() {
 
     return (
+<<<<<<< HEAD
       <div>
         <nav className="navbar navbar-default">
           <div className="container-fluid">
@@ -116,25 +118,26 @@ class App extends Component {
             </div>
           </div>
         </nav>
-<div className="container">
-   <Profile/>
-   <h3>Complete To Add Your Event</h3>
-           { this.props.currentUser ? <NewEvent/> :""  }
-
+      <div className="container">
+        <Profile/>
+        <GuideProfile/>
+        <h3>Complete To Add Your Event</h3>
+           { this.props.currentUser ? <NewEvent/> : "" }
         <div>
           {this.renderEvents()}
         </div>
         <div>
-          {this.renderTasks()}
+          <ListEvent/>
         </div>
         <br/>
-<div>
-        <h1>Browse Events</h1>
-        <h3>By Activity</h3>
-        <ActivityList activities={activities}/>
-</div>
-</div>
+        <div>
+          <h1>Browse Events</h1>
+          <h3>By Activity</h3>
+          <ActivityList activities={activities}/>
+
+        </div>
       </div>
+
     );
   }
 }

@@ -40,14 +40,14 @@ export default class Profile extends Component {
             First Name:
             <input  className="first" type="text"  name='first_name' value={this.state.firstName}  onChange={this.updateFirstName} />
             Last Name:
-            <input className="last" type="text" value={this.state.lastName}  onChange={this.updateNewLastName} />
+            <input className="last" type="text" value={this.state.lastName}  onChange={this.updateLastName} />
           <br/>
             DOB:
-            <input className="dob" type="date" value={this.state.dob} onChange={this.updateNewDob}/>
+            <input className="dob" type="date" value={this.state.dob} onChange={this.updateDob}/>
             Bio:
-            <input  className="bio" type="text" value={this.state.bio} onChange={this.updateNewBio}/>
+            <input  className="bio" type="text" value={this.state.bio} onChange={this.updateBio}/>
             Interests:
-            <input className="interests" type="text" value={this.state.interests}  onChange={this.updateNewInterests}/>
+            <input className="interests" type="text" value={this.state.interests}  onChange={this.updateInterests}/>
           <br/>
             <input className="btn btn-default" type="submit"/>
 

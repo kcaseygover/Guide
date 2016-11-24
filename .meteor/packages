@@ -26,11 +26,11 @@ kadira:flow-router
 jagi:astronomy
 jagi:astronomy-timestamp-behavior
 
-twbs:bootstrap
-
 aldeed:autoform
 aldeed:collection2
 meteortoys:allthings
 aldeed:simple-schema
-accounts-facebook
+twbs:bootstrap
+alanning:roles
 
+accounts-facebook
