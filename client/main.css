@@ -15,24 +15,37 @@ body {
 
   font-size: 14px;
 }
-.profile {
-  border: 1px solid;
-  padding:20px;
-}
-.container {
-  max-width: 75%;
-  margin: 0 auto;
-  min-height: 100%;
-  background: white;
+
+
+nav {
+  background: #d2edf4;
+  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+  padding: 20px 15px 15px 15px;
+  position: fixed;
+  width: 100%;
 }
 
 header {
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
   padding: 20px 15px 15px 15px;
-  position: relative;
+  position: fixed;
   width: 100%;
 }
+.profile {
+  border: 1px solid;
+  padding:20px;
+
+}
+.container {
+  max-width: 60%;
+  margin: 0 auto;
+  margin-top: -2em;
+  padding-top: 1em;
+  min-height: 100%;
+  background: white;
+}
+
 
 #login-buttons {
   display: block;
