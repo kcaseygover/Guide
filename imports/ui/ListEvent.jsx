@@ -36,6 +36,7 @@ renderEvents() {
   render() {
     return (
       <div>
+        <h1>Browse Events</h1>
         {this.renderEvents()}
       </div>
     );

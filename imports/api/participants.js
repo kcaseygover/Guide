@@ -3,9 +3,9 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import { Class } from 'meteor/jagi:astronomy';
 
-const Locations = new Mongo.Collection('locations');
+const Participants = new Mongo.Collection('participants');
 
- Locations.schema = new SimpleSchema({
+ Participants.schema = new SimpleSchema({
   id: {type: Number},
   user_id: {type: String},
   event_id: {type: String},

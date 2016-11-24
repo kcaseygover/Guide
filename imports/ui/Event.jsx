@@ -20,13 +20,9 @@ export default class Event extends Component {
 
   render() {
 
-      const eventClassName = classnames({
-      checked: this.props.event.checked,
-      private: this.props.event.private,
-    });
 
     return (
-      <li className={eventClassName}>
+      <li className='party'>
         <button className="delete" onClick={this.deleteThisEvent.bind(this)}>
           &times;
         </button>
@@ -45,7 +41,7 @@ export default class Event extends Component {
         ) : ''}
 
         <span className="text">
-        <strong>{this.props.event.text}</strong>
+        <strong>{this.props.event.text.activity}</strong>
         </span>
 
       </li>
