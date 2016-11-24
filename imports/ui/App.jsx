@@ -31,49 +31,6 @@ class App extends Component {
     };
   }
 
-
-  handleSubmit(event) {
-    console.log(this);
-    event.preventDefault();
-    // Find the text field via the React ref
-
-    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-
-    Meteor.call('events.insert', text);
-    // Clear form
-    ReactDOM.findDOMNode(this.refs.textInput).value = '';
-  }
-
-  toggleHideCompleted() {
-    this.setState({
-      hideCompleted: !this.state.hideCompleted,
-    });
-  }
-
-
-  renderTasks() {
-    let filteredTasks = this.props.tasks;
-    if (this.state.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
-    }
-
-    return filteredTasks.map((task) => {
-      const currentUserId = this.props.currentUser && this.props.currentUser._id;
-      const showPrivateButton = task.owner === currentUserId;
-
-      return (
-        <Task
-          key={task._id}
-          task={task}
-          showPrivateButton={showPrivateButton}
-        />
-      );
-    });
-  }
-
-
-
-
   render() {
     let newEvent
     if (this.props.currentUser) {
@@ -87,10 +44,7 @@ class App extends Component {
             <div className="navbar-header">
               <header>
                 <h1>Guide List ({this.props.incompleteCount})</h1>
-                <label className="hide-completed">
-                  <input type="checkbox" readOnly checked={this.state.hideCompleted} onClick={this.toggleHideCompleted.bind(this)}/>
-                  Hide Completed Events
-                </label>
+
                 <AccountsUIWrapper />
               </header>
             </div>
@@ -101,14 +55,10 @@ class App extends Component {
           <GuideProfile/>
              { newEvent }
           <div>
-            {this.renderEvents()}
-          </div>
-          <div>
             <ListEvent/>
           </div>
           <br/>
           <div>
-            <h1>Browse Events</h1>
             <h3>By Activity</h3>
             <ActivityList activities={activities}/>
           </div>
