@@ -21,7 +21,7 @@ import classnames from 'classnames';
 
 import ActivityList from './ActivityList.jsx';
 
-let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
+
 // App component - represents the whole app
 class App extends Component {
   constructor(props) {
@@ -127,17 +127,14 @@ class App extends Component {
         <Profile/>
         <GuideProfile/>
 
-        <div>
-          {this.renderEvents()}
-        </div>
-        <div>
+
+
           <ListEvent/>
-        </div>
+
         <br/>
         <div>
         <h1>Browse Events</h1>
         <h3>By Activity</h3>
-        <ActivityList activities={activities}/>
         </div>
       </div>
     );
@@ -163,6 +160,6 @@ export default createContainer(() => {
    tasks:  Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
    currentUser:  Meteor.user(),
-   activities: activities.name,
+
   };
 }, App);
