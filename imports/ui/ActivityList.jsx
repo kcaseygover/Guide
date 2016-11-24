@@ -21,7 +21,7 @@ updateSearch(event) {
 
 render() {
 
-  let filteredActivities = this.props.activities.filter(
+  let filteredListEvent = this.props.activities.filter(
     (activity) => {
       return activity.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
     }
@@ -34,20 +34,21 @@ render() {
       <input type="text"
         value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
+        </div>
 
-      <ul>
+//       <ul>
 
 
-         <li>{filteredActivities.map((activity) => {
-          return <Activity activity={activity}
-            key={activity.id}/>
-        })}
+//          <li>{filteredListEvent.map((activity) => {
+//           return <Activity activity={activity}
+//             key={activity.id}/>
+//         })}
 
-        </li>
+//         </li>
 
-      </ul>
-</div>
-    );
+//       </ul>
+// </div>
+    )
   }
 }
 

@@ -28,7 +28,10 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
   }
 
   render() {
-
+    let newEvent
+      if (this.props.currentUser) {
+        newEvent = <NewEvent/>
+      }
 
     return (
       <div>
@@ -42,21 +45,26 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
             </div>
           </div>
         </nav>
-        <div className="container">
-          <Profile/>
-          <GuideProfile/>
-             { newEvent }
-          <div>
-            <ListEvent/>
+        <div className="row">
+          <div className="col-sm-4">
+            <div id="profile_page" className="container">
+              <Profile/>
+              <GuideProfile/>
+              { newEvent }
+            </div>
           </div>
-          <br/>
-          <div>
-            <h3>By Activity</h3>
-            <ActivityList activities={activities}/>
+          <div className="col-sm-8">
+            <div id="event_page" className="container">
+              <div>
+                <ListEvent/>
+              </div>
+              <div>
+                <h3>By Activity</h3>
+                <ActivityList activities={activities}/>
+              </div>
+            </div>
           </div>
         </div>
-
-      </div>
       </div>
     )
   }

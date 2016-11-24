@@ -10,11 +10,12 @@ class ListEvent extends Component {
 constructor(props) {
     super(props);
     this.state = {
-      hideCompleted: false,
+       search: ""
     };
+
   }
 
-renderEvents() {
+  renderEvents() {
     let filteredEvents = this.props.events;
     if (this.state.hideCompleted) {
       filteredEvents = filteredEvents.filter(event => !event.checked);
@@ -33,11 +34,36 @@ renderEvents() {
       );
     });
   }
+  updateSearch(event) {
+    this.setState({search: event.target.value});
+  }
+
   render() {
+    let filteredListEvent = this.props.events.filter(
+      (event) => {
+        console.log("in render event::   ", this.event.text.activity)
+        return this.event.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+      }
+    );
+
     return (
       <div>
         <h1>Browse Events</h1>
         {this.renderEvents()}
+
+        <input type="text"
+        value={this.state.search}
+        onChange={this.updateSearch.bind(this)}/>
+
+        <ul>
+          <li>{filteredListEvent.map((event) => {
+          return <Event event={event}
+            key={event.id}/>
+          })}
+
+          </li>
+
+        </ul>
       </div>
     );
   }
