@@ -20,7 +20,7 @@ import ActivityList from './ActivityList.jsx';
 import NewActivityTag from './NewActivityTag.jsx';
 import NavBar from './NavBar.jsx';
 
-let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
+
 // App component - represents the whole app
  class App extends Component {
   constructor(props) {

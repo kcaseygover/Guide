@@ -54,15 +54,21 @@ export default class NewEvent extends Component {
     return (
       <div>
       <h3>Complete To Add Your Event</h3>
+
         <form className= "new_event" onSubmit={this.handleNewEventSubmit.bind(this)}>
+            Title:
+            <input  className="title" type="text"  value={this.state.title}  onChange={this.updateTitle} />
+          <br/>
             Activity:
             <input  className="activity" type="text"  value={this.state.activity}  onChange={this.updateActivity} />
           <br/>
             Location
             Name:
             <input className="location" type="text" value={this.state.location}  onChange={this.updateLocation} />
-            <input className="location lat" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
-            <input className="location long" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
+            <br/>
+            Latitude: <input className="location lat" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
+            <br/>
+            Longitude: <input className="location long" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
           <br/>
             Start Date & Time:
             <input className="start_time" type="datetime-local" value={this.state.startTime} onChange={this.updateStartTime}/>
@@ -72,12 +78,15 @@ export default class NewEvent extends Component {
           <br/>
             Min Participants:
             <input  className="max" type="text"  value={this.state.max}  onChange={this.updateMin} />
+            <br/>
             Max Participants:
             <input  className="min" type="text"  value={this.state.min}  onChange={this.updateMax} />
+            <br/>
             Price:
-            <input className="price" type="number" value={this.state.price}  onChange={this.updatePrice} />
+            <input className="price" type="number" placeholder="$" value={this.state.price}  onChange={this.updatePrice} />
           <br/>
             <input className="btn btn-default" type="submit"/>
+
 
         </form>
       </div>
