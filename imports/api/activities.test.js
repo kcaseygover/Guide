@@ -1,4 +1,3 @@
-/* eslint-env mocha */
 
 import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
@@ -10,10 +9,10 @@ if (Meteor.isServer) {
   describe('Tasks', () => {
     describe('methods', () => {
       const userId = Random.id();
-      let taskId;
+      let activityId;
 
       beforeEach(() => {
-        Tasks.remove({});
+        Activity.remove({});
         taskId = Tasks.insert({
           text: 'test task',
           createdAt: new Date(),
