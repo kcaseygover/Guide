@@ -35,16 +35,16 @@ export default class Profile extends Component {
     return (
       <div>
         <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
-            Please outline your plan for events:
-            <input  className="plan" type="text"  name='plan' value={this.state.plan}  onChange={this.updatePlan} />
-            Cetifications:
-            <input  className="certs" type="text"  name='certs' value={this.state.certifications}  onChange={this.updateCerts} />
-            Experience:
-            <input className="exp" type="text" value={this.state.experience}  onChange={this.updateExperience} />
-          <br/>
-            What drives you?
-            <input className="why" type="text" value={this.state.why} onChange={this.updateWhy}/>
-            <input type="submit"/>
+        <strong>So you want to be a guide ehhhhh?</strong><br/>
+            Please outline your plan for events:<br/>
+            <textarea  className="plan col-xs-12" type="text"  name='plan' value={this.state.plan}  onChange={this.updatePlan} /><br/>
+            Cetifications:<br/>
+            <textarea className="certs col-xs-12" type="text"  name='certs' value={this.state.certifications}  onChange={this.updateCerts} /><br/>
+            Experience:<br/>
+            <textarea className="exp col-xs-12" type="text" value={this.state.experience}  onChange={this.updateExperience} /><br/>
+            What drives you?<br/>
+            <textarea className="why col-xs-12" type="text" value={this.state.why} onChange={this.updateWhy}/><br/>
+            <input className="btn btn-primary" type="submit"/>
         </form>
       </div>
 
