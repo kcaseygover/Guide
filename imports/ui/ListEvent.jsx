@@ -21,13 +21,12 @@ constructor(props) {
 
     return filteredEvents.map((event) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
-      const showPrivateButton = event.owner === currentUserId;
+
 
       return (
         <Event
           key={event._id}
           event={event}
-          showPrivateButton={showPrivateButton}
         />
       );
     });
@@ -46,10 +45,7 @@ constructor(props) {
 
     return (
       <div>
-        <h1>Browse Events</h1>
-        {this.renderEvents()}
-
-        <input type="text"
+      <input type="text"
         value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
 
