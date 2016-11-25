@@ -27,19 +27,6 @@ export default class Event extends Component {
           &times;
         </button>
 
-        <input
-          type="checkbox"
-          readOnly
-          checked={this.props.event.checked}
-          onClick={this.toggleChecked.bind(this)}
-        />
-
-        { this.props.showPrivateButton ? (
-          <button className="toggle-private" onClick={this.togglePrivate.bind(this)}>
-            { this.props.event.private ? 'Private' : 'Public' }
-          </button>
-        ) : ''}
-
         <span className="text">
         <strong>{this.props.event.text.activity}</strong>
         </span>
@@ -53,5 +40,4 @@ Event.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
   event: PropTypes.object.isRequired,
-  showPrivateButton: React.PropTypes.bool.isRequired,
 };

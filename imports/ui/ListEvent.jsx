@@ -15,9 +15,7 @@ constructor(props) {
 
   renderEvents() {
     let filteredEvents = this.props.events;
-    if (this.state.hideCompleted) {
-      filteredEvents = filteredEvents.filter(event => !event.checked);
-    }
+    console.log("in here");
 
     return filteredEvents.map((event) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
@@ -39,9 +37,11 @@ constructor(props) {
   render() {
     console.log("in render, this.props.events:     ", this.props.events[0])
     let filteredListEvent = this.props.events.filter(
-      (event) => {
-        console.log("in render event::   ", event.text.activity);
-        return event.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+
+      (ev) => {
+        console.log("in render event::   ", ev.text.activity)
+        return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+
       }
     );
 
@@ -53,8 +53,9 @@ constructor(props) {
 
         <ul>
           <li>{filteredListEvent.map((event) => {
-          return <Event event={event}
-            key={event.id}/>
+          return <Event
+            event={event}
+            key={event._id}/>
           })}
 
           </li>
