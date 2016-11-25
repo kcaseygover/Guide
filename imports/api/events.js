@@ -28,10 +28,7 @@ if (Meteor.isServer) {
   // Only publish events that are public or belong to the current user
   Meteor.publish('events', function eventsPublication() {
     return Events.find({
-      $or: [
-        { private: { $ne: true } },
-        { owner: this.userId },
-      ],
+
     });
   });
 }
