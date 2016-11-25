@@ -29,7 +29,14 @@ export default class Event extends Component {
         </button>
 
         <span className="text">
-        <strong>{this.props.event.text.activity}</strong>
+        <div>Activity: {this.props.event.text.activity} </div><br/>
+        <div>Where: {this.props.event.text.location}<button type="button" className="btn btn-primary">Map</button> </div><br/>
+        <div>Address: {this.props.event.text.address} </div><br/>
+        <div>When: {this.props.event.text.start} </div><br/>
+        <div>Till: {this.props.event.text.end} </div><br/>
+        <div>Participants Min: {this.props.event.text.min} Max: {this.props.event.text.max} </div><br/>
+        <div type="float">Price: ${this.props.event.text.price} </div><br/>
+        <button type="button" className="btn btn-primary">Interested?</button>
         </span>
         </li>
       </ul>

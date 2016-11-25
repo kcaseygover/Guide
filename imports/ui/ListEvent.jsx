@@ -39,7 +39,6 @@ constructor(props) {
     let filteredListEvent = this.props.events.filter(
 
       (ev) => {
-
         return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
 
       }
