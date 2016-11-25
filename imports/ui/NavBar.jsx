@@ -23,10 +23,8 @@ updateSearch(event) {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <header>
-              <h1>Guide</h1>
+              <h1>Guide Me</h1>
               <AccountsUIWrapper />
-            </header>
           </div>
         </div>
       </nav>
