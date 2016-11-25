@@ -9,6 +9,7 @@ export default class NewEvent extends Component {
     super(props);
     this.updateTitle = this.updateTitle.bind(this);
     this.updateActivity = this.updateActivity.bind(this);
+    this.updateLocation = this.updateLocation.bind(this);
     this.updateLatitude = this.updateLatitude.bind(this);
     this.updateLongtitude = this.updateLongtitude.bind(this);
     this.updateStartTime = this.updateStartTime.bind(this);
@@ -21,6 +22,8 @@ export default class NewEvent extends Component {
     title:"",
     activity:"",
     location:"",
+    latitude:"",
+    longtitude:"",
     startTime:"",
     endTime:"",
     min:"",
@@ -35,6 +38,7 @@ export default class NewEvent extends Component {
 
   updateTitle(e) {this.setState({title: e.target.value});}
   updateActivity(e) {this.setState({activity: e.target.value});}
+  updateLocation(e) {this.setState({location: e.target.value});}
   updateLatitude(e) {this.setState({latitude: e.target.value});}
   updateLongtitude(e) {this.setState({longitude: e.target.value});}
   updateStartTime(e) {this.setState({startTime: e.target.value});}
@@ -54,7 +58,9 @@ export default class NewEvent extends Component {
             Activity:
             <input  className="activity" type="text"  value={this.state.activity}  onChange={this.updateActivity} />
           <br/>
-            Location:
+            Location
+            Name:
+            <input className="location" type="text" value={this.state.location}  onChange={this.updateLocation} />
             <input className="location lat" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
             <input className="location long" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
           <br/>
@@ -69,7 +75,7 @@ export default class NewEvent extends Component {
             Max Participants:
             <input  className="min" type="text"  value={this.state.min}  onChange={this.updateMax} />
             Price:
-            <input className="price" type="text" value={this.state.price}  onChange={this.updatePrice} />
+            <input className="price" type="number" value={this.state.price}  onChange={this.updatePrice} />
           <br/>
             <input className="btn btn-default" type="submit"/>
 
