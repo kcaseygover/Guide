@@ -22,6 +22,7 @@ export default class Event extends Component {
 
 
     return (
+      <ul>
       <li className='party'>
         <button className="delete" onClick={this.deleteThisEvent.bind(this)}>
           &times;
@@ -30,8 +31,8 @@ export default class Event extends Component {
         <span className="text">
         <strong>{this.props.event.text.activity}</strong>
         </span>
-
-      </li>
+        </li>
+      </ul>
     );
   }
 }

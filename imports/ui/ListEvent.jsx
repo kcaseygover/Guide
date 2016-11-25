@@ -35,11 +35,11 @@ constructor(props) {
   }
 
   render() {
-    console.log("in render, this.props.events:     ", this.props.events[0])
+
     let filteredListEvent = this.props.events.filter(
 
       (ev) => {
-        console.log("in render event:   :   ", ev.text.activity)
+
         return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
 
       }

@@ -49,6 +49,7 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 
           <div className="col-sm-8 container">
             <div id="event_page">
+            <h2>Browse Events</h2>
               <ListEvent/>
               <InterestInParticipating/>
             </div>
