@@ -39,7 +39,7 @@ constructor(props) {
     let filteredListEvent = this.props.events.filter(
 
       (ev) => {
-        console.log("in render event::   ", ev.text.activity)
+        console.log("in render event:   :   ", ev.text.activity)
         return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
 
       }
