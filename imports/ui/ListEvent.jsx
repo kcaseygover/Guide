@@ -9,9 +9,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 class ListEvent extends Component {
 constructor(props) {
     super(props);
-    this.state = {
-       search: ""
-    };
+    this.state = {search: "",};
 
   }
 
@@ -41,8 +39,8 @@ constructor(props) {
   render() {
     let filteredListEvent = this.props.events.filter(
       (event) => {
-        console.log("in render event::   ", this.event.text.activity)
-        return this.event.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        console.log("in render event::   ", event.text.activity)
+        return event.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       }
     );
 

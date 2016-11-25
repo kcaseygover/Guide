@@ -39,19 +39,20 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
       <div>
         <NavBar/>
         <div className="row">
-          <div className="col-sm-4">
-            <div id="profile_page" className="container">
+          <div className="col-sm-4 container">
+            <div id="profile_page">
               <Profile/>
               <GuideProfile/>
               <NewEvent/>
             </div>
           </div>
-        </div>
-        <div className="col-sm-8">
-          <div id="event_page" className="container">
-            <ListEvent/>
-            <InterestInParticipating/>
-            <NewActivityTag/>
+
+          <div className="col-sm-8 container">
+            <div id="event_page">
+              <ListEvent/>
+              <InterestInParticipating/>
+
+            </div>
           </div>
         </div>
       </div>
@@ -61,7 +62,7 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 
 App.propTypes = {
   currentUser: PropTypes.object,
-  activities: PropTypes.sgtring
+
 };
 
 export default createContainer(() => {
@@ -70,7 +71,7 @@ export default createContainer(() => {
 
   return {
    currentUser:  Meteor.user(),
-   activities: activities.name,
+
   };
 }, App);
 

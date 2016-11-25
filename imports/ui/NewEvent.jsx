@@ -7,13 +7,17 @@ import classnames from 'classnames';
 export default class NewEvent extends Component {
   constructor(props){
     super(props);
+    this.updateTitle = this.updateTitle.bind(this);
     this.updateActivity = this.updateActivity.bind(this);
     this.updateLocation = this.updateLocation.bind(this);
     this.updateStartTime = this.updateStartTime.bind(this);
     this.updateEndTime = this.updateEndTime.bind(this);
+    this.updateMin = this.updateMin.bind(this);
+    this.updateMax = this.updateMax.bind(this);
     this.updatePrice = this.updatePrice.bind(this);
 
     this.state = {
+    title:"",
     activity:"",
     location:"",
     startTime:"",
@@ -28,6 +32,7 @@ export default class NewEvent extends Component {
     Meteor.call('events.insert', this.state);
   }
 
+  updateTitle(e) {this.setState({title: e.target.value});}
   updateActivity(e) {this.setState({activity: e.target.value});}
   updateLocation(e) {this.setState({location: e.target.value});}
   updateStartTime(e) {this.setState({startTime: e.target.value});}
