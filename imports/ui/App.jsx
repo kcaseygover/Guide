@@ -51,7 +51,6 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
             <div id="event_page">
               <ListEvent/>
               <InterestInParticipating/>
-
             </div>
           </div>
         </div>
