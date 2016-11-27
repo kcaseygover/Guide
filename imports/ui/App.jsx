@@ -43,7 +43,8 @@ import NavBar from './NavBar.jsx';
             <div id="profile_page">
               <Profile/>
               <GuideProfile/>
-              <NewEvent/>
+              <br/>
+              <a href='/events/new'>Click here to create an Event</a>
             </div>
           </div>
 

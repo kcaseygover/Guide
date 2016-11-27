@@ -6,6 +6,7 @@ import App from '../imports/ui/App.jsx';
 import ListEvent from '../imports/ui/ListEvent.jsx';
 import Event from '../imports/ui/Event.jsx';
 
+import NewEvent from '../imports/ui/NewEvent.jsx';
 
 
 FlowRouter.route('/', {
@@ -21,6 +22,15 @@ FlowRouter.route('/events', {
     action: function (){
         //console.log("This is my root:", params);
         ReactLayout.render(ListEvent, {content: <ListEvent />});
+    }
+});
+
+
+FlowRouter.route('/events/new', {
+    name: 'events_new',
+    action: function (){
+        //console.log("This is my root:", params);
+        ReactLayout.render(NewEvent, {content: <NewEvent />});
     }
 });
 
