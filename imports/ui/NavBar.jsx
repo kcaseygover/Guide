@@ -24,7 +24,8 @@ updateSearch(event) {
         <div className="container-fluid">
           <div className="navbar-header">
               <h1>Guide Me</h1>
-              <AccountsUIWrapper />
+              <AccountsUIWrapper /><span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+
           </div>
         </div>
       </nav>

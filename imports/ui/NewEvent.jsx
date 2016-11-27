@@ -56,7 +56,7 @@ export default class NewEvent extends Component {
       <h3>Complete To Add Your Event</h3>
         <form className= "new_event" onSubmit={this.handleNewEventSubmit.bind(this)}>
             Title:
-            <input  className="title" type="text"  value={this.state.title}  onChange={this.updateTitle} />
+            <input  className="activity col-xs-12" type="text"  value={this.state.title}  onChange={this.updateTitle} />
           <br/>
             Activity:
             <textarea  className="activity col-xs-12 " type="text"  value={this.state.activity}  onChange={this.updateActivity} />

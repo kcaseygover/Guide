@@ -50,7 +50,7 @@ import NavBar from './NavBar.jsx';
           <div className="col-sm-8 container">
             <div id="event_page">
             <h2>Browse Events</h2>
-              <ListEvent/>
+              {this.props.content}
               <InterestInParticipating/>
             </div>
           </div>
