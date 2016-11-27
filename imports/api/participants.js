@@ -8,7 +8,7 @@ const Participants = new Mongo.Collection('participants');
 if (Meteor.isServer) {
   // This code only runs on the server
   // Only publish participants that are public or belong to the current user
-  Meteor.publish('participants', function eventsPublication() {
+  Meteor.publish('participants', function participantsPublication() {
     return Participants.find({
     });
   });
@@ -30,10 +30,8 @@ Meteor.methods({
 
     Participants.insert({
       text,
-      eventId: 1,
       createdAt: new Date(),
-      userId: this.userId,
-
+      owner: this.userId,
     });
   },
 });

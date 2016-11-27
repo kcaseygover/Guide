@@ -43,12 +43,12 @@ constructor(props) {
     );
 
     return (
-      <div>
+      <div className="col-xs-12 container">
       <input type="text"
         value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
 
-        <ul>
+        <ul col-xs-12 container>
           <li>{filteredListEvent.map((event) => {
           return <Event
             event={event}

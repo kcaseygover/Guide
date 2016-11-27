@@ -77,7 +77,7 @@ export default class NewEvent extends Component {
             Max Participants:
             <textarea  className="min col-xs-12" type="text"  value={this.state.min}  onChange={this.updateMax} /><br/>
             Price:
-            <textarea className="price col-xs-12" type="number" value={this.state.price}  onChange={this.updatePrice} /><br/>
+            <textarea className="price col-xs-12" type="integer" value={this.state.price}  onChange={this.updatePrice} /><br/>
           <br/>
             <input className="btn btn-default" type="submit"/>
 

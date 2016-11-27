@@ -50,7 +50,6 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
           <div className="col-sm-8 container">
             <div id="event_page">
               <ListEvent/>
-              <InterestInParticipating/>
             </div>
           </div>
         </div>
@@ -66,7 +65,7 @@ App.propTypes = {
 
 export default createContainer(() => {
 
-   Meteor.subscribe('users');
+
 
   return {
    currentUser:  Meteor.user(),

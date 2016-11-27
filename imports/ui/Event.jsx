@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
+
+import Interest from './InterestInParticipating'
 export default class Event extends Component {
 
 
@@ -15,7 +17,7 @@ export default class Event extends Component {
 
 
     return (
-      <li className='party'>
+      <li className='col-xs-12 container'>
 
         <button className="delete" onClick={this.deleteThisEvent.bind(this)}>
           &times;
@@ -31,6 +33,8 @@ export default class Event extends Component {
         <div type="float">Price: ${this.props.event.text.price} </div><br/>
         <button type="button" className="btn btn-primary">Interested?</button>
         </span>
+
+        <Interest eventId={this.props.event._id} />
 
       </li>
     );
