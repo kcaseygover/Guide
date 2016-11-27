@@ -48,7 +48,7 @@ constructor(props) {
 
     return (
       <div>
- <NavBar/>
+
 
         <ul>
 <h2>Browse Events</h2>
