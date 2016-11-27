@@ -38,26 +38,29 @@ import NavBar from './NavBar.jsx';
     return (
       <div>
         <NavBar/>
-        <div className="row">
-          <div className="col-sm-4 container">
+
+          <div className="col-sm-12 container">
             <div id="profile_page">
               <Profile/>
               <GuideProfile/>
-              <NewEvent/>
+              <br/>
+              <a href='/events/new'>Click here to create an Event</a>
             </div>
           </div>
 
-          <div className="col-sm-8 container">
+          <div className="col-sm-12 container">
             <div id="event_page">
+
 
               <ListEvent/>
 
             <h2>Browse Events</h2>
+
               {this.props.content}
               <InterestInParticipating/>
             </div>
           </div>
-        </div>
+
       </div>
     )
   }

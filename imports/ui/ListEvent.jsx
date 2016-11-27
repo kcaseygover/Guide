@@ -6,6 +6,8 @@ import { Events } from '../api/events.js';
 import Event from './Event.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
 
+import NavBar from './NavBar.jsx';
+
 class ListEvent extends Component {
 constructor(props) {
     super(props);
@@ -45,13 +47,16 @@ constructor(props) {
     );
 
     return (
+
       <div className="col-xs-12 container">
+      <h2>Browse Events</h2>
       <input type="text"
         value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
 
         <ul className="col-xs-12 container">
           <a>{filteredListEvent.map((event) => {
+
           return <Event
             event={event}
             key={event._id}/>
