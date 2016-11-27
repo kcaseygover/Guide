@@ -20,7 +20,7 @@ import ActivityList from './ActivityList.jsx';
 import NewActivityTag from './NewActivityTag.jsx';
 import NavBar from './NavBar.jsx';
 
-let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
+
 // App component - represents the whole app
  class App extends Component {
   constructor(props) {
@@ -49,7 +49,12 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
 
           <div className="col-sm-8 container">
             <div id="event_page">
+
               <ListEvent/>
+
+            <h2>Browse Events</h2>
+              {this.props.content}
+              <InterestInParticipating/>
             </div>
           </div>
         </div>

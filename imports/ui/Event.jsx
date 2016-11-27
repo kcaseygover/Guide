@@ -17,7 +17,9 @@ export default class Event extends Component {
 
 
     return (
+
       <li className='col-xs-12 container'>
+
 
         <button className="delete" onClick={this.deleteThisEvent.bind(this)}>
           &times;
@@ -37,6 +39,7 @@ export default class Event extends Component {
         <Interest eventId={this.props.event._id} />
 
       </li>
+
     );
   }
 }

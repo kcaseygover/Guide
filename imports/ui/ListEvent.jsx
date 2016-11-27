@@ -25,6 +25,7 @@ constructor(props) {
         <Event
           key={event._id}
           event={event}
+
         />
       );
     });
@@ -34,9 +35,10 @@ constructor(props) {
   }
 
   render() {
+
     let filteredListEvent = this.props.events.filter(
+
       (ev) => {
-        console.log("in render event::   ", ev.text.activity)
         return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
 
       }
@@ -48,14 +50,14 @@ constructor(props) {
         value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
 
-        <ul col-xs-12 container>
-          <li>{filteredListEvent.map((event) => {
+        <ul className="col-xs-12 container">
+          <a>{filteredListEvent.map((event) => {
           return <Event
             event={event}
             key={event._id}/>
           })}
 
-          </li>
+          </a>
 
         </ul>
       </div>

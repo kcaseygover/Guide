@@ -33,26 +33,26 @@ export default class InterestInParticipating extends Component {
 render(){
 return (
   <div className= "col-md-3 container">
-      <li className='interest' >
+      <div className='interest' >
         <form className= "interestInParticipating" onSubmit={this.handleNewEventSubmit}>
 
             Skill Level:
             <select>
-              <option value="Beginner">Beginner</option>
+              <option defaultValue="Beginner">Beginner</option>
               <option value="Intermediate">Intermediate</option>
-              <option selected value="Expert">Expert</option>
+              <option value="Expert">Expert</option>
             </select>
             <br/>
 
              Concerns:
             <input  className="concern" type="text"  value={this.state.concern}  onChange={this.updateConcern} />
-
+            How stoked are you??
             <input  className="stoke" type="text"  value={this.state.stoke}  onChange={this.updateStoke} />
             <input className="btn btn-default" value="Interested!" type="submit"/>
 
         </form>
 
-      </li>
+      </div>
   </div>
     );
   }

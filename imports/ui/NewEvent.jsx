@@ -54,32 +54,41 @@ export default class NewEvent extends Component {
     return (
       <div>
       <h3>Complete To Add Your Event</h3>
-        <form className= "new_event " onSubmit={this.handleNewEventSubmit.bind(this)}>
+        <form className= "new_event" onSubmit={this.handleNewEventSubmit.bind(this)}>
+            Title:
+            <input  className="activity col-xs-12" type="text"  value={this.state.title}  onChange={this.updateTitle} />
+          <br/>
             Activity:
             <textarea  className="activity col-xs-12 " type="text"  value={this.state.activity}  onChange={this.updateActivity} />
           <br/>
-            Location
-            Name:
-            <textarea className="location col-xs-12" type="text" value={this.state.location}  onChange={this.updateLocation} /><br/>
+            Location Name:
+            <textarea className="location col-xs-12" type="text" value={this.state.location}  onChange={this.updateLocation} />
+            <br/>
             Latitude:
-            <textarea className="location lat col-xs-12" type="float" value={this.state.latitude}  onChange={this.updateLatitude} /><br/>
+            <textarea className="location lat col-xs-12" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
+            <br/>
             Longtitude:
-            <textarea className="location long col-xs-12" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} /><br/>
-          <br/>
+            <textarea className="location long col-xs-12" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
+            <br/>
             Start Date & Time:
-            <input className="start_time col-xs-12" type="datetime-local" value={this.state.startTime} onChange={this.updateStartTime}/><br/>
-          <br/>
+            <input className="start_time col-xs-12" type="datetime-local" value={this.state.startTime} onChange={this.updateStartTime}/>
+            <br/>
             End Date & Time:
-            <input className="end_time col-xs-12"   type="datetime-local" value={this.state.endTime} onChange={this.updateEndTime}/><br/>
+            <input className="end_time col-xs-12"   type="datetime-local" value={this.state.endTime} onChange={this.updateEndTime}/>
           <br/>
             Min Participants:
-            <textarea  className="max col-xs-12" type="text"  value={this.state.max}  onChange={this.updateMin} /><br/>
+            <textarea  className="max col-xs-12" type="text"  value={this.state.max}  onChange={this.updateMin} />
+            <br/>
             Max Participants:
-            <textarea  className="min col-xs-12" type="text"  value={this.state.min}  onChange={this.updateMax} /><br/>
+            <textarea  className="min col-xs-12" type="text"  value={this.state.min}  onChange={this.updateMax} />
+            <br/>
             Price:
-            <textarea className="price col-xs-12" type="integer" value={this.state.price}  onChange={this.updatePrice} /><br/>
+
+            <textarea className="price col-xs-12" type="number" value={this.state.price}  onChange={this.updatePrice} />
+
           <br/>
             <input className="btn btn-default" type="submit"/>
+
 
         </form>
       </div>
