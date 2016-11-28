@@ -31,6 +31,7 @@ export default class Profile extends Component {
 
   handleProfileSubmit() {
     Meteor.call('profiles.editUserProfile', this.state);
+
   }
 
   updateFirstName(e) {this.setState({firstName: e.target.value});}

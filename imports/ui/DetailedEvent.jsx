@@ -12,9 +12,6 @@ export default class DetailedEvent extends Component {
 
     return (
       <li className='party'>
-
-
-
         <span className="activity">
         <strong>{this.props.event.text.activity}</strong>
         </span>
