@@ -3,6 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 import Dropzone from 'react-dropzone';
 
+import NavBar from './NavBar.jsx';
+
 export default class Profile extends Component {
   constructor(props){
     super(props);
@@ -43,6 +45,7 @@ export default class Profile extends Component {
 
     return (
       <div>
+      <NavBar/>
       <a href='/'>Back Home</a>
         <form className= "form-group " onSubmit={this.handleProfileSubmit.bind(this)}>
           <Dropzone onDrop={this.onDrop}>

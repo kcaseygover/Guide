@@ -20,14 +20,9 @@ updateSearch(event) {
 
     return(
 
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-              <h1>Guide Me</h1>
-              <AccountsUIWrapper /><span className="glyphicon glyphicon-user" aria-hidden="true"></span>
-
-          </div>
-        </div>
+      <nav className="navbar">
+        <a href='/'><h1>Guide Me</h1></a>
+        <AccountsUIWrapper /><span className="glyphicon glyphicon-user" aria-hidden="true"></span>
       </nav>
 
     );
