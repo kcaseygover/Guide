@@ -41,10 +41,12 @@ import NavBar from './NavBar.jsx';
 
           <div className="col-sm-12 container">
             <div id="profile_page">
-               <a href='/user/:id'>My Profile</a>
-              <GuideProfile/>
+              <a href='/user/:id'>My Profile</a>
               <br/>
               <a href='/events/new'>Click here to create an Event</a>
+              <GuideProfile/>
+              <br/>
+
             </div>
           </div>
 

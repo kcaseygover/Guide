@@ -37,14 +37,14 @@ export default class Profile extends Component {
         <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
         <strong>So you want to be a guide ehhhhh?</strong><br/>
             Please outline your plan for events:<br/>
-            <textarea  className="plan col-xs-12" type="text"  name='plan' value={this.state.plan}  onChange={this.updatePlan} /><br/>
-            Cetifications:<br/>
-            <textarea className="certs col-xs-12" type="text"  name='certs' value={this.state.certifications}  onChange={this.updateCerts} /><br/>
+            <textarea className="form-control" type="text"  name='plan' value={this.state.plan}  onChange={this.updatePlan} /><br/>
+            Certifications:<br/>
+            <textarea className="form-control" type="text"  name='certs' value={this.state.certifications}  onChange={this.updateCerts} /><br/>
             Experience:<br/>
-            <textarea className="exp col-xs-12" type="text" value={this.state.experience}  onChange={this.updateExperience} /><br/>
+            <textarea className="form-control" type="text" value={this.state.experience}  onChange={this.updateExperience} /><br/>
             What drives you?<br/>
-            <textarea className="why col-xs-12" type="text" value={this.state.why} onChange={this.updateWhy}/><br/>
-            <input className="btn btn-primary" type="submit"/>
+            <textarea className="form-control" type="text" value={this.state.why} onChange={this.updateWhy}/><br/>
+            <input className="btn btn-default" type="submit"/>
         </form>
       </div>
 

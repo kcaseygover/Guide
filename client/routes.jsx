@@ -34,18 +34,18 @@ FlowRouter.route('/events/new', {
         ReactLayout.render(NewEvent, {content: <NewEvent />});
     }
 });
-FlowRouter.route('/user/:id', {
+FlowRouter.route('/user/:_id', {
     name: 'profile',
     action: function (params){
-        console.log("This is my /user/:id:", params);
-        ReactLayout.render(Profile, {content: <Profile />});
+        console.log("This is my /user/:_id:", params);
+        ReactLayout.render(Profile, {content: <Profile _id={params._id}/>});
     }
 });
 
-FlowRouter.route('/events/:id', {
+FlowRouter.route('/events/:_id', {
     name: 'event_id',
     action: function (params){
- console.log("This is my /events/:id:", params);
-        ReactLayout.render(Event, {content: <Event {...params} />});
+ console.log("This is my /events/:_id:", params);
+        ReactLayout.render(Event, {content: <Event _id={params._id} />});
     }
 });

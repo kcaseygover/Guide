@@ -43,39 +43,22 @@ export default class Profile extends Component {
 
     return (
       <div>
-        <form className= "profile row " onSubmit={this.handleProfileSubmit.bind(this)}>
-
-            <div className="col-xs-12">
-            <Dropzone onDrop={this.onDrop}>
-              <div>Try dropping some files here, or click to select files to upload.</div>
+      <a href='/'>Back Home</a>
+        <form className= "form-group " onSubmit={this.handleProfileSubmit.bind(this)}>
+          <Dropzone onDrop={this.onDrop}>
+            Try dropping some files here, or click to select files to upload.
             </Dropzone>
-            </div>
-
-            <div className="col-xs-12">
             First Name:
-            <input  className="first col-xs-12" type="text"  name='first_name' value={this.state.firstName}  onChange={this.updateFirstName} />
-            </div>
-            <div className="col-xs-12">
+            <input className="form-control" type="text"  name='first_name' value={this.state.firstName}  onChange={this.updateFirstName} />
             Last Name:
-            <input className="last col-xs-12" type="text" value={this.state.lastName}  onChange={this.updateLastName} />
-            </div>
-            <div className="col-xs-12">
+            <input className="form-control" type="text" value={this.state.lastName}  onChange={this.updateLastName} />
             DOB:
-            <input className="dob col-xs-12" type="date" value={this.state.dob} onChange={this.updateDob}/>
-            </div>
-            <div className="col-xs-12">
+            <input className="form-control" type="date" value={this.state.dob} onChange={this.updateDob}/>
             Bio:
-            <input  className="bio col-xs-12" type="text" value={this.state.bio} onChange={this.updateBio}/>
-            </div>
-            <div className="col-xs-12">
+            <input className="form-control" type="text" value={this.state.bio} onChange={this.updateBio}/>
             Interests:
-            <input className="interests col-xs-12" type="text" value={this.state.interests}  onChange={this.updateInterests}/>
-            </div>
-
-            <div className="col-xs-12">
+            <textarea className="form-control" type="text" value={this.state.interests}  onChange={this.updateInterests}/>
             <input className="btn btn-default" type="submit"/>
-            </div>
-
         </form>
       </div>
 

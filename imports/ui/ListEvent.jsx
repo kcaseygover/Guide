@@ -18,7 +18,7 @@ constructor(props) {
   renderEvents() {
     let filteredEvents = this.props.events;
     console.log("in here");
-
+console.log("this.state.search::      ")
     return filteredEvents.map((event) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
 
@@ -34,7 +34,9 @@ constructor(props) {
   }
   updateSearch(event) {
     this.setState({search: event.target.value});
+    console.log("event.target.value:   ", event.target.value)
   }
+
 
   render() {
 
@@ -44,6 +46,8 @@ constructor(props) {
         return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
 
       }
+
+
     );
 
     return (
@@ -51,10 +55,16 @@ constructor(props) {
 
 
         <ul>
+
 <h2>Browse Events</h2>
-      <input type="text"
+<form>
+<div className="form-group">
+<input type="text" className="form-control"
         value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
+</div>
+</form>
+
           <li>{filteredListEvent.map((event) => {
           return <Event
             event={event}

@@ -38,7 +38,7 @@ return (
             <br/>
 
              Concerns:
-            <input  className="concern" type="text"  value={this.state.concern}  onChange={this.updateConcern} />
+            <input className="concern form-control" type="text"  value={this.state.concern}  onChange={this.updateConcern} />
             <input className="btn btn-default" type="submit"/>
 
         </form>

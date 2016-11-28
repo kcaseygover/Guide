@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
+import NavBar from './NavBar.jsx';
 
 
 export default class NewEvent extends Component {
@@ -53,37 +54,39 @@ export default class NewEvent extends Component {
 
     return (
       <div>
+      <NavBar/>
+      <a href='/'>Back Home</a>
       <h3>Complete To Add Your Event</h3>
         <form className= "new_event" onSubmit={this.handleNewEventSubmit.bind(this)}>
             Title:
-            <input  className="activity col-xs-12" type="text"  value={this.state.title}  onChange={this.updateTitle} />
+            <input className="form-control" type="text"  value={this.state.title}  onChange={this.updateTitle} />
           <br/>
             Activity:
-            <textarea  className="activity col-xs-12 " type="text"  value={this.state.activity}  onChange={this.updateActivity} />
+            <input className="form-control" type="text"  value={this.state.activity}  onChange={this.updateActivity} />
           <br/>
             Location Name:
-            <textarea className="location col-xs-12" type="text" value={this.state.location}  onChange={this.updateLocation} />
+            <input className="form-control" type="text" value={this.state.location}  onChange={this.updateLocation} />
             <br/>
             Latitude:
-            <textarea className="location lat col-xs-12" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
+            <input className="lat form-control" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
             <br/>
             Longtitude:
-            <textarea className="location long col-xs-12" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
+            <input className="lat form-control" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
             <br/>
             Start Date & Time:
-            <input className="start_time col-xs-12" type="datetime-local" value={this.state.startTime} onChange={this.updateStartTime}/>
+            <input className="start_time form-control" type="datetime-local" value={this.state.startTime} onChange={this.updateStartTime}/>
             <br/>
             End Date & Time:
-            <input className="end_time col-xs-12"   type="datetime-local" value={this.state.endTime} onChange={this.updateEndTime}/>
+            <input className="end_time form-control"   type="datetime-local" value={this.state.endTime} onChange={this.updateEndTime}/>
           <br/>
             Min Participants:
-            <textarea  className="max col-xs-12" type="text"  value={this.state.max}  onChange={this.updateMin} />
+            <input className="form-control" type="number"  value={this.state.max}  onChange={this.updateMin} />
             <br/>
             Max Participants:
-            <textarea  className="min col-xs-12" type="text"  value={this.state.min}  onChange={this.updateMax} />
+            <input className="form-control" type="number"  value={this.state.min}  onChange={this.updateMax} />
             <br/>
             Price:
-            <textarea className="price col-xs-12" type="number" value={this.state.price}  onChange={this.updatePrice} />
+            <input className="form-control" type="number" value={this.state.price}  onChange={this.updatePrice} />
           <br/>
             <input className="btn btn-default" type="submit"/>
 
