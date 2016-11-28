@@ -12,6 +12,7 @@ import InterestInParticipating from './InterestInParticipating';
 import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
 import GuideProfile from './GuideProfile.jsx';
+import ShowProfile from './ShowProfile.jsx';
 
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
@@ -29,7 +30,13 @@ import NavBar from './NavBar.jsx';
     };
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
+
+
     let newEvent
       if (this.props.currentUser) {
         newEvent = <NewEvent/>
@@ -41,6 +48,7 @@ import NavBar from './NavBar.jsx';
 
           <div className="col-sm-12 container">
             <div id="profile_page">
+              <ShowProfile/>
               <Profile/>
               <GuideProfile/>
               <br/>
@@ -51,16 +59,12 @@ import NavBar from './NavBar.jsx';
           <div className="col-sm-12 container">
             <div id="event_page">
 
-
               <ListEvent/>
 
             <h2>Browse Events</h2>
-
               {this.props.content}
-              <InterestInParticipating/>
             </div>
           </div>
-
       </div>
     )
   }
@@ -73,7 +77,7 @@ App.propTypes = {
 
 export default createContainer(() => {
 
-
+Meteor.subscribe('users');
 
   return {
    currentUser:  Meteor.user(),

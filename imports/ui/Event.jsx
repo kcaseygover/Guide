@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 
 import Interest from './InterestInParticipating'
+
 export default class Event extends Component {
 
 
