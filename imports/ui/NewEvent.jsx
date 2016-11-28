@@ -86,7 +86,10 @@ export default class NewEvent extends Component {
             <input className="form-control" type="number"  value={this.state.min}  onChange={this.updateMax} />
             <br/>
             Price:
-            <input className="form-control" type="number" value={this.state.price}  onChange={this.updatePrice} />
+
+
+            <input className="price form-control" type="number" value={this.state.price}  onChange={this.updatePrice} />
+
           <br/>
             <input className="btn btn-default" type="submit"/>
 

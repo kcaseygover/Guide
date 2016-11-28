@@ -51,7 +51,6 @@ console.log("this.state.search::      ")
     );
 
     return (
-      <div>
 
 
         <ul>
@@ -66,12 +65,13 @@ console.log("this.state.search::      ")
 </form>
 
           <li>{filteredListEvent.map((event) => {
+
           return <Event
             event={event}
             key={event._id}/>
           })}
 
-          </li>
+          </a>
 
         </ul>
       </div>
