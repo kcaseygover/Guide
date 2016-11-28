@@ -53,27 +53,27 @@ console.log("this.state.search::      ")
     return (
 
 
-        <ul>
+        <div>
 
-<h2>Browse Events</h2>
-<form>
-<div className="form-group">
-<input type="text" className="form-control"
-        value={this.state.search}
-        onChange={this.updateSearch.bind(this)}/>
-</div>
-</form>
+          <h2>Browse Events</h2>
+          <form>
+          <div className="form-group">
+          <input type="text" className="form-control"
+              value={this.state.search}
+              onChange={this.updateSearch.bind(this)}/>
+          </div>
+          </form>
 
-          <li>{filteredListEvent.map((event) => {
+                <li>{filteredListEvent.map((event) => {
 
-          return <Event
-            event={event}
-            key={event._id}/>
+                return <Event
+                  event={event}
+                  key={event._id}/>
           })}
 
-          </a>
+          </li>
 
-        </ul>
+
       </div>
     );
   }

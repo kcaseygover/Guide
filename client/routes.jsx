@@ -35,35 +35,24 @@ FlowRouter.route('/events/new', {
         ReactLayout.render(NewEvent, {content: <NewEvent />});
     }
 });
-<<<<<<< HEAD
-FlowRouter.route('/user/:_id', {
-=======
+
 FlowRouter.route('/users/:_id', {
->>>>>>> dev_dre
     name: 'profile',
     subscriptions: function(params) {
     this.register('userId', Meteor.subscribe('userId', params._id));
   },
     action: function (params){
-<<<<<<< HEAD
-        console.log("This is my /user/:_id:", params);
-        ReactLayout.render(Profile, {content: <Profile _id={params._id}/>});
-=======
+
         console.log("This is my /user/:_id", params);
         ReactLayout.render(ShowProfile, {content: <ShowProfile userId={params._id}  />});
->>>>>>> dev_dre
     }
 });
 
 FlowRouter.route('/events/:_id', {
     name: 'event_id',
     action: function (params){
-<<<<<<< HEAD
- console.log("This is my /events/:_id:", params);
-        ReactLayout.render(Event, {content: <Event _id={params._id} />});
-=======
-    console.log("This is my /events/:id:", params);
-        ReactLayout.render(Event, {content: <Event {...params} />});
->>>>>>> dev_dre
+        console.log("This is my /events/:_id:", params);
+       ReactLayout.render(Event, {content: <Event _id={params._id} />});
+
     }
 });
