@@ -50,11 +50,11 @@ import NavBar from './NavBar.jsx';
             <div id="profile_page">
               <a href='/user/:id'>My Profile</a>
 
-              <ShowProfile/>
+
 
               <br/>
               <a href='/events/new'>Click here to create an Event</a>
-              <GuideProfile/>
+
               <br/>
 
             </div>
@@ -67,6 +67,7 @@ import NavBar from './NavBar.jsx';
 
             <h2>Browse Events</h2>
               {this.props.content}
+              <GuideProfile/>
             </div>
           </div>
       </div>
