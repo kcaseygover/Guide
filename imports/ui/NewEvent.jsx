@@ -58,72 +58,72 @@ export default class NewEvent extends Component {
         <a href='/'>Back Home</a>
         <form className= "new_event form-horizontal" onSubmit={this.handleNewEventSubmit.bind(this)}>
           <div className="form-group">
-            <div className="col-sm-offset-2 col-sm-10">
+            <div className="col-sm-offset-2 col-sm-9">
               <h3>Complete To Add Your Event</h3>
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputTitle1" className="col-sm-2 control-label">Title:</label>
-            <div className="col-sm-10">
+            <div className="col-sm-9">
               <input className="form-control" id="inputTitle1" type="text"  value={this.state.title}  onChange={this.updateTitle} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputActivity1" className="col-sm-2 control-label">Activity:</label>
-            <div className="col-sm-10">
+            <div className="col-sm-9">
               <input className="form-control" id="inputActivity1" type="text"  value={this.state.activity}  onChange={this.updateActivity} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputLocation1" className="col-sm-2 control-label">Location Name:</label>
-            <div className="col-sm-10">
+            <div className="col-sm-9">
               <input className="form-control" id="inputLocation1" type="text"  value={this.state.location}  onChange={this.updateLocation} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputLatitude1" className="col-sm-2 control-label">Latitude:</label>
-            <div className="col-sm-10">
-              <input className="form-control" id="inputLatitude1" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
+            <div className="col-sm-9">
+              <input className="form-control" id="inputLatitude1" type="number" value={this.state.latitude}  onChange={this.updateLatitude} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputLongtitude1" className="col-sm-2 control-label">Longtitude:</label>
-            <div className="col-sm-10">
-              <input className="form-control" id="inputLongtitude1" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
+            <div className="col-sm-9">
+              <input className="form-control" id="inputLongtitude1" type="number" value={this.state.longitude}  onChange={this.updateLongtitude} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputStart1" className="col-sm-2 control-label">Start Date & Time:</label>
-            <div className="col-sm-10">
+            <div className="col-sm-9">
               <input className="form-control" id="inputStart1" type="datetime-local" value={this.state.startTime} onChange={this.updateStartTime}/>
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputEnd1" className="col-sm-2 control-label">End Date & Time:</label>
-            <div className="col-sm-10">
+            <div className="col-sm-9">
               <input className="form-control" id="inputEnd1" type="datetime-local" value={this.state.endTime} onChange={this.updateEndTime}/>
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputMin1" className="col-sm-2 control-label">Min Participants:</label>
-            <div className="col-sm-10">
-              <input className="form-control" id="inputMin1" type="number"  value={this.state.max}  onChange={this.updateMin} />
+            <div className="col-sm-9">
+              <input className="form-control" id="inputMin1" type="number"  value={this.state.min}  onChange={this.updateMin} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputMax1" className="col-sm-2 control-label">Max Participants:</label>
-            <div className="col-sm-10">
-              <input className="form-control" id="inputMax1" type="number"  value={this.state.min}  onChange={this.updateMax} />
+            <div className="col-sm-9">
+              <input className="form-control" id="inputMax1" type="number"  value={this.state.max}  onChange={this.updateMax} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputPrice1" className="col-sm-2 control-label">Price:</label>
-            <div className="col-sm-10">
+            <div className="col-sm-9">
               <input className="form-control" id="inputPrice1" type="number" value={this.state.price}  onChange={this.updatePrice} />
             </div>
           </div>
           <div className="form-group">
-            <div className="col-sm-offset-2 col-sm-10">
+            <div className="col-sm-offset-2 col-sm-9">
               <input className="btn btn-default" type="submit"/>
             </div>
           </div>

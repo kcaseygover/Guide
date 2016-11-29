@@ -63,11 +63,9 @@ import NavBar from './NavBar.jsx';
           <div className="col-sm-12 container">
             <div id="event_page">
 
-              <ListEvent/>
-
-            <h2>Browse Events</h2>
-              {this.props.content}
               <GuideProfile/>
+
+              {this.props.content}
             </div>
           </div>
       </div>
