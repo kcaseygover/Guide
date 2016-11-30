@@ -53,7 +53,7 @@ import Seed from './Seed.jsx'
 
           <div className="col-sm-12 container">
             <div id="profile_page">
-              <a href='/user/:id'>My Profile</a>
+              <a href='/users/:_id'>My Profile</a>
 
 
 

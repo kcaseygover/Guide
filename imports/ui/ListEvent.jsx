@@ -63,6 +63,7 @@ render(){
 
       let filteredListEvent = [];
       let filtered = [];
+      let filteredDate = [];
       console.log('events object', this.props.events);
       if(this.props.events.length > 0){
       filteredListEvent = this.props.events.filter(
@@ -70,14 +71,14 @@ render(){
           return ev.text.activity.toLowerCase().indexOf(this.state.searchActivity.toLowerCase()) !== -1
         }
       );
-      filtered=filteredListEvent.filter(
+      filtered = filteredListEvent.filter(
         (ev)=>{
           return ev.text.location.toLowerCase().indexOf(this.state.searchLocation.toLowerCase()) !== -1 ;
         })
-      };
-      filtered=filteredListEvent.filter(
+
+      filteredDate = filtered.filter(
         (ev)=>{
-          return ev.text.startTime.indexOf(this.state.search) !== -1;
+          return ev.text.startTime.toString().indexOf(this.state.searchDate) !== -1;
         })
       };
 
@@ -100,12 +101,12 @@ render(){
           <div className="form-group">
             <label htmlFor="datepicker">Date: </label>
             <input type="date" id="datepicker" className="form-control" name="start"
-              value={this.state.search}
+              value={this.state.searchDate}
               onChange={this.updateDateSearch.bind(this)}/>
           </div>
         </form>
         <ul>
-          <li>{filtered.map((event) => {
+          <li>{filteredDate.map((event) => {
 
               return <Event
                 event={event}
