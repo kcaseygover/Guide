@@ -1,3 +1,4 @@
+
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
@@ -10,12 +11,14 @@ import { createContainer } from 'meteor/react-meteor-data';
 import NavBar from './NavBar.jsx';
 
 class ListEvent extends Component {
-constructor(props) {
+  constructor(props) {
     super(props);
+
     this.state = {
       searchLocation: '',
       searchActivity: '',
-                };
+      searchDate: '',
+    };
 
   }
   componentDidMount() {
@@ -41,6 +44,7 @@ constructor(props) {
       );
     });
   }
+
   updateActivitySearch(event) {
     this.setState({searchActivity: event.target.value});
     console.log("event.target.value:   ", event.target.value);
@@ -49,11 +53,17 @@ constructor(props) {
     this.setState({searchLocation: event.target.value});
     console.log("in location  event.target.value:   ", event.target.value)
   }
+  updateDateSearch(event) {
+
+    this.setState({searchDate: event.target.value});
+    console.log("in date")
+  }
 
 render(){
 
       let filteredListEvent = [];
       let filtered = [];
+      let filteredDate = [];
       console.log('events object', this.props.events);
       if(this.props.events.length > 0){
       filteredListEvent = this.props.events.filter(
@@ -61,17 +71,17 @@ render(){
           return ev.text.activity.toLowerCase().indexOf(this.state.searchActivity.toLowerCase()) !== -1
         }
       );
-      filtered=filteredListEvent.filter(
+      filtered = filteredListEvent.filter(
         (ev)=>{
           return ev.text.location.toLowerCase().indexOf(this.state.searchLocation.toLowerCase()) !== -1 ;
         })
-    };
 
+      filteredDate = filtered.filter(
+        (ev)=>{
+          return ev.text.startTime.toString().indexOf(this.state.searchDate) !== -1;
+        })
+      };
 
-//   <div className="form-group">
-//     <label htmlFor=""></label>
-//     <input type="text" className="form-control" id="" placeholder="">
-//   </div>
     return (
       <div>
         <form className="form-inline">
@@ -88,14 +98,22 @@ render(){
                 value={this.state.searchLocation}
                 onChange={this.updateLocationSearch.bind(this)}/>
           </div>
-          </form>
-          <li>{filtered.map((event) => {
+          <div className="form-group">
+            <label htmlFor="datepicker">Date: </label>
+            <input type="date" id="datepicker" className="form-control" name="start"
+              value={this.state.searchDate}
+              onChange={this.updateDateSearch.bind(this)}/>
+          </div>
+        </form>
+        <ul>
+          <li>{filteredDate.map((event) => {
 
-                return <Event
-                  event={event}
-                  key={event._id}/>
-          })}
+              return <Event
+                event={event}
+                key={event._id}/>
+              })}
           </li>
+        </ul>
       </div>
     );
   }
@@ -114,3 +132,4 @@ export default createContainer(() => {
    currentUser:  Meteor.user()
   };
 }, ListEvent);
+
