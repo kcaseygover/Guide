@@ -12,7 +12,7 @@ export default class NewEvent extends Component {
     this.updateActivity = this.updateActivity.bind(this);
     this.updateLocation = this.updateLocation.bind(this);
     this.updateLatitude = this.updateLatitude.bind(this);
-    this.updateLongtitude = this.updateLongtitude.bind(this);
+    this.updateLongitude = this.updateLongitude.bind(this);
     this.updateStartTime = this.updateStartTime.bind(this);
     this.updateEndTime = this.updateEndTime.bind(this);
     this.updateMin = this.updateMin.bind(this);
@@ -41,7 +41,7 @@ export default class NewEvent extends Component {
   updateActivity(e) {this.setState({activity: e.target.value});}
   updateLocation(e) {this.setState({location: e.target.value});}
   updateLatitude(e) {this.setState({latitude: e.target.value});}
-  updateLongtitude(e) {this.setState({longitude: e.target.value});}
+  updateLongitude(e) {this.setState({longitude: e.target.value});}
   updateStartTime(e) {this.setState({startTime: e.target.value});}
   updateEndTime(e) {this.setState({endTime: e.target.value});}
   updateMin(e) {this.setState({min: e.target.value});}
@@ -71,7 +71,7 @@ export default class NewEvent extends Component {
             <input className="lat form-control" type="float" value={this.state.latitude}  onChange={this.updateLatitude} />
             <br/>
             Longtitude:
-            <input className="lat form-control" type="float" value={this.state.longitude}  onChange={this.updateLongtitude} />
+            <input className="lat form-control" type="float" value={this.state.longitude}  onChange={this.updateLongitude} />
             <br/>
             Start Date & Time:
             <input className="start_time form-control" type="datetime-local" value={this.state.startTime} onChange={this.updateStartTime}/>

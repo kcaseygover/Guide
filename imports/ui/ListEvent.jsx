@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-import { Events } from '../api/events.js';
+import { Events } from '../../lib/collections/events.js';
 import Event from './Event.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
 
@@ -14,11 +14,14 @@ constructor(props) {
     this.state = {search: "",};
 
   }
+  componentDidMount() {
+    console.log("did mount")
+  }
 
   renderEvents() {
     let filteredEvents = this.props.events;
     console.log("in here");
-console.log("this.state.search::      ")
+    console.log("this.state.search::      ")
     return filteredEvents.map((event) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
 

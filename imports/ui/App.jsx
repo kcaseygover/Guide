@@ -21,6 +21,8 @@ import ActivityList from './ActivityList.jsx';
 import NewActivityTag from './NewActivityTag.jsx';
 import NavBar from './NavBar.jsx';
 
+import Seed from './Seed.jsx'
+
 
 // App component - represents the whole app
  class App extends Component {
@@ -45,6 +47,7 @@ import NavBar from './NavBar.jsx';
     return (
       <div>
         <NavBar/>
+
 
           <div className="col-sm-12 container">
             <div id="profile_page">

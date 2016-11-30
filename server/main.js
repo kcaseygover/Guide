@@ -4,12 +4,10 @@ import '../imports/api/profiles.js';
 import '../imports/api/participants.js';
 Meteor.startup(() => {
   // code to run on server at startup
-   Meteor.publish('events', function eventsPublication() {
-    return Events.find({
 
-    });
   });
-});
+
+
 
 Meteor.publish("allUsers", function () {
   return Meteor.users.find({});
