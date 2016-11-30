@@ -9,5 +9,9 @@
     "browser": true
   },
   "plugins": ["meteor"],
-  "extends": ["plugin:meteor/recommended"]
+  "extends": ["plugin:meteor/recommended"],
+  "globals": {
+    "Events":true,
+  }
+
 }

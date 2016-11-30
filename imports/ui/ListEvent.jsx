@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
+//import { Events } from '../../lib/collections/events.js';
 import { Events } from '../api/events.js';
 import Event from './Event.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -12,18 +13,24 @@ import NavBar from './NavBar.jsx';
 class ListEvent extends Component {
   constructor(props) {
     super(props);
-    // search is now has an object for a value so it can hold sub attributes of searching.
-    // such as location, activity, date {location:'', activity:'', date:'',},
-    this.state = {search:''};
+
+    this.state = {
+      searchLocation: '',
+      searchActivity: '',
+      searchDate: '',
+    };
 
   }
-  // componentDidMount(){
-  //   console.log('i am component',this.props);
-  // }
+  componentDidMount() {
+    console.log("did mount",this.props.events)
+
+  }
+
   renderEvents() {
+    console.log("uselessshit", this.props.events)
     let filteredEvents = this.props.events;
     console.log("in here");
-console.log("this.state.search::      ")
+    console.log("this.state.search::      ")
     return filteredEvents.map((event) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
 
@@ -38,36 +45,41 @@ console.log("this.state.search::      ")
     });
   }
 
-  updateActivity(event) {
-
-    this.setState({search: event.target.value});
-    console.log("in activity",this.state, "", event.target.value)
+  updateActivitySearch(event) {
+    this.setState({searchActivity: event.target.value});
+    console.log("event.target.value:   ", event.target.value);
   }
-  updateLocation(event) {
-    this.setState({search: event.target.value});
-
-    console.log("in location ", event.target.value)
+  updateLocationSearch(event) {
+    this.setState({searchLocation: event.target.value});
+    console.log("in location  event.target.value:   ", event.target.value)
   }
-  updateDate(event) {
+  updateDateSearch(event) {
 
-    this.setState({search: event.target.value});
+    this.setState({searchDate: event.target.value});
     console.log("in date")
   }
 
+render(){
 
-  render() {
-
-    let filteredListEvent = this.props.events.filter(
+      let filteredListEvent = [];
+      let filtered = [];
+      console.log('events object', this.props.events);
+      if(this.props.events.length > 0){
+      filteredListEvent = this.props.events.filter(
         (ev) => {
-
-          return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-          || ev.text.location.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-          || ev.text.startTime.indexOf(this.state.search) !== -1;
+          return ev.text.activity.toLowerCase().indexOf(this.state.searchActivity.toLowerCase()) !== -1
         }
-    );
-
-
-
+      );
+      filtered=filteredListEvent.filter(
+        (ev)=>{
+          return ev.text.location.toLowerCase().indexOf(this.state.searchLocation.toLowerCase()) !== -1 ;
+        })
+      };
+      filtered=filteredListEvent.filter(
+        (ev)=>{
+          return ev.text.startTime.indexOf(this.state.search) !== -1;
+        })
+      };
 
     return (
       <div>
@@ -76,30 +88,28 @@ console.log("this.state.search::      ")
           <div className="form-group">
             <label htmlFor="filterByActivity">Activity: </label>
             <input type="text" id="filterByActivity" className="form-control"
-                value={this.state.search}
-                // make this function name match the new name
-                onChange={this.updateActivity.bind(this)}/>
+                value={this.state.searchActivity}
+                onChange={this.updateActivitySearch.bind(this)}/>
           </div>
           <div className="form-group">
             <label htmlFor="filterLocation">Location: </label>
             <input type="text" className="form-control" id="filterLocation" placeholder=""
-                value={this.state.search}
-                 // make this function name match the new name
-                onChange={this.updateLocation.bind(this)}/>
+                value={this.state.searchLocation}
+                onChange={this.updateLocationSearch.bind(this)}/>
           </div>
           <div className="form-group">
             <label htmlFor="datepicker">Date: </label>
             <input type="date" id="datepicker" className="form-control" name="start"
-            value={this.state.search}
-             // make this function name match the new name
-            onChange={this.updateDate.bind(this)}/>
+              value={this.state.search}
+              onChange={this.updateDateSearch.bind(this)}/>
           </div>
         </form>
         <ul>
-          <li>{filteredListEvent.map((event) => {
-            return <Event
-            event={event}
-            key={event._id}/>
+          <li>{filtered.map((event) => {
+
+              return <Event
+                event={event}
+                key={event._id}/>
               })}
           </li>
         </ul>
@@ -107,12 +117,17 @@ console.log("this.state.search::      ")
     );
   }
 }
+
+ListEvent.PropTypes = {
+  events: PropTypes.array.isRequired,
+}
+
 export default createContainer(() => {
 
    Meteor.subscribe('events');
 
   return {
-   events: Events.find({}, { sort: { createdAt: -1 } }).fetch(),
+   events: Events.find({}).fetch(),
    currentUser:  Meteor.user()
   };
 }, ListEvent);

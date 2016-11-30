@@ -21,6 +21,8 @@ import ActivityList from './ActivityList.jsx';
 import NewActivityTag from './NewActivityTag.jsx';
 import NavBar from './NavBar.jsx';
 
+import Seed from './Seed.jsx'
+
 
 
 
@@ -48,9 +50,12 @@ import NavBar from './NavBar.jsx';
       <div>
         <NavBar/>
 
+
           <div className="col-sm-12 container">
             <div id="profile_page">
               <a href='/user/:id'>My Profile</a>
+
+
 
 
 
@@ -64,8 +69,6 @@ import NavBar from './NavBar.jsx';
 
           <div className="col-sm-12 container">
             <div id="event_page">
-
-              <GuideProfile/>
 
               {this.props.content}
             </div>

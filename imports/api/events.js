@@ -3,9 +3,10 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import { Class } from 'meteor/jagi:astronomy';
 
-export const Events = new Mongo.Collection('events');
+export const Events =  new Mongo.Collection('events');
 
- //Events.schema = new SimpleSchema({
+
+ // Events.schema = new SimpleSchema({
 
   //name: {type: String},
   // activity_id: {type: Number},
@@ -58,17 +59,16 @@ Meteor.methods({
     Events.remove(eventId);
   },
 
-  'events.setChecked'(eventId, setChecked) {
-    check(eventId, String);
-    check(setChecked, Boolean);
+  'addParticipants'(info) {
+    check(info, Object);
 
-    const event = Events.findOne(eventId);
-    if (event.private && event.owner !== this.userId) {
-      // If the event is private, make sure only the owner can check it off
-      throw new Meteor.Error('not-authorized');
-    }
+    console.log(info);
+    Events.update(info.text.eventId, {$push:{'participants':info.id}})
 
-    Events.update(eventId, { $set: { checked: setChecked } });
+
+
+
+   // Events.update(eventId, { $set: { checked: setChecked } });
   },
   'events.setPrivate'(eventId, setToPrivate) {
     check(eventId, String);

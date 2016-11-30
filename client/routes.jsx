@@ -8,7 +8,9 @@ import Event from '../imports/ui/Event.jsx';
 
 import NewEvent from '../imports/ui/NewEvent.jsx';
 import Profile from '../imports/ui/Profile.jsx';
-//import ShowProfile from '../imports/ui/ShowProfile.jsx';
+import ShowProfile from '../imports/ui/ShowProfile.jsx';
+import Seed from '../imports/ui/Seed.jsx';
+
 
 
 FlowRouter.route('/', {
@@ -44,8 +46,9 @@ FlowRouter.route('/users/:_id', {
     action: function (params){
 
         console.log("This is my /user/:_id", params);
-        //ReactLayout.render(ShowProfile, {content: <ShowProfile userId={params._id}  />});
-    }
+        ReactLayout.render(ShowProfile, {content: <ShowProfile userId={params._id}  />});
+        }
+
 });
 
 FlowRouter.route('/events/:_id', {
@@ -53,6 +56,13 @@ FlowRouter.route('/events/:_id', {
     action: function (params){
         console.log("This is my /events/:_id:", params);
        ReactLayout.render(Event, {content: <Event _id={params._id} />});
+
+    }
+});
+FlowRouter.route('/seed', {
+    name: 'seed',
+    action: function (params){
+       ReactLayout.render(Seed, {content: <Seed />});
 
     }
 });
