@@ -4,10 +4,12 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
+
 import { createContainer } from 'meteor/react-meteor-data';
 
 
 class ShowProfile extends Component {
+
 
   constructor(props){
     super(props);
@@ -17,7 +19,6 @@ class ShowProfile extends Component {
   }
 
 
-
   componentDidMount() {
     console.log(this.props.content.props.userId);
     this.setState({userId: this.props.content.props.userId });
@@ -25,7 +26,7 @@ class ShowProfile extends Component {
 
   }
 
-  render() {
+//   render() {
 
 
     function findUser(id){
@@ -42,7 +43,7 @@ class ShowProfile extends Component {
     let currentUser = this.props.currentUser;
     console.log(this.props.users);
 
-     function showProfile() {
+
 
         //const user = findUser(this.props.content.props.userId);
         if(currentUser){
@@ -67,17 +68,7 @@ class ShowProfile extends Component {
      };
 
 
-    return (
 
-
-      <div className='col-xs-12 container'>
-      <a>{showProfile()}</a>
-      <a>{showGuideProfile()}</a>
-      </div>
-
-    );
-  }
-}
 
 ShowProfile.propTypes = {
   currentUser: PropTypes.object,
@@ -86,7 +77,6 @@ ShowProfile.propTypes = {
   _id: PropTypes.object,
 };
 
-export default createContainer(() => {
 
 Meteor.subscribe("userData");
 Meteor.subscribe("users");
@@ -97,5 +87,3 @@ Meteor.subscribe("allUsers");
    users: Meteor.users.find({},{sort:{_id:-1}}).fetch(),
   };
 }, ShowProfile);
-
-// {sort: { _id : -1 } }

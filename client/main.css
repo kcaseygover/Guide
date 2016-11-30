@@ -1,16 +1,23 @@
 nav {
-  z-index: 1;
+  z-index: 100;
   top: 0;
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
   padding: 20px 15px 15px 15px;
-  border-radius: none;
+  border-radius: 0px;
   position: fixed;
   width: 100%;
 }
 
-nav h1 {
+h1 {
   text-align: center;
+  color: white;
+
+}
+
+
+a:hover {
+    text-decoration: none;
 }
 
 body {
@@ -56,13 +63,13 @@ textarea {resize: none}
   display: block;
 }
 
-h1 {
+/*h1 {
   font-size: 1.5em;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
-}
+}*/
 
 form {
   margin-top: 10px;
