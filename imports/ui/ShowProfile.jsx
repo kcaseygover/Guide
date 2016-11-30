@@ -4,10 +4,12 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
+
 import { createContainer } from 'meteor/react-meteor-data';
 
 
 class ShowProfile extends Component {
+
 
   constructor(props){
     super(props);
@@ -17,7 +19,6 @@ class ShowProfile extends Component {
   }
 
 
-
   componentDidMount() {
     console.log(this.props.content.props.userId);
     this.setState({userId: this.props.content.props.userId });
@@ -25,7 +26,7 @@ class ShowProfile extends Component {
 
   }
 
-  render() {
+   render() {
 
 
     function findUser(id){
@@ -55,6 +56,7 @@ class ShowProfile extends Component {
 
    };
 
+
      function showGuideProfile() {
       if(currentUser){
         return <span className="text">
@@ -67,8 +69,7 @@ class ShowProfile extends Component {
      };
 
 
-    return (
-
+     return(
 
       <div className='col-xs-12 container'>
       <a>{findUser(this.props.content.props.userId)}</a>
@@ -77,6 +78,7 @@ class ShowProfile extends Component {
     );
   }
 }
+
 
 ShowProfile.propTypes = {
   currentUser: PropTypes.object,
@@ -96,5 +98,3 @@ Meteor.subscribe("allUsers");
    users: Meteor.users.find({},{sort:{_id:-1}}).fetch(),
   };
 }, ShowProfile);
-
-// {sort: { _id : -1 } }

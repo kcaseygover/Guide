@@ -12,6 +12,7 @@ import ShowProfile from '../imports/ui/ShowProfile.jsx';
 import Seed from '../imports/ui/Seed.jsx';
 
 
+
 FlowRouter.route('/', {
     name: 'root',
     action: function (){
@@ -47,6 +48,7 @@ FlowRouter.route('/users/:_id', {
         console.log("This is my /user/:_id", params);
         ReactLayout.render(ShowProfile, {content: <ShowProfile userId={params._id}  />});
         }
+
 });
 
 FlowRouter.route('/events/:_id', {

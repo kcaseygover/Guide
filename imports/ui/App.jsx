@@ -54,9 +54,12 @@ import Seed from './Seed.jsx'
               <a href='/user/:id'>My Profile</a>
 
 
+
+
+
               <br/>
               <a href='/events/new'>Click here to create an Event</a>
-              <GuideProfile/>
+
               <br/>
 
             </div>
@@ -65,9 +68,6 @@ import Seed from './Seed.jsx'
           <div className="col-sm-12 container">
             <div id="event_page">
 
-
-
-            <h2>Browse Events</h2>
               {this.props.content}
             </div>
           </div>
