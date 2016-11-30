@@ -88,7 +88,7 @@ class Seeder {
       let userId = Accounts.createUser({
         email: user.email,
         password: user.password,
-        profile: user.info || {}
+        profile: user.profile || {}
       });
 
       if ( user.roles && Roles !== 'undefined' ) {
@@ -121,7 +121,7 @@ Meteor.methods({
             profile: {
               firstName:'Andreas',
               lastName:'Hart',
-              dob:'',
+              dob:faker.date.past(),
               bio: faker.lorem.sentence(),
               interests:'surf,skate,ski',
               files:'',
@@ -134,7 +134,7 @@ Meteor.methods({
             profile: {
               firstName:'Karen',
               lastName:'CG',
-              dob:'',
+              dob:faker.date.past(),
               bio:  faker.lorem.sentence(),
               interests:'lipchap and jeeps',
               files:'',
@@ -150,24 +150,26 @@ Meteor.methods({
         environments: [ 'development', 'staging', 'production' ],
         model( index ) {
           return {
-            title:faker.lorem.words(),
-            activity:faker.lorem.sentence(),
-            location:faker.address.streetAddress(),
-            latitude:faker.address.latitude(),
-            longitude:faker.address.longitude(),
-            startTime:faker.date.future(),
-            endTime:faker.date.future(),
-            min:faker.random.number(),
-            max:faker.random.number(),
-            price: faker.commerce.price(),
-          };
-        }
+            text:{
+              title:faker.lorem.words(),
+              activity:faker.lorem.sentence(),
+              location:faker.address.streetAddress(),
+              latitude:faker.address.latitude(),
+              longitude:faker.address.longitude(),
+              startTime:faker.date.future(),
+              endTime:faker.date.future(),
+              min:faker.random.number(),
+              max:faker.random.number(),
+              price: faker.commerce.price(),
+          },
+        };
+      }
       });
     }
   },
 
   'clearCollection'( collection ) {
-    console.log('comonnnn');
+    console.log('collection', collection);
     check( collection, String );
     let isUsers = collection === 'Users';
 

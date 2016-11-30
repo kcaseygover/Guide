@@ -29,32 +29,32 @@ class ShowProfile extends Component {
 
 
     function findUser(id){
-        Meteor.subscribe("users");
-        debugger;
-         Meteor.users.find({ _id: id }, function(error,result){
-          debugger;
-          if(error){console.log(error)}
-          console.log(res);
-         })
+      Meteor.subscribe("users");
+      let user = Meteor.users.find({ '_id': id }).fetch();
+        if(user.length > 0){
+          console.log('inside', user);
+          return showProfile(user);
+        };
+      };
 
-      }
-    //findUser(this.state.userId);
-    let currentUser = this.props.currentUser;
-    console.log(this.props.users);
 
-     function showProfile() {
+    function showProfile(user) {
+      if(user[0].roles.forEach((role)=>{
+        role === "guide"
+      })){
+        return <span>Im a guide</span>
+      };
+        console.log('show porfile',user[0])
+        return ( <span className='text'>
+                  <div>Name: {user[0].profile.firstName} </div> <div> {user[0].profile.lastName} </div><br/>
+                  <div>Date of Birth: {Date(user[0].profile.dob)} </div><br/>
+                  <div>Bio: {user[0].profile.bio} </div><br/>
+                  <div>Interests: {user[0].profile.interests} </div><br/>
+                </span>
+                );
 
-        //const user = findUser(this.props.content.props.userId);
-        if(currentUser){
-          console.log("thinks theres a user", this.props.user);
-          return <span className="text">
-          <div>Name: {currentUser.info.firstName} </div> <div> {currentUser.info.lastName} </div><br/>
-          <div>Date of Birth: {currentUser.info.dob} </div><br/>
-          <div>Bio: {currentUser.info.bio} </div><br/>
-          <div>Interests: {currentUser.info.interests} </div><br/>
-          </span>
-      }
-     };
+   };
+
      function showGuideProfile() {
       if(currentUser){
         return <span className="text">
@@ -71,8 +71,7 @@ class ShowProfile extends Component {
 
 
       <div className='col-xs-12 container'>
-      <a>{showProfile()}</a>
-      <a>{showGuideProfile()}</a>
+      <a>{findUser(this.props.content.props.userId)}</a>
       </div>
 
     );

@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-import { Events } from '../../lib/collections/events.js';
+//import { Events } from '../../lib/collections/events.js';
+import { Events } from '../api/events.js';
 import Event from './Event.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
 
@@ -15,10 +16,12 @@ constructor(props) {
 
   }
   componentDidMount() {
-    console.log("did mount")
+    console.log("did mount",this.props.events)
+
   }
 
   renderEvents() {
+    console.log("uselessshit", this.props.events)
     let filteredEvents = this.props.events;
     console.log("in here");
     console.log("this.state.search::      ")
@@ -42,16 +45,15 @@ constructor(props) {
 
 
   render() {
-
-    let filteredListEvent = this.props.events.filter(
-
-      (ev) => {
-        return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-
-      }
-
-
-    );
+      let filteredListEvent = [];
+      console.log('events object', this.props.events);
+      if(this.props.events.length > 0){
+      filteredListEvent = this.props.events.filter(
+        (ev) => {
+          return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        }
+      );
+    };
 
     return (
 
@@ -66,8 +68,7 @@ constructor(props) {
               onChange={this.updateSearch.bind(this)}/>
           </div>
           </form>
-
-                <li>{filteredListEvent.map((event) => {
+          <li>{filteredListEvent.map((event) => {
 
                 return <Event
                   event={event}
@@ -81,12 +82,17 @@ constructor(props) {
     );
   }
 }
+
+ListEvent.PropTypes = {
+  events: PropTypes.array.isRequired,
+}
+
 export default createContainer(() => {
 
    Meteor.subscribe('events');
 
   return {
-   events: Events.find({}, { sort: { createdAt: -1 } }).fetch(),
+   events: Events.find({}).fetch(),
    currentUser:  Meteor.user()
   };
 }, ListEvent);

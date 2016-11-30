@@ -3,9 +3,10 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import { Class } from 'meteor/jagi:astronomy';
 
-// export  Events
+export const Events =  new Mongo.Collection('events');
 
- //Events.schema = new SimpleSchema({
+
+ // Events.schema = new SimpleSchema({
 
   //name: {type: String},
   // activity_id: {type: Number},
@@ -23,15 +24,15 @@ import { Class } from 'meteor/jagi:astronomy';
   // partic: {type:Array}
 //})
 
-// if (Meteor.isServer) {
-//   // This code only runs on the server
-//   // Only publish events that are public or belong to the current user
-//   Meteor.publish('events', function eventsPublication() {
-//     return Events.find({
+if (Meteor.isServer) {
+  // This code only runs on the server
+  // Only publish events that are public or belong to the current user
+  Meteor.publish('events', function eventsPublication() {
+    return Events.find({
 
-//     });
-//   });
-// }
+    });
+  });
+}
 
 
 Meteor.methods({

@@ -80,10 +80,10 @@ export default class NewEvent extends Component {
             <input className="end_time form-control"   type="datetime-local" value={this.state.endTime} onChange={this.updateEndTime}/>
           <br/>
             Min Participants:
-            <input className="form-control" type="number"  value={this.state.max}  onChange={this.updateMin} />
+            <input className="form-control" type="number"  value={this.state.min}  onChange={this.updateMin} />
             <br/>
             Max Participants:
-            <input className="form-control" type="number"  value={this.state.min}  onChange={this.updateMax} />
+            <input className="form-control" type="number"  value={this.state.max}  onChange={this.updateMax} />
             <br/>
             Price:
 
