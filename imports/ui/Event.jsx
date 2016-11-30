@@ -4,6 +4,8 @@ import classnames from 'classnames';
 
 
 import Interest from './InterestInParticipating'
+import ShowProfile from './ShowProfile'
+
 
 export default class Event extends Component {
 
@@ -39,6 +41,7 @@ export default class Event extends Component {
         </span>
 
         <Interest eventId={this.props.event._id} />
+        <ShowProfile userId='D3MePQtPMruFtBq88'/>
 
       </div>
 

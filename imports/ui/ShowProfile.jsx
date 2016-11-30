@@ -20,9 +20,8 @@ class ShowProfile extends Component {
 
 
   componentDidMount() {
-    console.log(this.props.content.props.userId);
-    this.setState({userId: this.props.content.props.userId });
-    console.log("did mount", this.state.userId);
+    console.log(this.props.userId);
+
 
   }
 
@@ -40,12 +39,7 @@ class ShowProfile extends Component {
 
 
     function showProfile(user) {
-      if(user[0].roles.forEach((role)=>{
-        role === "guide"
-      })){
-        return <span>Im a guide</span>
-      };
-        console.log('show porfile',user[0])
+        console.log('show porfile', user[0]);
         return ( <span className='text'>
                   <div>Name: {user[0].profile.firstName} </div> <div> {user[0].profile.lastName} </div><br/>
                   <div>Date of Birth: {Date(user[0].profile.dob)} </div><br/>
@@ -53,8 +47,7 @@ class ShowProfile extends Component {
                   <div>Interests: {user[0].profile.interests} </div><br/>
                 </span>
                 );
-
-   };
+          };
 
 
      function showGuideProfile() {
@@ -72,7 +65,8 @@ class ShowProfile extends Component {
      return(
 
       <div className='col-xs-12 container'>
-      <a>{findUser(this.props.content.props.userId)}</a>
+      <a>{console.log("this",this)}</a>
+      <a>{findUser(this.props.userId)}</a>
       </div>
 
     );

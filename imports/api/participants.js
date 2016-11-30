@@ -3,6 +3,8 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import { Class } from 'meteor/jagi:astronomy';
 
+import Events from './events.js'
+
 const Participants = new Mongo.Collection('participants');
 
 if (Meteor.isServer) {
@@ -26,12 +28,21 @@ Meteor.methods({
 
   'participants.insert'(text) {
     check(text, Object);
-    console.log("we out chea");
+    console.log(text);
+    console.log(this.userId);
 
     Participants.insert({
       text,
       createdAt: new Date(),
       owner: this.userId,
-    });
-  },
+    })
+
+    let info = {
+      'text':text,
+      'id':this.userId,
+    };
+
+    Meteor.call('addParticipants', info);
+
+  }
 });

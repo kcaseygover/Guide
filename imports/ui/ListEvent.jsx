@@ -12,7 +12,10 @@ import NavBar from './NavBar.jsx';
 class ListEvent extends Component {
 constructor(props) {
     super(props);
-    this.state = {search: "",};
+    this.state = {
+      searchLocation: '',
+      searchActivity: '',
+                };
 
   }
   componentDidMount() {
@@ -38,26 +41,30 @@ constructor(props) {
       );
     });
   }
-  updateSearch(event) {
-    this.setState({search: event.target.value});
-    console.log("event.target.value:   ", event.target.value)
+  updateActivitySearch(event) {
+    this.setState({searchActivity: event.target.value});
+    console.log("event.target.value:   ", event.target.value);
   }
-  locationSearch(event) {
-    this.setState({search: event.target.value});
+  updateLocationSearch(event) {
+    this.setState({searchLocation: event.target.value});
     console.log("in location  event.target.value:   ", event.target.value)
   }
 
 render(){
 
       let filteredListEvent = [];
+      let filtered = [];
       console.log('events object', this.props.events);
       if(this.props.events.length > 0){
       filteredListEvent = this.props.events.filter(
         (ev) => {
-          return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-          || ev.text.location.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ;
+          return ev.text.activity.toLowerCase().indexOf(this.state.searchActivity.toLowerCase()) !== -1
         }
       );
+      filtered=filteredListEvent.filter(
+        (ev)=>{
+          return ev.text.location.toLowerCase().indexOf(this.state.searchLocation.toLowerCase()) !== -1 ;
+        })
     };
 
 
@@ -72,17 +79,17 @@ render(){
           <div className="form-group">
             <label htmlFor="filterByActivity">Activity: </label>
             <input type="text" id="filterByActivity" className="form-control"
-                value={this.state.search}
-                onChange={this.updateSearch.bind(this)}/>
+                value={this.state.searchActivity}
+                onChange={this.updateActivitySearch.bind(this)}/>
           </div>
           <div className="form-group">
             <label htmlFor="filterLocation">Location: </label>
             <input type="text" className="form-control" id="filterLocation" placeholder=""
-                value={this.state.search}
-                onChange={this.locationSearch.bind(this)}/>
+                value={this.state.searchLocation}
+                onChange={this.updateLocationSearch.bind(this)}/>
           </div>
           </form>
-          <li>{filteredListEvent.map((event) => {
+          <li>{filtered.map((event) => {
 
                 return <Event
                   event={event}
