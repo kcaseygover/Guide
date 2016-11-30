@@ -22,6 +22,8 @@ import NewActivityTag from './NewActivityTag.jsx';
 import NavBar from './NavBar.jsx';
 
 
+
+
 // App component - represents the whole app
  class App extends Component {
   constructor(props) {

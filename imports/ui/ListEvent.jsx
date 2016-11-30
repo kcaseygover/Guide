@@ -1,3 +1,4 @@
+
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
@@ -9,12 +10,16 @@ import { createContainer } from 'meteor/react-meteor-data';
 import NavBar from './NavBar.jsx';
 
 class ListEvent extends Component {
-constructor(props) {
+  constructor(props) {
     super(props);
-    this.state = {search: "",};
+    // search is now has an object for a value so it can hold sub attributes of searching.
+    // such as location, activity, date {location:'', activity:'', date:'',},
+    this.state = {search:''};
 
   }
-
+  // componentDidMount(){
+  //   console.log('i am component',this.props);
+  // }
   renderEvents() {
     let filteredEvents = this.props.events;
     console.log("in here");
@@ -32,28 +37,38 @@ console.log("this.state.search::      ")
       );
     });
   }
-  updateSearch(event) {
+
+  updateActivity(event) {
+
     this.setState({search: event.target.value});
-    console.log("event.target.value:   ", event.target.value)
+    console.log("in activity",this.state, "", event.target.value)
   }
-  locationSearch(event) {
+  updateLocation(event) {
     this.setState({search: event.target.value});
-    console.log("in location  event.target.value:   ", event.target.value)
+
+    console.log("in location ", event.target.value)
+  }
+  updateDate(event) {
+
+    this.setState({search: event.target.value});
+    console.log("in date")
   }
 
 
   render() {
 
     let filteredListEvent = this.props.events.filter(
-      (ev) => {
-        return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || ev.text.location.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-      }
+        (ev) => {
+
+          return ev.text.activity.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+          || ev.text.location.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+          || ev.text.startTime.indexOf(this.state.search) !== -1;
+        }
     );
 
-//   <div className="form-group">
-//     <label htmlFor=""></label>
-//     <input type="text" className="form-control" id="" placeholder="">
-//   </div>
+
+
+
     return (
       <div>
         <form className="form-inline">
@@ -62,15 +77,23 @@ console.log("this.state.search::      ")
             <label htmlFor="filterByActivity">Activity: </label>
             <input type="text" id="filterByActivity" className="form-control"
                 value={this.state.search}
-                onChange={this.updateSearch.bind(this)}/>
+                // make this function name match the new name
+                onChange={this.updateActivity.bind(this)}/>
           </div>
           <div className="form-group">
             <label htmlFor="filterLocation">Location: </label>
             <input type="text" className="form-control" id="filterLocation" placeholder=""
                 value={this.state.search}
-                onChange={this.locationSearch.bind(this)}/>
+                 // make this function name match the new name
+                onChange={this.updateLocation.bind(this)}/>
           </div>
-
+          <div className="form-group">
+            <label htmlFor="datepicker">Date: </label>
+            <input type="date" id="datepicker" className="form-control" name="start"
+            value={this.state.search}
+             // make this function name match the new name
+            onChange={this.updateDate.bind(this)}/>
+          </div>
         </form>
         <ul>
           <li>{filteredListEvent.map((event) => {
@@ -93,3 +116,4 @@ export default createContainer(() => {
    currentUser:  Meteor.user()
   };
 }, ListEvent);
+
