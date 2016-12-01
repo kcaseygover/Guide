@@ -2,14 +2,19 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-import Participants from './Participants'
-import Interest from './InterestInParticipating'
-import ShowProfile from './ShowProfile'
+import Participants from './Participants.jsx'
+import Interest from './InterestInParticipating.jsx'
+import ShowProfile from './ShowProfile.jsx'
 
 
 export default class Event extends Component {
+  constructor(props) {
+    super(props);
 
+  }
+  componentDidMount() {
 
+  }
 
   deleteThisEvent() {
     Meteor.call('events.remove', this.props.event._id);
@@ -19,6 +24,14 @@ export default class Event extends Component {
   render() {
 
     console.log("in events", this.props.event);
+
+    function anyParticipants(participant){
+        debugger;
+        console.log("participant",participant)
+        if(participant && participant.length > 0 ){
+        return <Participants users={participant}/>
+      }
+    }
 
     return (
 
@@ -35,13 +48,13 @@ export default class Event extends Component {
         <div>Address: {this.props.event.text.address} </div><br/>
         <div>When: {this.props.event.text.startTime.toString()} </div><br/>
         <div>Till: {this.props.event.text.endTime.toString()} </div><br/>
-        <div>Participants Min: {this.props.event.text.min} Max: {this.props.event.text.max} </div><br/>
+        <div>Participants Min: {this.props.event.text.min} Max: {this.props.event.text.max}  </div><br/>
+        <div>Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "Be the first to register!" }</div>
         <div type="float">Price: ${this.props.event.text.price} </div><br/>
         <button type="button" className="btn btn-default">Interested?</button>
         </span>
-
+        {anyParticipants(this.props.event.participants)}
         <Interest eventId={this.props.event._id} />
-        <ShowProfile userId='D3MePQtPMruFtBq88'/>
 
       </div>
 

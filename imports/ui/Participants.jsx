@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
-
+import ShowProfile from './ShowProfile.jsx'
 import { createContainer } from 'meteor/react-meteor-data';
 
 
@@ -11,14 +11,24 @@ export default class Participants extends Component {
   }
 
   render(){
-    if(participants.length > 0){
-      console.log(participants);
+       let participants = this.props.users;
+       debugger;
+       if(participants && participants.length > 0){
+
+
+    return (
+      <div>
+        {participants.map((eachId)=>{
+        return <ShowProfile userId={eachId}  />
+       })}
+      </div>
+      );
     }
   }
-  return
 }
 Participants.propTypes = {
   // This component gets the task to display through a React prop.
   // We can use propTypes to indicate it is required
-  participants: PropTypes.array,
+  users: PropTypes.array.isRequired,
+
 };

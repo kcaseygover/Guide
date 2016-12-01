@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 import Dropzone from 'react-dropzone';
+import GuideProfile from './GuideProfile.jsx'
 
 import NavBar from './NavBar.jsx';
 
@@ -64,6 +65,7 @@ export default class Profile extends Component {
             <textarea className="form-control" type="text" value={this.state.interests}  onChange={this.updateInterests}/>
             <input className="btn btn-default" type="submit"/>
         </form>
+        <GuideProfile/>
       </div>
 
     );

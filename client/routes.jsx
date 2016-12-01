@@ -9,6 +9,7 @@ import Event from '../imports/ui/Event.jsx';
 import NewEvent from '../imports/ui/NewEvent.jsx';
 import Profile from '../imports/ui/Profile.jsx';
 import ShowProfile from '../imports/ui/ShowProfile.jsx';
+import ShowGuideProfile from '../imports/ui/ShowGuideProfile.jsx';
 import Seed from '../imports/ui/Seed.jsx';
 
 
@@ -47,6 +48,23 @@ FlowRouter.route('/users/:_id', {
 
         console.log("This is my /user/:_id", params);
         ReactLayout.render(ShowProfile, {content: <ShowProfile userId={params._id}  />});
+        }
+
+});
+FlowRouter.route('/editprofile', {
+    name: 'editprofile',
+    action: function (params){
+
+        console.log("This is my /editpofile", params);
+        ReactLayout.render(Profile, {content: <Profile/>});
+        }
+
+});
+FlowRouter.route('/guide/:_id', {
+    name: 'guideprofile',
+    action: function (params){
+        console.log("This is my /guideprofile", params);
+        ReactLayout.render(ShowGuideProfile, {content: <ShowGuideProfile userId={params._id}/>});
         }
 
 });
