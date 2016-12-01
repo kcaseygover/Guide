@@ -33,7 +33,7 @@ export default class InterestInParticipating extends Component {
   // }
 render(){
 return (
-  <div className= "col-md-3 container">
+  <div>
       <div className='interest' >
         <form className= "interestInParticipating" onSubmit={this.handleNewEventSubmit}>
 
@@ -49,7 +49,7 @@ return (
 
             <input  className="concern form-control" type="text"  value={this.state.concern}  onChange={this.updateConcern} />
             How stoked are you??
-            <input  className="stoke" type="text"  value={this.state.stoke}  onChange={this.updateStoke} />
+            <input  className="stoke form-control" type="text"  value={this.state.stoke}  onChange={this.updateStoke} />
             <input className="btn btn-default" value="Interested!" type="submit"/>
 
         </form>
