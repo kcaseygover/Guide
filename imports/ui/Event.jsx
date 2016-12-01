@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-import Participants from './Participants.jsx'
+import Participants from './Participants'
 import Interest from './InterestInParticipating.jsx'
 import ShowProfile from './ShowProfile.jsx'
 
