@@ -47,7 +47,7 @@ textarea {resize: none}
 
 }
 .container {
-  position: relative;
+  /*position: relative;
   background: white;
 
   margin: 0 auto;
@@ -55,7 +55,7 @@ textarea {resize: none}
   padding-top: 1em;
   min-height: 100%;
   background: white;
-  border-top-width: 100px;
+  border-top-width: 100px;*/
 }
 
 .card{

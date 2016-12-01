@@ -35,7 +35,7 @@ class ShowProfile extends Component {
         if(user[0].info && user[0].info.dob ){
           console.log('inside', user);
           return showProfile(user);
-        }else if(user[0].profile.name && !user[0].info){
+        }else if( user[0].profile && user[0].profile.name && !user[0].info){
 
           return showMinProfile(user);
         }
