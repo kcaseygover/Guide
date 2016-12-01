@@ -25,8 +25,9 @@ export default class InterestInParticipating extends Component {
   updateStoke(e) {this.setState({stoke: e.target.value});}
 
   handleNewEventSubmit() {
+    if(Meteor.user){
     Meteor.call('participants.insert', this.state);
-  }
+  }}
   // deleteThisParticipant() {
   //   Meteor.call('participant.remove', this.props.participant._id);
   // }

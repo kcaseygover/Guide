@@ -2,14 +2,19 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-
-import Interest from './InterestInParticipating'
-import ShowProfile from './ShowProfile'
+import Participants from './Participants.jsx'
+import Interest from './InterestInParticipating.jsx'
+import ShowProfile from './ShowProfile.jsx'
 
 
 export default class Event extends Component {
+  constructor(props) {
+    super(props);
 
+  }
+  componentDidMount() {
 
+  }
 
   deleteThisEvent() {
     Meteor.call('events.remove', this.props.event._id);
@@ -19,6 +24,14 @@ export default class Event extends Component {
   render() {
 
     console.log("in events", this.props.event);
+
+    function anyParticipants(participant){
+        debugger;
+        console.log("participant",participant)
+        if(participant && participant.length > 0 ){
+        return <Participants users={participant}/>
+      }
+    }
 
     return (
 
@@ -46,7 +59,8 @@ export default class Event extends Component {
             Price: ${this.props.event.text.price} <br/>
             <button type="button" className="btn btn-default">Interested?</button>
             <Interest eventId={this.props.event._id} />
-            <ShowProfile userId='D3MePQtPMruFtBq88'/>
+            Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "Be the first to register!" }
+            {anyParticipants(this.props.event.participants)}
           </div>
         </div>
       </div>
@@ -54,7 +68,6 @@ export default class Event extends Component {
     </div>
 
   </div>
-
 
 
 

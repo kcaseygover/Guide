@@ -7,10 +7,13 @@ Meteor.startup(() => {
 
   });
 
+Meteor.publish(null, function (){
+  return Meteor.roles.find({})
+})
 
 
 Meteor.publish("allUsers", function () {
-  return Meteor.users.find({});
+  return Meteor.users.find({},{fields: {'info': 1, 'guideInfo': 1}});
 });
 
 Meteor.publish("userData", function () {
