@@ -49,30 +49,11 @@ import Seed from './Seed.jsx'
     return (
       <div>
         <NavBar/>
-
-
-          <div className="col-sm-12 container">
-            <div id="profile_page">
-              <a href='/users/:_id'>My Profile</a>
-
-
-
-
-
-              <br/>
-              <a href='/events/new'>Click here to create an Event</a>
-
-              <br/>
-
-            </div>
+        <div className="container">
+          <div>
+            {this.props.content}
           </div>
-
-          <div className="col-sm-12 container">
-            <div id="event_page">
-
-              {this.props.content}
-            </div>
-          </div>
+        </div>
       </div>
     )
   }

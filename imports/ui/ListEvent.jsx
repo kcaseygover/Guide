@@ -84,36 +84,44 @@ render(){
 
     return (
       <div>
-        <form className="form-inline">
-        <h2>Browse Events By:</h2>
-          <div className="form-group">
+
+
+
+
+
+<form className="form-inline browse">
+<div className="row">
+<div className="form-group col-xs-3">
+<h3>Browse By:</h3>
+</div>
+          <div className="form-group col-xs-3">
+
             <label htmlFor="filterByActivity">Activity: </label>
-            <input type="text" id="filterByActivity" className="form-control"
+            <input type="search" id="filterByActivity" className="form-control"
                 value={this.state.searchActivity}
                 onChange={this.updateActivitySearch.bind(this)}/>
+                <button type="button" className="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
-          <div className="form-group">
+          <div className="form-group col-xs-3">
             <label htmlFor="filterLocation">Location: </label>
             <input type="text" className="form-control" id="filterLocation" placeholder=""
                 value={this.state.searchLocation}
                 onChange={this.updateLocationSearch.bind(this)}/>
           </div>
-          <div className="form-group">
+          <div className="form-group col-xs-3">
             <label htmlFor="datepicker">Date: </label>
             <input type="date" id="datepicker" className="form-control" name="start"
               value={this.state.searchDate}
               onChange={this.updateDateSearch.bind(this)}/>
           </div>
+          </div>
         </form>
-        <ul>
-          <li>{filteredDate.map((event) => {
-
-              return <Event
-                event={event}
-                key={event._id}/>
-              })}
-          </li>
-        </ul>
+        <div>{filteredDate.map((event) => {
+          return <Event
+            event={event}
+            key={event._id}/>
+          })}
+        </div>
       </div>
     );
   }

@@ -58,6 +58,23 @@ textarea {resize: none}
   border-top-width: 100px;
 }
 
+.card{
+  border: 1px solid grey;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: lightgrey;
+
+}
+.card:hover{
+  opacity: .85;
+}
+
+.browse {
+  border: 1px solid grey;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: lightgrey;
+}
 
 #login-buttons {
   display: block;
@@ -73,7 +90,7 @@ textarea {resize: none}
 
 form {
   margin-top: 10px;
-  margin-bottom: -10px;
+
   position: relative;
 }
 
