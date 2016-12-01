@@ -25,13 +25,14 @@ class ShowGuideProfile extends Component {
 
    render() {
 
-      let user=[];
 
     function findUser(id){
       Meteor.subscribe("users");
-      user = Meteor.users.find({ '_id': id }).fetch();
+      Meteor.subscribe("allusers");
 
-        if(user.length > 0 ){
+      let user = Meteor.users.find({ '_id': id }).fetch();
+      debugger;
+        if(user[0] && user[0].guideInfo ){
           console.log('inside', user);
           return showProfile(user);
 
@@ -42,7 +43,7 @@ class ShowGuideProfile extends Component {
     function showProfile(user) {
         console.log('show porfile', user[0]);
         return ( <span className='text'>
-                  <div>Name: {user[0].info.firstName}{user[0].info.lastName} </div><br/>
+                  <div>Name: {user[0].info.firstName} {user[0].info.lastName} </div><br/>
                   <div>Date of Birth: {user[0].info.dob.toDateString} </div><br/>
                   <div>Bio: {user[0].info.bio} </div><br/>
                   <div>Interests: {user[0].info.interests} </div><br/>
@@ -92,6 +93,7 @@ class ShowGuideProfile extends Component {
 ShowGuideProfile.propTypes = {
   currentUser: PropTypes.object,
   _id: PropTypes.object,
+
 };
 
 export default createContainer(() => {
