@@ -12,7 +12,6 @@ export default class Participants extends Component {
 
   render(){
        let participants = this.props.users;
-       debugger;
        if(participants && participants.length > 0){
 
 

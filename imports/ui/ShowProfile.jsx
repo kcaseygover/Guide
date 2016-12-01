@@ -31,7 +31,6 @@ class ShowProfile extends Component {
       Meteor.subscribe("users");
       Meteor.subscribe("allusers");
       let user = Meteor.users.find({ '_id': id }).fetch();
-      debugger;
         if(user[0].info && user[0].info.dob ){
           console.log('inside', user);
           return showProfile(user);

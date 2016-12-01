@@ -24,7 +24,6 @@ export default class Event extends Component {
   render() {
 
     console.log("in events", this.props.event);
-    debugger;
     function anyParticipants(participant){
         console.log("participant",participant)
         if(participant && participant.length > 0 ){
@@ -50,16 +49,24 @@ export default class Event extends Component {
                 <button className="btn btn-primary" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
                   More info
                 </button>
+                <button type="button" className="btn btn-default" data-toggle="collapse" data-target={"#" + "info" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
+                  Interested?
+                </button>
+
               </p>
               <div className="collapse" id={this.props.event._id}>
                 <div className="card card-block">
                   Address: {this.props.event.text.address}<br/>
                   Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max} <br/>
                   Price: ${this.props.event.text.price} <br/>
-                  <button type="button" className="btn btn-default">Interested?</button>
-                  <Interest eventId={this.props.event._id} />
+
                   Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "Be the first to register!" }
                   {anyParticipants(this.props.event.participants)}
+                </div>
+              </div>
+              <div className="collapse" id={"info" + this.props.event._id}>
+                <div className="card card-block">
+                  <Interest eventId={this.props.event._id} />
                 </div>
               </div>
             </div>
