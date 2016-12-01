@@ -63,6 +63,7 @@ textarea {resize: none}
   padding: 1em;
   border-radius: 1em;
   background-color: lightgrey;
+  margin-top: 1em;
 
 }
 .card:hover{
