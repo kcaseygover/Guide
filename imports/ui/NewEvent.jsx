@@ -59,7 +59,7 @@ export default class NewEvent extends Component {
       <div>
         <NavBar/>
         <a href='/'>Back Home</a>
-        <form className= "new_event form-horizontal" onSubmit={this.handleNewEventSubmit.bind(this)}>
+        <form className= "new_event container form-horizontal" onSubmit={this.handleNewEventSubmit.bind(this)}>
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-9">
               <h3>Complete To Add Your Event</h3>

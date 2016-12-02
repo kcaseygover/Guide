@@ -49,24 +49,59 @@ export default class Profile extends Component {
       <div>
       <NavBar/>
       <a href='/'>Back Home</a>
-        <form className= "form-group " onSubmit={this.handleProfileSubmit.bind(this)}>
-          <Dropzone onDrop={this.onDrop}>
-            Try dropping some files here, or click to select files to upload.
-            </Dropzone>
-            First Name:
-            <input className="form-control" type="text"  name='first_name' value={this.state.firstName}  onChange={this.updateFirstName} />
-            Last Name:
-            <input className="form-control" type="text" value={this.state.lastName}  onChange={this.updateLastName} />
-            DOB:
-            <input className="form-control" type="date" value={this.state.dob} onChange={this.updateDob}/>
-            Bio:
-            <input className="form-control" type="text" value={this.state.bio} onChange={this.updateBio}/>
-            Interests:
-            <textarea className="form-control" type="text" value={this.state.interests}  onChange={this.updateInterests}/>
-            <input className="btn btn-default" type="submit"/>
+      <div className="editProfile container">
+        <form className= "form-horizontal" onSubmit={this.handleProfileSubmit.bind(this)}>
+          <div className="form-group">
+            <div className="col-sm-offset-2 col-sm-9">
+              <h3>Edit Your Profile</h3>
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-offset-2">
+              <Dropzone onDrop={this.onDrop}>
+                Try dropping some files here, or click to select files to upload.
+              </Dropzone>
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputFirstName" className="col-sm-2 control-label">First Name:</label>
+            <div className="col-sm-9">
+              <input className="form-control" id="inputFirstName" type="text"  value={this.state.firstName}  onChange={this.updateFirstName} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputLastName" className="col-sm-2 control-label">Last Name:</label>
+            <div className="col-sm-9">
+              <input className="form-control" id="inputLastName" type="text"  value={this.state.lastName}  onChange={this.updateLastName} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputDOB" className="col-sm-2 control-label">DOB:</label>
+            <div className="col-sm-9">
+              <input className="form-control" id="inputDOB" type="date" value={this.state.dob} onChange={this.updateDob} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputBio" className="col-sm-2 control-label">Bio:</label>
+            <div className="col-sm-9">
+              <textarea className="form-control" id="inputBio" type="text" value={this.state.bio} onChange={this.updateBio} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputInterests" className="col-sm-2 control-label">Interests:</label>
+            <div className="col-sm-9">
+              <textarea className="form-control" id="inputInterests" type="text" value={this.state.interests}  onChange={this.updateInterests} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-offset-2 col-sm-9">
+              <input className="btn btn-default" type="submit"/>
+            </div>
+          </div>
         </form>
         <GuideProfile/>
       </div>
+    </div>
 
     );
   }

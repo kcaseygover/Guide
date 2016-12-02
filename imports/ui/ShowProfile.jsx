@@ -43,7 +43,7 @@ class ShowProfile extends Component {
 
 
     function showProfile(user) {
-        console.log('show porfile', user[0]);
+        console.log('show profile', user[0]);
         return ( <span className='text'>
                   <div>Name: {user[0].info.name} </div> <div> {user[0].info.lastName} </div><br/>
                   <div>Date of Birth: {user[0].info.dob.toDateString} </div><br/>

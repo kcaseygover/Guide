@@ -33,21 +33,57 @@ export default class Profile extends Component {
     // so that we can style them nicely in CSS
 
     return (
-      <div>
-        <form className= "profile" onSubmit={this.handleProfileSubmit.bind(this)}>
-        <strong>So you want to be a guide ehhhhh?</strong><br/>
-            Please outline your plan for events:<br/>
-            <textarea className="form-control" type="text"  name='plan' value={this.state.plan}  onChange={this.updatePlan} /><br/>
-            Certifications:<br/>
-            <textarea className="form-control" type="text"  name='certs' value={this.state.certifications}  onChange={this.updateCerts} /><br/>
-            Experience:<br/>
-            <textarea className="form-control" type="text" value={this.state.experience}  onChange={this.updateExperience} /><br/>
-            What drives you?<br/>
-            <textarea className="form-control" type="text" value={this.state.why} onChange={this.updateWhy}/><br/>
-            <input className="btn btn-default" type="submit"/>
-        </form>
-      </div>
 
+
+      <div id="accordion" role="tablist" aria-multiselectable="true">
+        <div className="header" role="tab" id="headingOne">
+          <h5 className="col-sm-offset-2 mb-0">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Become a Guide
+            </a>
+          </h5>
+        </div>
+        <div id="collapseOne" className="collapse in" role="tabpanel" aria-labelledby="headingOne">
+          <div className="block">
+            <form className= "form-horizontal profile" onSubmit={this.handleProfileSubmit.bind(this)}>
+              <div className="form-group">
+                <div className="col-sm-offset-2 col-sm-9">
+                  <strong>Edit Your Guide Profile</strong>
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputOutline" className="col-sm-2 control-label">Please outline your plan for events:</label>
+                <div className="col-sm-9">
+                  <textarea className="form-control" id="inputOutline" type="text" value={this.state.plan}  onChange={this.updatePlan} />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputCertifications" className="col-sm-2 control-label">Certifications:</label>
+                <div className="col-sm-9">
+                  <textarea className="form-control" id="inputCertifications" type="text" value={this.state.certifications}  onChange={this.updateCerts} />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputExperience" className="col-sm-2 control-label">Experience:</label>
+                <div className="col-sm-9">
+                  <textarea className="form-control" id="inputExperience" type="text" value={this.state.experience}  onChange={this.updateExperience} />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputDrive" className="col-sm-2 control-label">What drives you?:</label>
+                <div className="col-sm-9">
+                  <textarea className="form-control" id="inputDrive" type="text" value={this.state.why} onChange={this.updateWhy} />
+                </div>
+              </div>
+              <div className="form-group">
+                <div className="col-sm-offset-2 col-sm-9">
+                  <input className="btn btn-default" type="submit"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     );
   }
 }

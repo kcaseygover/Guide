@@ -20,9 +20,9 @@ updateSearch(event) {
 
     return(
 
-      <nav className="navbar">
-
-        <a href='/events/new'>Click here to create an Event</a>
+      <nav className="nav">
+        <a href='/editprofile'>Edit Profile</a>
+        <a href='/events/new'>New Event</a>
         <a href='/'><h1>Guide Me</h1></a>
         <AccountsUIWrapper />
         <span className="glyphicon glyphicon-user" aria-hidden="true"></span>

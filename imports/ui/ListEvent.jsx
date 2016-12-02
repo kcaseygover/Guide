@@ -82,9 +82,7 @@ render(){
         })
       };
 
-    function clearText() {
-      this.setState({searchActivity:""})
-    };
+
 
     return (
       <div className="form-inline browse">
@@ -98,11 +96,10 @@ render(){
               <input type="search" id="filterByActivity" className="form-control"
                 value={this.state.searchActivity}
                 onChange={this.updateActivitySearch.bind(this)}/>
-                <button type="button" className="close" onClick={clearText.bind(this)} aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div className="form-group col-xs-3">
               <label htmlFor="filterLocation">Location: </label>
-              <input type="text" className="form-control" id="filterLocation" placeholder=""
+              <input type="search" className="form-control" id="filterLocation" placeholder=""
                   value={this.state.searchLocation}
                   onChange={this.updateLocationSearch.bind(this)}/>
             </div>
