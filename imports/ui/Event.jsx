@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import Participants from './Participants'
 import Interest from './InterestInParticipating.jsx'
 import ShowProfile from './ShowProfile.jsx'
+import ShowGuideProfile from './ShowGuideProfile.jsx'
 
 
 export default class Event extends Component {
@@ -31,6 +32,18 @@ export default class Event extends Component {
       }
     }
 
+    function interestedUser(){
+    debugger;
+    if(Meteor.user){
+      let info = {
+        'userId': Meteor.userId,
+        'eventId':this.props.event._id,
+      }
+
+    Meteor.call('addParticipants', info);
+  }}
+
+
     return (
 
       <div >
@@ -44,13 +57,17 @@ export default class Event extends Component {
               <p className="card-text">Where: {this.props.event.text.location}<button type="button" className="btn btn-default">Map</button>
                 <br/>When: {this.props.event.text.startTime.toString()}
                 <br/>Till: {this.props.event.text.endTime.toString()}
+                <img src="http://image.flaticon.com/icons/svg/64/64096.svg"  class="img-circle"/>
               </p>
               <p>
-                <button className="btn btn-primary" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
-                  More info
+                <button className="btn btn-primary col-md-4" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
+                  Detailed Event Info
                 </button>
-                <button type="button" className="btn btn-default" data-toggle="collapse" data-target={"#" + "info" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
-                  Interested?
+                <button type="button" className="btn btn-default col-md-4" data-toggle="collapse" data-target={"#" + "guide" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
+                  Guide Info
+                </button>
+                 <button type="button" className="btn btn-default col-md-4" onClick={interestedUser.bind(this)}  aria-expanded="false" aria-controls="collapseExample">
+                  Interested!
                 </button>
 
               </p>
@@ -61,12 +78,13 @@ export default class Event extends Component {
                   Price: ${this.props.event.text.price} <br/>
 
                   Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "Be the first to register!" }
-                  {anyParticipants(this.props.event.participants)}
                 </div>
               </div>
-              <div className="collapse" id={"info" + this.props.event._id}>
+              <div className="collapse" id={"guide" + this.props.event._id}>
                 <div className="card card-block">
-                  <Interest eventId={this.props.event._id} />
+
+                  <ShowGuideProfile userId={this.props.event.owner}/>
+                }
                 </div>
               </div>
             </div>
@@ -82,6 +100,11 @@ Event.propTypes = {
   // We can use propTypes to indicate it is required
   event: PropTypes.object.isRequired,
 };
+                  // {anyParticipants(this.props.event.participants)}
+
+                  //<Interest eventId={this.props.event._id} />
+
+
         //<button className="delete" onClick={this.deleteThisEvent.bind(this)}>
         //   &times;
         // </button>

@@ -24,7 +24,7 @@ class Seeder {
 
   getCollection( collection ) {
     let collectionName = this.sanitizeCollectionName( collection );
-
+    console.log(collection)
     return collectionName === 'Users' ? Meteor.users : global[ collectionName ];
   }
 
@@ -60,7 +60,7 @@ class Seeder {
         if ( isUsers ) {
           this.createUser( value );
         } else {
-          console.log(value);
+          console.log("about to insert",value);
           this.collection.insert( value );
         }
       }
@@ -146,20 +146,22 @@ Meteor.methods({
     } else {
       console.log(collection);
       Seed( collection , {
-        min: 5,
+        min: 15,
         environments: [ 'development', 'staging', 'production' ],
         model( index ) {
           return {
+            owner:'BZNiXENvstvafX2J4',
             text:{
-              title:faker.lorem.words(),
-              activity:faker.lorem.sentence(),
-              location:faker.address.streetAddress(),
+              title:faker.hacker.noun(),
+              activity:faker.hacker.verb(),
+              address:faker.address.streetAddress(),
+              location:faker.address.state(),
               latitude:faker.address.latitude(),
               longitude:faker.address.longitude(),
               startTime:faker.date.future(),
               endTime:faker.date.future(),
-              min:faker.random.number(),
-              max:faker.random.number(),
+              min:faker.random.number(1,5),
+              max:faker.random.number(6,25),
               price: faker.commerce.price(),
           },
         };

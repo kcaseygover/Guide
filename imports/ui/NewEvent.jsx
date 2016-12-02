@@ -11,6 +11,7 @@ export default class NewEvent extends Component {
     this.updateTitle = this.updateTitle.bind(this);
     this.updateActivity = this.updateActivity.bind(this);
     this.updateLocation = this.updateLocation.bind(this);
+    this.updateAddress = this.updateAddress.bind(this);
     this.updateLatitude = this.updateLatitude.bind(this);
     this.updateLongitude = this.updateLongitude.bind(this);
     this.updateStartTime = this.updateStartTime.bind(this);
@@ -23,6 +24,7 @@ export default class NewEvent extends Component {
     title:"",
     activity:"",
     location:"",
+    address:"",
     latitude:"",
     longtitude:"",
     startTime:"",
@@ -40,6 +42,7 @@ export default class NewEvent extends Component {
   updateTitle(e) {this.setState({title: e.target.value});}
   updateActivity(e) {this.setState({activity: e.target.value});}
   updateLocation(e) {this.setState({location: e.target.value});}
+  updateAddress(e) {this.setState({address: e.target.value});}
   updateLatitude(e) {this.setState({latitude: e.target.value});}
   updateLongitude(e) {this.setState({longitude: e.target.value});}
   updateStartTime(e) {this.setState({startTime: e.target.value});}
@@ -78,6 +81,12 @@ export default class NewEvent extends Component {
             <label htmlFor="inputLocation1" className="col-sm-2 control-label">Location Name:</label>
             <div className="col-sm-9">
               <input className="form-control" id="inputLocation1" type="text"  value={this.state.location}  onChange={this.updateLocation} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="inputAddress1" className="col-sm-2 control-label">Address:</label>
+            <div className="col-sm-9">
+              <input className="form-control" id="inputLocation1" type="text"  value={this.state.address}  onChange={this.updateAddress} />
             </div>
           </div>
           <div className="form-group">

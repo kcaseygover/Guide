@@ -3,7 +3,6 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import { Class } from 'meteor/jagi:astronomy';
 
-export const Events =  new Mongo.Collection('events');
 
 
  // Events.schema = new SimpleSchema({
@@ -24,6 +23,7 @@ export const Events =  new Mongo.Collection('events');
   // partic: {type:Array}
 //})
 
+export const Events =  new Mongo.Collection('events');
 if (Meteor.isServer) {
   // This code only runs on the server
   // Only publish events that are public or belong to the current user
@@ -60,10 +60,10 @@ Meteor.methods({
   },
 
   'addParticipants'(info) {
-    check(info, Object);
+    check(info,Object);
 
     console.log(info);
-    Events.update(info.text.eventId, {$push:{'participants':info.id}})
+    Events.update(info.eventId, {$push:{'participants':info.userId}})
 
 
 
