@@ -57,9 +57,7 @@ export default class Event extends Component {
               <p className="card-text">Where: {this.props.event.text.location}<button type="button" className="btn btn-default">Map</button>
                 <br/>When: {this.props.event.text.startTime.toString()}
                 <br/>Till: {this.props.event.text.endTime.toString()}
-                <img src="http://image.flaticon.com/icons/svg/64/64096.svg"  class="img-circle"/>
-              </p>
-              <p>
+                 <p>
                 <button className="btn btn-primary col-md-4" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
                   Detailed Event Info
                 </button>
@@ -71,6 +69,9 @@ export default class Event extends Component {
                 </button>
 
               </p>
+                <img src="http://image.flaticon.com/icons/svg/64/64096.svg"  class="img-circle"/>
+              </p>
+
               <div className="collapse" id={this.props.event._id}>
                 <div className="card card-block">
                   Address: {this.props.event.text.address}<br/>
