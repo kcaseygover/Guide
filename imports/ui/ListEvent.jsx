@@ -86,25 +86,25 @@ render(){
 
     return (
       <div className="form-inline browse">
-        <form className="row">
+        <form>
           <div >
-            <div className="form-group col-xs-3">
-              <label>Browse By:</label>
+            <div className="form-group">
+              <label>Filter:</label>
             </div>
-            <div className="form-group col-xs-3">
-              <label htmlFor="filterByActivity">Activity: </label>
+            <div className="form-group">
+              <label htmlFor="filterByActivity">Activity </label>
               <input type="search" id="filterByActivity" className="form-control"
                 value={this.state.searchActivity}
                 onChange={this.updateActivitySearch.bind(this)}/>
             </div>
-            <div className="form-group col-xs-3">
-              <label htmlFor="filterLocation">Location: </label>
+            <div className="form-group">
+              <label htmlFor="filterLocation">Location </label>
               <input type="search" className="form-control" id="filterLocation" placeholder=""
                   value={this.state.searchLocation}
                   onChange={this.updateLocationSearch.bind(this)}/>
             </div>
-            <div className="form-group col-xs-3">
-              <label htmlFor="datepicker">Date: </label>
+            <div className="form-group">
+              <label htmlFor="datepicker">Date </label>
               <input type="date" id="datepicker" className="form-control" name="start"
                 value={this.state.searchDate}
                 onChange={this.updateDateSearch.bind(this)}/>

@@ -33,7 +33,6 @@ export default class Event extends Component {
     }
 
     function interestedUser(){
-    debugger;
     if(Meteor.user){
       let info = {
         'userId': Meteor.userId,
@@ -60,13 +59,9 @@ export default class Event extends Component {
 
                  <p>
 
-                <button className="btn btn-primary col-md-4" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
-                  Detailed Event Info
+                <button className="btn btn-default col-md-4" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
+                  Details
                 </button>
-                 <button type="button" className="btn btn-default col-md-4" onClick={interestedUser.bind(this)}  aria-expanded="false" aria-controls="collapseExample">
-                  Interested!
-                </button>
-
               </p>
               </p>
 
@@ -80,6 +75,9 @@ export default class Event extends Component {
 
 
                   <ShowGuideProfile userId={this.props.event.owner}/>
+                  <button type="button" className="btn btn-default col-md-4" onClick={interestedUser.bind(this)}  aria-expanded="false" aria-controls="collapseExample">
+                  Interested!
+                </button>
                 }
                 </div>
               </div>

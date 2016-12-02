@@ -62,9 +62,9 @@ textarea {resize: none}
 .card{
   border: 1px solid grey;
   padding: 1em;
-  border-radius: 1em;
-  background-color: lightgrey;
-  margin-top: 1em;
+  /*border-radius: 1em;*/
+  background: #d2edf4;
+  margin-top: 3em;
 
 }
 .card:hover{
@@ -72,10 +72,28 @@ textarea {resize: none}
 }
 
 .browse {
-  border: 1px solid grey;
+  /*border: 1px solid grey;*/
   padding: 1em;
-  border-radius: 1em;
-  background-color: lightgrey;
+  padding-left: 1em;
+  padding-right: 1em;
+  /*border-radius: 1em;*/
+  background-color: white;
+  width: 100%;
+  text-align: center;
+
+
+}
+
+.browse .form-group {
+padding: 1em;
+padding-right: 2em;
+padding-left: 2em;
+font-size: 16px;
+
+
+}
+.browse label {
+  padding-right: 1em;
 }
 
 .editProfile {
