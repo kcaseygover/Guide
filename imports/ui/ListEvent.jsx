@@ -87,11 +87,11 @@ render(){
     };
 
     return (
-      <div>
-        <form className="form-inline browse">
-          <div className="row">
+      <div className="form-inline browse">
+        <form className="row">
+          <div >
             <div className="form-group col-xs-3">
-              <h3>Browse By:</h3>
+              <label>Browse By:</label>
             </div>
             <div className="form-group col-xs-3">
               <label htmlFor="filterByActivity">Activity: </label>
