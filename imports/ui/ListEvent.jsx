@@ -85,6 +85,7 @@ render(){
 
 
     return (
+
       <div className="form-inline browse">
         <form>
           <div >
@@ -118,6 +119,7 @@ render(){
           })}
         </div>
       </div>
+
     );
   }
 }

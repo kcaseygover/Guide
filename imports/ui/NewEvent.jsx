@@ -37,6 +37,9 @@ export default class NewEvent extends Component {
 
   handleNewEventSubmit() {
     Meteor.call('events.insert', this.state);
+    Meteor.onSuccess(
+      FlowRouter.go('/')
+    )
   }
 
   updateTitle(e) {this.setState({title: e.target.value});}

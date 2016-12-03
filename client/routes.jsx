@@ -36,6 +36,7 @@ FlowRouter.route('/events/new', {
     action: function (){
         console.log("This is my /events/new:");
         ReactLayout.render(NewEvent, {content: <NewEvent />});
+        //FlowRouter.redirect('/')
     }
 });
 
