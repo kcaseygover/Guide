@@ -64,6 +64,15 @@ export default class Event extends Component {
                 )}
   }
 
+  function areTheyTheOwner(ownerId){
+    debugger;
+    if(ownerId === Meteor.userId()){
+      return (<button className="delete" onClick={this.deleteThisEvent}>
+                &times;
+              </button>);
+    }
+  }
+
 
 
 
@@ -74,9 +83,7 @@ export default class Event extends Component {
         <div>
           <div className="col-sm-4">
             <div className="card card-block">
-            <button className="delete" onClick={this.deleteThisEvent}>
-                &times;
-              </button>
+              {areTheyTheOwner(this.props.event.owner)}
               <h3 className="card-title">{this.props.event.text.activity}</h3>
               <p className="card-text">Where: {this.props.event.text.location}
                 <br/>When: {this.props.event.text.startTime.toString()}
@@ -105,7 +112,6 @@ export default class Event extends Component {
                   Address: {this.props.event.text.address}<br/>
                   Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max} <br/>
                   Price: ${this.props.event.text.price} <br/>
-
                   Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "Be the first to register!"}
 
 
