@@ -51,11 +51,13 @@ import Seed from './Seed.jsx'
         <NavBar/>
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
-            <h1 className="display-3">Fluid jumbotron</h1>
-            <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <p className="display-3 glyphicon glyphicon-tree-conifer"></p>
+            <h1 className="lead">Guide Me</h1>
           </div>
+
         </div>
         <div>
+
             {this.props.content}
         </div>
       </div>
