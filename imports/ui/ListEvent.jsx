@@ -64,6 +64,7 @@ render(){
       let filteredListEvent = [];
       let filtered = [];
       let filteredDate = [];
+      let sorted = [];
       console.log('events object', this.props.events);
       if(this.props.events.length > 0){
       filteredListEvent = this.props.events.filter(
@@ -81,6 +82,12 @@ render(){
           return ev.text.startTime.toString().indexOf(this.state.searchDate) !== -1;
         })
       };
+      sorted = filteredDate.sort(
+        (a,b)=>{
+          return a.text.startTime - b.text.startTime;
+
+      });
+
 
 
 
@@ -112,7 +119,7 @@ render(){
             </div>
           </div>
         </form>
-        <div>{filteredDate.map((event) => {
+        <div>{sorted.map((event) => {
           return <Event
             event={event}
             key={event._id}/>
