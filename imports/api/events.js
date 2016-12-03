@@ -61,9 +61,14 @@ Meteor.methods({
 
   'addParticipants'(info) {
     check(info,Object);
+    debugger;
 
-    console.log(info);
-    Events.update(info.eventId, {$push:{'participants':info.userId}})
+
+    console.log('info',info);
+    Events.update(
+      info.eventId,{
+      $push: {participants: info.userId},
+    });
 
 
 
