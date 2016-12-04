@@ -68,6 +68,11 @@ textarea {resize: none}
   top: 50%;
   left: 37%;
 }
+.jumbotron .sign_up_button{
+  position: absolute;
+  top: 62%;
+  left: 45%;
+}
 
 
 .profile {
