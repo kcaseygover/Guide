@@ -29,8 +29,6 @@ class ListEvent extends Component {
   renderEvents() {
     console.log("uselessshit", this.props.events)
     let filteredEvents = this.props.events;
-    console.log("in here");
-    console.log("this.state.search::      ")
     return filteredEvents.map((event) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
 
@@ -65,7 +63,7 @@ render(){
       let filtered = [];
       let filteredDate = [];
       let sorted = [];
-      console.log('events object', this.props.events);
+      // console.log('events object', this.props.events);
       if(this.props.events.length > 0){
       filteredListEvent = this.props.events.filter(
         (ev) => {

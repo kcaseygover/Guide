@@ -6,21 +6,36 @@ import Participants from './Participants'
 import Interest from './InterestInParticipating.jsx'
 import ShowProfile from './ShowProfile.jsx'
 import ShowGuideProfile from './ShowGuideProfile.jsx'
-
+import Modal from './Modal'
 
 export default class Event extends Component {
   constructor(props) {
     super(props);
-
+      this.state = {
+      showModal: false
+    };
   }
   componentDidMount() {
 
   }
 
-
-
+  toggleModal(){
+    this.setState({showModal: !this.state.showModal});
+  }
 
   render() {
+    console.log("in Modal::   ", this.props.event),
+
+
+    <Modal
+    showModal={this.state.showModal}
+    title="Confirm"
+    onCancel={this.toggleModal}
+    cancelLabel="Cancel"
+    onConfirm={this.deleteItem}
+    confirmLabel="Delete"
+  ><p>Please confirm the deletion: </p>
+          </Modal>
 
     console.log("in events", this.props.event);
     function anyParticipants(participant){
@@ -51,8 +66,6 @@ export default class Event extends Component {
 
       participants.forEach((each)=>{
 
-        console.log(each);
-        console.log(currentUserId);
         if(each === currentUserId){
           show = false;
         }
@@ -65,7 +78,7 @@ export default class Event extends Component {
   }
 
   function areTheyTheOwner(ownerId){
-    debugger;
+
     if(ownerId === Meteor.userId()){
       return (<button className="delete" onClick={this.deleteThisEvent}>
                 &times;
@@ -80,7 +93,9 @@ export default class Event extends Component {
     return (
 
       <div >
+
         <div>
+
           <div className="col-sm-4">
             <div className="card card-block">
               {areTheyTheOwner(this.props.event.owner)}
@@ -88,36 +103,32 @@ export default class Event extends Component {
               <p className="card-text">Where: {this.props.event.text.location}
                 <br/>When: {this.props.event.text.startTime.toString()}
 
-                <br/>Till: {this.props.event.text.endTime.toString()}
-                </p>
-                 <p>
+                <br/>Until: {this.props.event.text.endTime.toString()}
+              </p>
+              <p>
 
-                <button className="btn btn-primary col-md-4" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
-                  Detailed Event Info
+                <button className="btn btn-default col-md-4" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
+                  More Detail
+
                 </button>
-
-                {console.log('participants',this.props.event.participants)}
-                {this.props.event.participants ? areTheyRegistered(this.props.event.participants) :
-                  <button type="button" className="btn btn-default col-md-4" onClick={interestedUser.bind(this)}  aria-expanded="false" aria-controls="collapseExample">
-                  Interested!
-                </button>
-                }
-
 
               </p>
 
-              <div className="collapse" id={this.props.event._id}>
-                <div className="card card-block">
+                <div>
 
                   Address: {this.props.event.text.address}<br/>
                   Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max} <br/>
                   Price: ${this.props.event.text.price} <br/>
-                  Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "Be the first to register!"}
+                  Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "0! Be the first to register!"}
 
 
                   <ShowGuideProfile userId={this.props.event.owner}/>
+                  {this.props.event.participants ? areTheyRegistered(this.props.event.participants) :
+                  <button type="button" className="btn btn-default col-md-4" onClick={interestedUser.bind(this)}  aria-expanded="false" aria-controls="collapseExample">
+                    Join Event
+                  </button>
+                  }
 
-                </div>
               </div>
             </div>
           </div>
@@ -133,6 +144,10 @@ Event.propTypes = {
   event: PropTypes.object.isRequired,
 
 };
+
+
+ // <div className="collapse" id={this.props.event._id}>
+ //                <div className="card card-block">
                 // <br/>Till: {this.props.event.text.endTime.toString()}
 
                   // {anyParticipants(this.props.event.participants)}
