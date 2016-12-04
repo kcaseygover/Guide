@@ -56,7 +56,7 @@ export default class Event extends Component {
               <p className="card-text">Where: {this.props.event.text.location}
                 <br/>When: {this.props.event.text.startTime.toString()}
                 <br/>Till: {this.props.event.text.endTime.toString()}
-  </p>
+              </p>
                  <p>
 
                 <button className="btn btn-default col-md-4" type="button" data-toggle="collapse" data-target={"#" + this.props.event._id} aria-expanded="false" aria-controls="collapseExample">
