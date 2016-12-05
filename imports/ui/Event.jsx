@@ -6,7 +6,7 @@ import Participants from './Participants'
 import Interest from './InterestInParticipating.jsx'
 import ShowProfile from './ShowProfile.jsx'
 import ShowGuideProfile from './ShowGuideProfile.jsx'
-//import Modal from './Modal'
+
 
 export default class Event extends Component {
   constructor(props) {
@@ -15,7 +15,15 @@ export default class Event extends Component {
 
     this.state = {
     showModal: false,
+    eventId:'',
     }
+  }
+  componentWillMount() {
+    this.setState({eventId:this.props.event._id});
+
+  }
+  componentwMount() {
+    this.setState({eventId:this.props.event._id});
   }
 
   render() {
@@ -29,21 +37,22 @@ export default class Event extends Component {
     }
 
     function deleteThisEvent(id) {
-      debugger;
      Meteor.call('events.remove', id);
   }
 
-    function interestedUser(){
+    function interestedUser(eventId){
+      debugger;
     if(Meteor.userId){
       let userId = Meteor.userId();
       let info = {
         'userId': userId,
-        'eventId':this.props.event._id,
+        'eventId':eventId,
       }
       Meteor.call('addParticipants', info);
   }}
 
-    function areTheyRegistered(participants){
+    function areTheyRegistered(participants,eventId){
+      debugger;
       let show = true;
       if(participants.length > 0){
       let currentUserId = Meteor.userId();
@@ -54,8 +63,7 @@ export default class Event extends Component {
           show = false;
         }
       })
-    }
-      if(show === true){return (  <button type="button" className="btn btn-default col-md-4" onClick={interestedUser.bind(this)}  >
+    } if(show){return (  <button type="button" className="btn btn-primary " onClick={()=>interestedUser(eventId)}  >
                   Interested!
                 </button>
                 )}
@@ -63,7 +71,7 @@ export default class Event extends Component {
 
   function areTheyTheOwner(ownerId,eventId){
     if(ownerId === Meteor.userId()){
-      return (<button className="delete" onClick={deleteThisEvent.bind(this)}>
+      return (<button className="delete" data={eventId} onClick={deleteThisEvent.bind(this)}>
                 &times;
               </button>);
     }
@@ -100,8 +108,8 @@ export default class Event extends Component {
                   </div>
                   <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                    {this.props.event.participants ? areTheyRegistered(this.props.event.participants) :
-                    <button type="button" className="btn btn-primary " onClick={interestedUser.bind(this)}  aria-expanded="false" aria-controls="collapseExample">
+                    {this.props.event.participants ? areTheyRegistered(this.props.event.participants,this.props.event._id) :
+                    <button type="button" className="btn btn-primary " onClick={()=>interestedUser(this.props.event._id)} >
                       Join Event
                     </button>
                   }
