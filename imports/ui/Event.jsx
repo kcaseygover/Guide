@@ -41,7 +41,7 @@ export default class Event extends Component {
   }
 
     function interestedUser(eventId){
-      debugger;
+      console.log(eventId);
     if(Meteor.userId){
       let userId = Meteor.userId();
       let info = {
@@ -63,7 +63,7 @@ export default class Event extends Component {
           show = false;
         }
       })
-    } if(show){return (  <button type="button" className="btn btn-primary " onClick={()=>interestedUser(eventId)}  >
+    } if(show){return (  <button type="button" data={eventId} className="btn btn-primary " onClick={()=>interestedUser(eventId)}  >
                   Interested!
                 </button>
                 )}
@@ -87,12 +87,12 @@ export default class Event extends Component {
 
 
 
-                <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target={'#'+this.props.event._id}>
                   More Details
                 </button>
               </p>
             </div>
-            <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div className="modal fade" id={this.props.event._id} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-body">
