@@ -6,7 +6,7 @@ import Participants from './Participants'
 import Interest from './InterestInParticipating.jsx'
 import ShowProfile from './ShowProfile.jsx'
 import ShowGuideProfile from './ShowGuideProfile.jsx'
-import Modal from './Modal'
+import Modal from './Modal.jsx'
 
 export default class Event extends Component {
   constructor(props) {

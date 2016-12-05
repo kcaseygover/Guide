@@ -39,7 +39,9 @@ Meteor.methods({
 
   'events.insert'(text) {
     check(text, Object);
-
+      if(!Meteor.userId()){
+        throw new Meteor.Error('not-authorized')
+      }
     Events.insert({
       text,
       createdAt: new Date(),
