@@ -23,8 +23,8 @@ export default class NavBar extends Component {
         <h1><a href='/'>Guide Me</a></h1>
         <nav className="nav">
           <AccountsUIWrapper />
-          <a href='/editprofile'>Edit Profile</a>
-          <a href='/events/new'>New Event</a>
+          {Meteor.user() ? (<a href='/events/new'>New Event</a>):''}
+          {Meteor.user() ? (<a href='/editprofile'>Edit Profile</a>):''}
       </nav>
     </header>
     );
