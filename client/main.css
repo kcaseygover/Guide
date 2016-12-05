@@ -2,16 +2,20 @@
     display: block;
 }
 nav {
-  z-index: 1;
+
+  margin-top: -50px;
+  padding-right: 15px;
+  height: 5em;
+  /*z-index: 1;
   top: 0;
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
   padding: 20px 15px 15px 15px;
   border-radius: 0px;
-  /*position: fixed;*/
+  position: fixed;
   width: 100%;
-  height: 150px;
-  font-family: sans-serif;
+
+  font-family: sans-serif;*/
 }
 
 h1 {
@@ -59,13 +63,13 @@ textarea {resize: none}
 .jumbotron .display-3 {
   font-size: 100px;
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 44%;
 
 }
 .jumbotron .lead {
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: 37%;
 }
 .jumbotron .sign_up_button{
