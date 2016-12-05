@@ -6,13 +6,13 @@ import { Class } from 'meteor/jagi:astronomy';
 
 //export const Users = new Mongo.Collection('users');
 
-// if (Meteor.isServer) {
-//   // This code only runs on the server
-//   // Only publish tasks that are public or belong to the current user
-//   Meteor.publish('users', function usersPublication() {
-//     return users.find({});
-//   });
-// }
+if (Meteor.isServer) {
+  // This code only runs on the server
+  // Only publish tasks that are public or belong to the current user
+  Meteor.publish('users', function usersPublication() {
+    return Meteor.users.find({});
+  });
+}
 
 Meteor.methods({
 

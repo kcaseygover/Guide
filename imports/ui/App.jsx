@@ -12,6 +12,7 @@ import InterestInParticipating from './InterestInParticipating';
 import { Profiles } from '../api/profiles.js';
 import Profile from './Profile.jsx';
 import GuideProfile from './GuideProfile.jsx';
+import ShowProfile from './ShowProfile.jsx';
 
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
@@ -19,8 +20,32 @@ import classnames from 'classnames';
 import ActivityList from './ActivityList.jsx';
 import NewActivityTag from './NewActivityTag.jsx';
 import NavBar from './NavBar.jsx';
+import Modal from './Modal.jsx';
 
-let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
+import Seed from './Seed.jsx'
+
+
+
+// $(document).ready(function () {
+
+//     var browse = $('.browse');
+//     var origOffsetY = browse.offset().top;
+
+//     function scroll() {
+//         if ($(window).scrollTop() >= origOffsetY) {
+//             $('.browse').addClass('sticky');
+//             $('.card').addClass('browse-padding');
+//         } else {
+//             $('.browse').removeClass('sticky');
+//             $('.card').removeClass('browse-padding');
+//         }
+
+
+//     }
+
+//     document.onscroll = scroll;
+
+// });
 // App component - represents the whole app
  class App extends Component {
   constructor(props) {
@@ -29,7 +54,18 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
     };
   }
 
+  componentDidMount() {
+
+  }
+
+  setVar() {
+    Session.set('Meteor.loginButtons.dropdownVisible', true);
+  }
   render() {
+
+
+
+
     let newEvent
       if (this.props.currentUser) {
         newEvent = <NewEvent/>
@@ -38,21 +74,18 @@ let activities = [{ id: 1, name: 'hiking'}, { id: 2, name: 'surfing'}];
     return (
       <div>
         <NavBar/>
-        <div className="row">
-          <div className="col-sm-4 container">
-            <div id="profile_page">
-              <Profile/>
-              <GuideProfile/>
-              <NewEvent/>
-            </div>
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <p className="display-3 glyphicon glyphicon-tree-conifer"></p>
+            <h1 className="lead">Guide Me</h1>
+            {console.log("in return", Session.get('test'))}
+            <button className="sign_up_button btn btn-default" onClick={this.setVar}>Sign Up</button>
           </div>
 
-          <div className="col-sm-8 container">
-            <div id="event_page">
-              <ListEvent/>
-              <InterestInParticipating/>
-            </div>
-          </div>
+        </div>
+        <div>
+
+            {this.props.content}
         </div>
       </div>
     )
@@ -66,7 +99,7 @@ App.propTypes = {
 
 export default createContainer(() => {
 
-   Meteor.subscribe('users');
+Meteor.subscribe('users');
 
   return {
    currentUser:  Meteor.user(),

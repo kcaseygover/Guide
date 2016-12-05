@@ -3,9 +3,9 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 import { Class } from 'meteor/jagi:astronomy';
 
-export const Events = new Mongo.Collection('events');
 
- //Events.schema = new SimpleSchema({
+
+ // Events.schema = new SimpleSchema({
 
   //name: {type: String},
   // activity_id: {type: Number},
@@ -23,15 +23,13 @@ export const Events = new Mongo.Collection('events');
   // partic: {type:Array}
 //})
 
+export const Events =  new Mongo.Collection('events');
 if (Meteor.isServer) {
   // This code only runs on the server
   // Only publish events that are public or belong to the current user
   Meteor.publish('events', function eventsPublication() {
     return Events.find({
-      $or: [
-        { private: { $ne: true } },
-        { owner: this.userId },
-      ],
+
     });
   });
 }
@@ -41,7 +39,9 @@ Meteor.methods({
 
   'events.insert'(text) {
     check(text, Object);
-
+      if(!Meteor.userId()){
+        throw new Meteor.Error('not-authorized')
+      }
     Events.insert({
       text,
       createdAt: new Date(),
@@ -61,17 +61,22 @@ Meteor.methods({
     Events.remove(eventId);
   },
 
-  'events.setChecked'(eventId, setChecked) {
-    check(eventId, String);
-    check(setChecked, Boolean);
+  'addParticipants'(info) {
+    check(info,Object);
+    console.log('infopre',this.info);
 
-    const event = Events.findOne(eventId);
-    if (event.private && event.owner !== this.userId) {
-      // If the event is private, make sure only the owner can check it off
-      throw new Meteor.Error('not-authorized');
-    }
 
-    Events.update(eventId, { $set: { checked: setChecked } });
+    console.log('info',info);
+    Events.update(
+      info.eventId, {
+
+      $push: {participants: info.userId}},
+    );
+
+
+
+
+   // Events.update(eventId, { $set: { checked: setChecked } });
   },
   'events.setPrivate'(eventId, setToPrivate) {
     check(eventId, String);
