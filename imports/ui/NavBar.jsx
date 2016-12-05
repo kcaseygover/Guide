@@ -23,10 +23,10 @@ export default class NavBar extends Component {
         <h1><a href='/'>Guide Me</a></h1>
         <nav className="nav">
           <AccountsUIWrapper />
-          <a href='/editprofile'>Edit Profile</a>
-          <a href='/events/new'>New Event</a>
-      </nav>
-    </header>
+          <a href='/editprofile' className="editProfileLink">Edit Profile</a>
+          <a href='/events/new' className="addNewEvent">New Event</a>
+        </nav>
+      </header>
     );
   }
 }
