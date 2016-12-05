@@ -34,6 +34,7 @@ export default class NavBar extends Component {
           {areTheyAGuide() ? <a href='/events/new'>New Event</a>:''}
       </nav>
     </header>
+
     );
   }
 }
