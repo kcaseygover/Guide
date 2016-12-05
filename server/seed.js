@@ -163,6 +163,7 @@ Meteor.methods({
               min:faker.random.number(1,5),
               max:faker.random.number(6,25),
               price: faker.commerce.price(),
+              participants:[],
           },
         };
       }

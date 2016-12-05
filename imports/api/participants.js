@@ -42,7 +42,6 @@ Meteor.methods({
       'id':this.userId,
     };
 
-    Meteor.call('addParticipants', info);
 
   }
 });

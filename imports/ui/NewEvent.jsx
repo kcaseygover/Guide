@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 import NavBar from './NavBar.jsx';
+import Button from './EventModal.jsx';
 
 
 export default class NewEvent extends Component {
@@ -37,9 +38,9 @@ export default class NewEvent extends Component {
 
   handleNewEventSubmit() {
     Meteor.call('events.insert', this.state);
-    Meteor.onSuccess(
-      FlowRouter.go('/')
-    )
+    // Meteor.onClick(
+    //   FlowRouter.go('/')
+    // )
   }
 
   updateTitle(e) {this.setState({title: e.target.value});}
@@ -136,10 +137,11 @@ export default class NewEvent extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-9">
-              <input className="btn btn-default" type="submit"/>
+              <input className="btn btn-default" type="submit" />
             </div>
           </div>
         </form>
+
       </div>
 
     );

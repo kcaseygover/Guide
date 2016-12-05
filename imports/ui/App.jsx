@@ -20,6 +20,7 @@ import classnames from 'classnames';
 import ActivityList from './ActivityList.jsx';
 import NewActivityTag from './NewActivityTag.jsx';
 import NavBar from './NavBar.jsx';
+import Modal from './Modal.jsx';
 
 import Seed from './Seed.jsx'
 

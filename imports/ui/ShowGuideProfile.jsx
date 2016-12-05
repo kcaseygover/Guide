@@ -41,14 +41,14 @@ class ShowGuideProfile extends Component {
 
     function showProfile(user) {
         console.log('show porfile', user[0]);
-        return ( <span className='text'>
+        return ( <div className="card card-block" >
                   <div>Name: {user[0].info.firstName} {user[0].info.lastName} </div><br/>
                   <div>Date of Birth: {user[0].info.dob.toDateString} </div><br/>
                   <div>Bio: {user[0].info.bio} </div><br/>
                   <div>Interests: {user[0].info.interests} </div><br/>
                   <div>Certifications: {user[0].guideInfo.certifications} </div><br/>
                   <div>Experience: {user[0].guideInfo.experience} </div><br/>
-                </span>
+                </div>
                 );
           };
 

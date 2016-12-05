@@ -1,3 +1,6 @@
+.show-modal{
+    display: block;
+}
 nav {
   z-index: 1;
   top: 0;
@@ -13,7 +16,7 @@ nav {
 
 h1 {
   text-align: center;
-  color: white;
+  color: green;
 
 }
 
@@ -90,6 +93,7 @@ textarea {resize: none}
   /*border-radius: 1em;*/
   background: #d2edf4;
   margin-top: 3em;
+  padding-bottom: 3em;
 
 }
 .card:hover{
