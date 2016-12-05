@@ -63,6 +63,7 @@ export default class NewEvent extends Component {
       <div>
         <NavBar/>
         <a href='/'>Back Home</a>
+        { Meteor.user() ? (
         <form className= "new_event container form-horizontal" onSubmit={this.handleNewEventSubmit.bind(this)}>
           <div className="form-group">
             <div className="col-sm-offset-2 col-sm-9">
@@ -140,11 +141,13 @@ export default class NewEvent extends Component {
               <input className="btn btn-default" type="submit" />
             </div>
           </div>
-        </form>
+        </form>)
+      :<div className="jumbotron"><h1>Please login before medling</h1></div>}
 
       </div>
 
     );
+
   }
 }
 
