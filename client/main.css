@@ -54,7 +54,7 @@ body {
   padding-top: 150px;
   font-family: sans-serif;
   background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #74C6B8 100%);
+  background-image: linear-gradient(to bottom, black, #74C6B8 100%);
   background-attachment: fixed;
   position: relative;
   padding: 0;
