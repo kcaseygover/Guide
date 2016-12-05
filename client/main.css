@@ -54,7 +54,7 @@ body {
   padding-top: 150px;
   font-family: sans-serif;
   background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #2d4427 100%);
+  background-image: linear-gradient(to bottom, #315481, #74C6B8 100%);
   background-attachment: fixed;
   position: relative;
   padding: 0;
@@ -120,9 +120,10 @@ padding-top: 7em;
   border: 1px solid grey;
   padding: 1em;
   /*border-radius: 1em;*/
-  background: #D2EDCA;
+  background: #40766D;
   margin-top: 3em;
   padding-bottom: 3em;
+  color:white;
 
 }
 .card:hover{
@@ -135,7 +136,7 @@ padding-top: 7em;
   padding-left: 1em;
   padding-right: 1em;
   /*border-radius: 1em;*/
-  background-color: white;
+  background-color: #E4F0EE;
   width: 100%;
   text-align: center;
 

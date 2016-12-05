@@ -79,7 +79,7 @@ import Seed from './Seed.jsx'
             <p className="display-3 glyphicon glyphicon-tree-conifer"></p>
             <h1 className="lead">Guide Me</h1>
             {console.log("in return", Session.get('test'))}
-            <button className="sign_up_button btn btn-default" onClick={this.setVar}>Sign Up</button>
+            {Meteor.user ? "" :<button className="sign_up_button btn btn-default" onClick={this.setVar}>Sign Up</button>}
           </div>
 
         </div>
