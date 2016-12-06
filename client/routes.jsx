@@ -10,6 +10,8 @@ import NewEvent from '../imports/ui/NewEvent.jsx';
 import Profile from '../imports/ui/Profile.jsx';
 import ShowProfile from '../imports/ui/ShowProfile.jsx';
 import ShowGuideProfile from '../imports/ui/ShowGuideProfile.jsx';
+import GuideProfile from '../imports/ui/GuideProfile.jsx';
+
 import Seed from '../imports/ui/Seed.jsx';
 
 
@@ -40,6 +42,7 @@ FlowRouter.route('/events/new', {
     }
 });
 
+
 FlowRouter.route('/users/:_id', {
     name: 'profile',
     subscriptions: function(params) {
@@ -61,6 +64,14 @@ FlowRouter.route('/editprofile', {
         }
 
 });
+FlowRouter.route('/guideapplication', {
+    name: 'guideapplication',
+    action: function (params){
+        ReactLayout.render(GuideProfile, {content: <GuideProfile/>});
+        }
+
+});
+
 FlowRouter.route('/guide/:_id', {
     name: 'guideprofile',
     action: function (params){

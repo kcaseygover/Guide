@@ -52,6 +52,7 @@ export default class Event extends Component {
   }}
 
     function areTheyRegistered(participants,eventId){
+
       let show = true;
       if(participants.length > 0){
       let currentUserId = Meteor.userId();
@@ -75,6 +76,8 @@ export default class Event extends Component {
               </button>);
     }
   }
+console.log("where is date????::: ", this.props.event.text)
+
     return (
         <div>
           <div className="col-sm-4">
@@ -82,8 +85,12 @@ export default class Event extends Component {
               {areTheyTheOwner(this.props.event.owner,this.props.event._id)}
               <h3 className="card-title">{this.props.event.text.activity}</h3>
               <p className="card-text">Where: {this.props.event.text.location}
-                <br/>When: {this.props.event.text.startTime.toString()}
-                <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target={'#'+this.props.event._id}>
+
+                <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime.toString()}
+
+
+                <br/>
+                <button type="button" className="btn btn-default more-detail" data-toggle="modal" data-target={'#'+this.props.event._id}>
                   More Details
                 </button>
               </p>
@@ -93,12 +100,20 @@ export default class Event extends Component {
                 <div className="modal-content">
                   <div className="modal-body col-xs-6">
 
-                    Address: {this.props.event.text.address}<br/>
-                    Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max} <br/>
-                    Price: ${this.props.event.text.price} <br/>
-                    Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "0! Be the first to register!"}
-                    <ShowGuideProfile userId={this.props.event.owner}/>
 
+              <h3>{this.props.event.text.activity}</h3>
+              <ul>
+              <li>Where: {this.props.event.text.location}</li>
+
+                <li>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime.toString()} - {this.props.event.text.endTime.toString()}</li>
+                    <li>Address: {this.props.event.text.address}</li>
+                    <li>Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max}</li>
+                    <li>Price: ${this.props.event.text.price} </li>
+                    <li>Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "0! Be the first to register!"}</li>
+
+
+                    <li><ShowGuideProfile userId={this.props.event.owner}/></li>
+                    </ul>
 
                   </div>
                   <div className="modal-body col-xs-6">
@@ -108,7 +123,7 @@ export default class Event extends Component {
                   <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                     {this.props.event.participants ? areTheyRegistered(this.props.event.participants,this.props.event._id) :
-                    <button type="button" className="btn btn-primary " onClick={()=>interestedUser(this.props.event._id)} >
+                    <button type="button" className="btn btn-default " onClick={()=>interestedUser(this.props.event._id)} >
                       Join Event
                     </button>
                   }
