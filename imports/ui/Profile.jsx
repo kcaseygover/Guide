@@ -61,6 +61,7 @@ export default class Profile extends Component {
               <Dropzone onDrop={this.onDrop}>
                 Try dropping some files here, or click to select files to upload.
               </Dropzone>
+
             </div>
           </div>
           <div className="form-group">

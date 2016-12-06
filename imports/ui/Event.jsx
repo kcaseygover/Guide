@@ -71,7 +71,7 @@ export default class Event extends Component {
 
   function areTheyTheOwner(ownerId,eventId){
     if(ownerId === Meteor.userId()){
-      return (<button className="delete" data={eventId} onClick={deleteThisEvent.bind(this)}>
+      return (<button className="delete" data={eventId} onClick={()=>deleteThisEvent(eventId)}>
                 &times;
               </button>);
     }
@@ -97,7 +97,8 @@ console.log("where is date????::: ", this.props.event.text)
             <div className="modal fade" id={this.props.event._id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
-                  <div className="modal-body">
+                  <div className="modal-body col-xs-6">
+
 
               <h3>{this.props.event.text.activity}</h3>
               <ul>
@@ -112,7 +113,12 @@ console.log("where is date????::: ", this.props.event.text)
 
                     <li><ShowGuideProfile userId={this.props.event.owner}/></li>
                     </ul>
+
                   </div>
+                  <div className="modal-body col-xs-6">
+                    <img className="avatar" src='https://cdn1.iconfinder.com/data/icons/trycons/32/user-512.png'/>
+
+                   </div>
                   <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                     {this.props.event.participants ? areTheyRegistered(this.props.event.participants,this.props.event._id) :
