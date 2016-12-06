@@ -75,7 +75,6 @@ body {
   z-index: 0;
   padding-top: 150px;
   font-family: sans-serif;
-  background-color: #315481;
   background-image: linear-gradient(to bottom, black, #74C6B8 100%);
   background-attachment: fixed;
   position: relative;
@@ -142,7 +141,6 @@ padding-top: 10em;
 .card{
   border: 1px solid grey;
   padding: 1em;
-  /*border-radius: 1em;*/
   background: #40766D;
   margin-top: 3em;
   padding-bottom: 3em;
@@ -157,43 +155,16 @@ margin-top: 1em;
 color: black;
 }
 .browse {
-  /*border: 1px solid grey;*/
+
   padding: 1em;
   padding-left: 1em;
   padding-right: 1em;
-  /*border-radius: 1em;*/
   background-color: #E4F0EE;
   width: 100%;
   text-align: center;
 
 }
 
-/*
-.browse, .card {
-    padding:10px;
-}
-.browse {
-
-    background:#428bca;
-    color:#fff;
-    height:50px;
-    line-height:30px;
-    letter-spacing:1px;
-    width:100%;
-}
-.card {
-    margin-top:10px;
-}
-.browse-padding {
-    padding-top:40px;
-}
-.card p {
-    margin-bottom:20px;
-}
-.sticky {
-    position:fixed;
-    top:0;
-}*/
 
 .browse .form-group {
 padding: 1em;
@@ -283,7 +254,7 @@ li {
   position: relative;
   list-style: none;
   padding: 15px;
-  /*border-bottom: #eee solid 1px;*/
+
 }
 
 li .text {
@@ -315,6 +286,8 @@ header .hide-completed {
   li {
     padding: 12px 15px;
   }
+
+
 
   .search {
     width: 150px;

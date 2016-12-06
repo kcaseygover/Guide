@@ -21,7 +21,7 @@ export default class NavBar extends Component {
       let show;
       let user = Meteor.user();
 
-      (user && user.guideInfo ) ? show = true : show = false;
+      (user && user.guideInfo && user.info ) ? show = true : show = false;
       return show
     }
 
