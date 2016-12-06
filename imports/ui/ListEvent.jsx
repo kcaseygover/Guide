@@ -26,6 +26,12 @@ class ListEvent extends Component {
 
   }
 
+// to limit ie: 20 characters,
+//can change to: event.target.value.substr(0, 20)
+// updateSearch(event) {
+//   this.setState({search: event.target.value});
+// }
+
   renderEvents() {
     console.log("uselessshit", this.props.events)
     let filteredEvents = this.props.events;
@@ -44,17 +50,16 @@ class ListEvent extends Component {
   }
 
   updateActivitySearch(event) {
-    this.setState({searchActivity: event.target.value});
-    console.log("event.target.value:   ", event.target.value);
+    this.setState({searchActivity: event.target.value.substr(0, 20)});
+    // console.log("event.target.value:   ", event.target.value.substr(0, 20));
   }
   updateLocationSearch(event) {
-    this.setState({searchLocation: event.target.value});
-    console.log("in location  event.target.value:   ", event.target.value)
+    this.setState({searchLocation: event.target.value.substr(0, 20)});
+    // console.log("in location  event.target.value:   ", event.target.value.substr(0, 20))
   }
   updateDateSearch(event) {
-
     this.setState({searchDate: event.target.value});
-    console.log("in date")
+    // console.log("in date")
   }
 
 render(){
@@ -85,9 +90,6 @@ render(){
           return a.text.startTime - b.text.startTime;
 
       });
-
-
-
 
     return (
 

@@ -5,16 +5,10 @@ import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 export default class NavBar extends Component {
   constructor(props) {
     super(props);
-      // this.state = { search: '' };
+
 
   }
 
-
-// to limit ie: 20 characters,
-//can change to: event.target.value.substr(0, 20)
-// updateSearch(event) {
-//   this.setState({search: event.target.value});
-// }
 
   render() {
     function areTheyAGuide(){
