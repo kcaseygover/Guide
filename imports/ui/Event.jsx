@@ -86,7 +86,7 @@ console.log("where is date????::: ", this.props.event.text)
               <h3 className="card-title">{this.props.event.text.activity}</h3>
               <p className="card-text">Where: {this.props.event.text.location}
 
-                <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime.toString()}
+                <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime}
 
 
                 <br/>

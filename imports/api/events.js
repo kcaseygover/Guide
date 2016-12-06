@@ -46,7 +46,7 @@ Meteor.methods({
     Events.insert({
       text,
       createdAt: new Date(),
-      owner: this.userId,
+      owner: this.userId || '8Thtitjy3BgNtBqT2' ,
 
     });
   },

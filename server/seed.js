@@ -7,12 +7,14 @@ import { Class } from 'meteor/jagi:astronomy';
 
 class Seeder {
   constructor( collection, options ) {
-        this.seed();
+    this.options = options;
+    this.collection = collection;
+    this.seed();
   }
 
 
+
   seed() {
-    console.log(this);
     let options = this.options,
         data    = options.data,
         model   = options.model;
@@ -28,12 +30,11 @@ class Seeder {
   sow( data ) {
     let isDataArray        = data instanceof Array,
         loopLength         = isDataArray ? data.length : this.options.min,
-        hasData            = this.checkForExistingData(),
-        collectionName     = this.collection._name,
+        collectionName     = this.collection,
         isUsers            = collectionName === 'users',
         environmentAllowed = this.environmentAllowed();
 
-    if ( !hasData && environmentAllowed ) {
+    if (  environmentAllowed ) {
       for ( let i = 0; i < loopLength; i++ ) {
         let value = isDataArray ? data[ i ] : data( i );
 
@@ -41,7 +42,7 @@ class Seeder {
           this.createUser( value );
         } else {
           console.log("about to insert",value);
-          Meteor.call('events.insert'(value));
+          Meteor.call('events.insert', value);
         }
       }
     }
@@ -126,25 +127,25 @@ Meteor.methods({
     } else {
       console.log(collection);
       Seed( collection , {
-        min: 20,
+        min: 50,
         environments: [ 'development', 'staging', 'production' ],
         model( index ) {
           return {
-            owner:'8Thtitjy3BgNtBqT2',
-            text:{
+
               title:faker.hacker.noun(),
               activity:faker.hacker.verb(),
               address:faker.address.streetAddress(),
               location:faker.address.state(),
               latitude:faker.address.latitude(),
               longitude:faker.address.longitude(),
-              startTime:faker.date.future(),
-              endTime:faker.date.future(),
+              date:faker.date.future().toDateString(),
+              startTime:'10:00',
+              endTime:'02:00',
               min:faker.random.number(1,5),
               max:faker.random.number(6,25),
               price: faker.commerce.price(),
               participants:[],
-          },
+
         };
       }
       });
