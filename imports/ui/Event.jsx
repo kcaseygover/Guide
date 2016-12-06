@@ -84,9 +84,6 @@ export default class Event extends Component {
               <h3 className="card-title">{this.props.event.text.activity}</h3>
               <p className="card-text">Where: {this.props.event.text.location}
                 <br/>When: {this.props.event.text.startTime.toString()}
-
-
-
                 <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target={'#'+this.props.event._id}>
                   More Details
                 </button>
