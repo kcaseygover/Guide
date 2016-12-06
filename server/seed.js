@@ -7,32 +7,12 @@ import { Class } from 'meteor/jagi:astronomy';
 
 class Seeder {
   constructor( collection, options ) {
-    if ( !collection || !options ) {
-      throw new Error( 'Please supply a collection to seed and options for seeding. Usage: Seed( collectionName, options ).' );
-    } else {
-      this.collection = this.getCollection( collection );
-      this.options    = options;
-      console.log("nothing here", typeof this.collection);
-
-      if ( typeof this.collection !== 'undefined' ) {
         this.seed();
-      } else {
-        throw new Error( `Sorry, couldn't find the collection "${ collection }" to seed!` );
-      }
-    }
   }
 
-  getCollection( collection ) {
-    let collectionName = this.sanitizeCollectionName( collection );
-    console.log(collection)
-    return collectionName === 'Users' ? Meteor.users : global[ collectionName ];
-  }
-
-  sanitizeCollectionName( collection ) {
-    return collection[ 0 ].toUpperCase() + collection.slice( 1 );
-  }
 
   seed() {
+    console.log(this);
     let options = this.options,
         data    = options.data,
         model   = options.model;
@@ -61,7 +41,7 @@ class Seeder {
           this.createUser( value );
         } else {
           console.log("about to insert",value);
-          this.collection.insert( value );
+          Meteor.call('events.insert'(value));
         }
       }
     }
@@ -146,11 +126,11 @@ Meteor.methods({
     } else {
       console.log(collection);
       Seed( collection , {
-        min: 15,
+        min: 20,
         environments: [ 'development', 'staging', 'production' ],
         model( index ) {
           return {
-            owner:'BZNiXENvstvafX2J4',
+            owner:'8Thtitjy3BgNtBqT2',
             text:{
               title:faker.hacker.noun(),
               activity:faker.hacker.verb(),

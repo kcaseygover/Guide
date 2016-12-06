@@ -88,7 +88,7 @@ export default class Event extends Component {
                 </button>
               </p>
             </div>
-            <div className="modal fade" id={this.props.event._id} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div className="modal fade" id={this.props.event._id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-body col-xs-6">
