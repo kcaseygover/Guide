@@ -26,26 +26,6 @@ import Seed from './Seed.jsx'
 
 
 
-// $(document).ready(function () {
-
-//     var browse = $('.browse');
-//     var origOffsetY = browse.offset().top;
-
-//     function scroll() {
-//         if ($(window).scrollTop() >= origOffsetY) {
-//             $('.browse').addClass('sticky');
-//             $('.card').addClass('browse-padding');
-//         } else {
-//             $('.browse').removeClass('sticky');
-//             $('.card').removeClass('browse-padding');
-//         }
-
-
-//     }
-
-//     document.onscroll = scroll;
-
-// });
 // App component - represents the whole app
  class App extends Component {
   constructor(props) {
@@ -61,6 +41,7 @@ import Seed from './Seed.jsx'
   setVar() {
     Session.set('Meteor.loginButtons.dropdownVisible', true);
   }
+  // console.log("in app", 'Meteor.loginButtons.dropdownVisible');
   render() {
 
 

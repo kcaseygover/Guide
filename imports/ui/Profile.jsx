@@ -24,6 +24,10 @@ export default class Profile extends Component {
     files:""
     }
   }
+componentDidMount(){
+  Meteor.subscribe("userData");
+
+  }
 
   onDrop(acceptedFiles, rejectedFiles) {
       console.log('Accepted files: ', acceptedFiles);

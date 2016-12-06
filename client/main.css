@@ -5,15 +5,14 @@ nav a {
   padding-left: 50px;
   float: left;
 
-
 }
-/*nav .editProfileLink {
-  float: right;
 
-}
-nav .addNewEvent {
+.nav-links{
   float: right;
-}*/
+  padding-top: 1em;
+  border: none;
+}
+
 header a {
   color: green;
   padding-top: 2em;

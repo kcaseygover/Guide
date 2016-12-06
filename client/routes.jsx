@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import App from '../imports/ui/App.jsx';
 
 import ListEvent from '../imports/ui/ListEvent.jsx';
+import MyEvents from '../imports/ui/MyEvents.jsx';
 import Event from '../imports/ui/Event.jsx';
 
 import NewEvent from '../imports/ui/NewEvent.jsx';
@@ -38,6 +39,14 @@ FlowRouter.route('/events/new', {
     action: function (){
         console.log("This is my /events/new:");
         ReactLayout.render(NewEvent, {content: <NewEvent />});
+        //FlowRouter.redirect('/')
+    }
+});
+FlowRouter.route('/my_events', {
+    name: 'my_events',
+    action: function (){
+        console.log("This is my events:: ");
+        ReactLayout.render(MyEvents, {content: <MyEvents />});
         //FlowRouter.redirect('/')
     }
 });

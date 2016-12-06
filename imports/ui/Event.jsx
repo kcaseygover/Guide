@@ -63,8 +63,8 @@ export default class Event extends Component {
           show = false;
         }
       })
-    } if(show){return (  <button type="button" data={eventId} className="btn btn-primary " onClick={()=>interestedUser(eventId)}  >
-                  Interested!
+    } if(show){return (  <button type="button" data={eventId} className="btn btn-default " onClick={()=>interestedUser(eventId)}  >
+                  Join Event
                 </button>
                 )}
   }

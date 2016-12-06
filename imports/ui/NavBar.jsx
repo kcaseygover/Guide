@@ -5,16 +5,10 @@ import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 export default class NavBar extends Component {
   constructor(props) {
     super(props);
-      // this.state = { search: '' };
+
 
   }
 
-
-// to limit ie: 20 characters,
-//can change to: event.target.value.substr(0, 20)
-// updateSearch(event) {
-//   this.setState({search: event.target.value});
-// }
 
   render() {
     function areTheyAGuide(){
@@ -30,11 +24,19 @@ export default class NavBar extends Component {
         <h1><a href='/'>Guide Me</a></h1>
         <nav className="nav">
           <AccountsUIWrapper />
-          {Meteor.user() ? (<a href='/editprofile'>Edit Profile</a>):''}
-          {areTheyAGuide() ? <a href='/events/new'>New Event</a>:''}
-          {Meteor.user() ? (<a href='/guideapplication'>Become A Guide</a>):''}
-      </nav>
-    </header>
+          <div className="btn-group nav-links">
+            <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+               <span className="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+            </button>
+            <ul className="dropdown-menu dropdown-menu-right">
+              <li>{Meteor.user() ? (<a href='/editprofile'>Edit Profile</a>):''}</li>
+              <li>{areTheyAGuide() ? (<a href='/events/new'>New Event</a>):''}</li>
+              <li>{Meteor.user() ? (<a href='/guideapplication'>Become A Guide</a>):''}</li>
+              <li>{Meteor.user() ? (<a href='/my_events'>My Events</a>):''}</li>
+            </ul>
+          </div>
+        </nav>
+      </header>
 
     );
   }
