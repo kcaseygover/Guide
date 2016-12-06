@@ -114,11 +114,9 @@ export default class Event extends Component {
                     </button>
                   }
                   </div>
-
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
