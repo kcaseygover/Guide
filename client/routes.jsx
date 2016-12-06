@@ -41,6 +41,14 @@ FlowRouter.route('/events/new', {
         //FlowRouter.redirect('/')
     }
 });
+FlowRouter.route('/my_events', {
+    name: 'my_events',
+    action: function (){
+        console.log("This is my events:: ");
+        ReactLayout.render(MyEvent, {content: <MyEvent />});
+        //FlowRouter.redirect('/')
+    }
+});
 
 
 FlowRouter.route('/users/:_id', {

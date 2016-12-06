@@ -41,6 +41,7 @@ import Seed from './Seed.jsx'
   setVar() {
     Session.set('Meteor.loginButtons.dropdownVisible', true);
   }
+  // console.log("in app", 'Meteor.loginButtons.dropdownVisible');
   render() {
 
 

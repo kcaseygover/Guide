@@ -41,7 +41,7 @@ export default class NewEvent extends Component {
   handleNewEventSubmit() {
     Meteor.call('events.insert', this.state);
     console.log("in new event submit: ")
-    FlowRouter.go('/');
+    // FlowRouter.go('/');
   }
 
 
