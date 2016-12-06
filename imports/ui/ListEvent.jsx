@@ -59,7 +59,9 @@ class ListEvent extends Component {
   }
   updateDateSearch(event) {
     this.setState({searchDate: event.target.value});
-    // console.log("in date")
+
+    console.log("in date",event.target.value)
+
   }
 
 render(){
@@ -82,12 +84,12 @@ render(){
 
       filteredDate = filtered.filter(
         (ev)=>{
-          return ev.text.startTime.toString().indexOf(this.state.searchDate) !== -1;
+          return ev.text.date.toString().indexOf(this.state.searchDate.toLowerCase()) !== -1;
         })
       };
       sorted = filteredDate.sort(
         (a,b)=>{
-          return a.text.startTime - b.text.startTime;
+          return a.text.date - b.text.date;
 
       });
 
