@@ -20,7 +20,6 @@ export default class NavBar extends Component {
     function areTheyAGuide(){
       let show;
       let user = Meteor.user();
-      debugger;
       (user && user.guideInfo ) ? show = true : show = false;
       return show
     }

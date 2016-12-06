@@ -52,7 +52,6 @@ export default class Event extends Component {
   }}
 
     function areTheyRegistered(participants,eventId){
-      debugger;
       let show = true;
       if(participants.length > 0){
       let currentUserId = Meteor.userId();
@@ -71,7 +70,7 @@ export default class Event extends Component {
 
   function areTheyTheOwner(ownerId,eventId){
     if(ownerId === Meteor.userId()){
-      return (<button className="delete" data={eventId} onClick={deleteThisEvent.bind(this)}>
+      return (<button className="delete" data={eventId} onClick={()=>deleteThisEvent(eventId)}>
                 &times;
               </button>);
     }
@@ -95,17 +94,20 @@ export default class Event extends Component {
             <div className="modal fade" id={this.props.event._id} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
-                  <div className="modal-body">
+                  <div className="modal-body col-xs-6">
 
                     Address: {this.props.event.text.address}<br/>
                     Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max} <br/>
                     Price: ${this.props.event.text.price} <br/>
                     Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "0! Be the first to register!"}
-
-
                     <ShowGuideProfile userId={this.props.event.owner}/>
 
+
                   </div>
+                  <div className="modal-body col-xs-6">
+                    <img className="avatar" src='https://cdn1.iconfinder.com/data/icons/trycons/32/user-512.png'/>
+
+                   </div>
                   <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                     {this.props.event.participants ? areTheyRegistered(this.props.event.participants,this.props.event._id) :
