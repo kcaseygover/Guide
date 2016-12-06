@@ -85,7 +85,8 @@ console.log("where is date????::: ", this.props.event.text)
               {areTheyTheOwner(this.props.event.owner,this.props.event._id)}
               <h3 className="card-title">{this.props.event.text.activity}</h3>
               <p className="card-text">Where: {this.props.event.text.location}
-                <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime.toString()}
+
+                <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime}
 
 
                 <br/>
@@ -127,11 +128,9 @@ console.log("where is date????::: ", this.props.event.text)
                     </button>
                   }
                   </div>
-
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
