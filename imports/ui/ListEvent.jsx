@@ -67,7 +67,7 @@ render(){
       if(this.props.events.length > 0){
       filteredListEvent = this.props.events.filter(
         (ev) => {
-          return ev.text.activity.toLowerCase().indexOf(this.state.searchActivity.toLowerCase()) !== -1
+          return ev.text.activity.toLowerCase().indexOf(this.state.searchActivity.toLowerCase()) !== -1;
         }
       );
       filtered = filteredListEvent.filter(

@@ -20,7 +20,7 @@ export default class NavBar extends Component {
     function areTheyAGuide(){
       let show;
       let user = Meteor.user();
-      debugger;
+
       (user && user.guideInfo ) ? show = true : show = false;
       return show
     }
@@ -32,6 +32,7 @@ export default class NavBar extends Component {
           <AccountsUIWrapper />
           {Meteor.user() ? (<a href='/editprofile'>Edit Profile</a>):''}
           {areTheyAGuide() ? <a href='/events/new'>New Event</a>:''}
+          {Meteor.user() ? (<a href='/guideapplication'>Become A Guide</a>):''}
       </nav>
     </header>
 
