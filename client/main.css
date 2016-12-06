@@ -52,7 +52,8 @@ h1 {
   height:110%;
   width:110%;
   padding:10%;
-  float:bottom;
+  padding-top: 25em;
+
 }
 .jumbo {
   height:20%;

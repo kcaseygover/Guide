@@ -42,7 +42,9 @@ class ShowGuideProfile extends Component {
 
     function showProfile(user) {
         console.log('show profile', user[0]);
-        return ( <ul className="show-guide" >
+        return (
+
+          <ul className="show-guide" >
                   <li>Your Guide: {user[0].info.firstName} {user[0].info.lastName} </li>
                   <li>Date of Birth: {user[0].info.dob.toDateString} </li>
                   <li>Bio: {user[0].info.bio} </li>
@@ -50,6 +52,8 @@ class ShowGuideProfile extends Component {
                   <li>Certifications: {user[0].guideInfo.certifications} </li>
                   <li>Experience: {user[0].guideInfo.experience} </li>
                 </ul>
+
+
                 );
           };
 
