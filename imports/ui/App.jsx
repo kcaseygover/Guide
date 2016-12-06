@@ -78,8 +78,9 @@ import Seed from './Seed.jsx'
           <div className="container">
             <p className="display-3 glyphicon glyphicon-tree-conifer"></p>
             <h1 className="lead">Guide Me</h1>
+            <img className='jumbo' src='https://scontent.fyhz1-1.fna.fbcdn.net/t31.0-8/1534864_10200952205441788_1971396802_o.jpg' />
             {console.log("in return", Session.get('test'))}
-            <button className="sign_up_button btn btn-default" onClick={this.setVar}>Sign Up</button>
+            {Meteor.user() ? "" :<button className="sign_up_button btn btn-default" onClick={this.setVar}>Sign Up</button>}
           </div>
 
         </div>
