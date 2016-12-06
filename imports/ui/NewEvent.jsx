@@ -40,10 +40,10 @@ export default class NewEvent extends Component {
 
   handleNewEventSubmit() {
     Meteor.call('events.insert', this.state);
-console.log("in new event submit: ")
+    console.log("in new event submit: ")
     FlowRouter.go('/');
-
   }
+
 
   updateTitle(e) {this.setState({title: e.target.value});}
   updateActivity(e) {this.setState({activity: e.target.value});}
@@ -58,6 +58,8 @@ console.log("in new event submit: ")
   updateMax(e) {this.setState({max: e.target.value});}
   updatePrice(e) {this.setState({price: e.target.value});}
 
+
+
   render() {
     // Give tasks a different className when they are checked off,
     // so that we can style them nicely in CSS
@@ -65,8 +67,6 @@ console.log("in new event submit: ")
     return (
       <div>
         <NavBar/>
-
-
         <form className= "new_event container form-horizontal" onSubmit={this.handleNewEventSubmit.bind(this)}>
           <div className="form-group">
             <div className="col-sm-offset-4 col-sm-4">
@@ -130,19 +130,19 @@ console.log("in new event submit: ")
           <div className="form-group">
             <label htmlFor="inputMin1" className="col-sm-offset-2 col-sm-2 control-label">Min Participants:</label>
             <div className="col-sm-4">
-              <input className="form-control" id="inputMin1" type="number"  value={this.state.min}  onChange={this.updateMin} />
+              <input className="form-control" id="inputMin1" type="number" min="0" value={this.state.min}  onChange={this.updateMin} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputMax1" className="col-sm-offset-2 col-sm-2 control-label">Max Participants:</label>
             <div className="col-sm-4">
-              <input className="form-control" id="inputMax1" type="number"  value={this.state.max}  onChange={this.updateMax} />
+              <input className="form-control" id="inputMax1" type="number" min="0" value={this.state.max}  onChange={this.updateMax} />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="inputPrice1" className="col-sm-offset-2 col-sm-2 control-label">Price:</label>
             <div className="col-sm-4">
-              <input className="form-control" id="inputPrice1" type="number" value={this.state.price}  onChange={this.updatePrice} />
+              <input className="form-control" id="inputPrice1" type="number" min="0" value={this.state.price}  onChange={this.updatePrice} />
             </div>
           </div>
           <div className="form-group">
