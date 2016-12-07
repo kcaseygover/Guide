@@ -74,8 +74,8 @@ class ShowGuideProfile extends Component {
      return(
 
       <div className='col-xs-12 container'>
-      <a>{console.log("this",this)}</a>
-      <a>{findUser(this.props.userId)}</a>
+      <div>{console.log("this",this)}</div>
+      <div>{findUser(this.props.userId)}</div>
       </div>
 
     );
