@@ -18,6 +18,7 @@ class ListEvent extends Component {
       searchLocation: '',
       searchActivity: '',
       searchDate: '',
+      sDate:'',
     };
 
   }
@@ -58,8 +59,10 @@ class ListEvent extends Component {
     // console.log("in location  event.target.value:   ", event.target.value.substr(0, 20))
   }
   updateDateSearch(event) {
-    debugger;
-    this.setState({searchDate: event.target.value});
+    let date = new Date(event.target.value).toDateString().replace(/\//g,'-');
+    console.log('update search',date);
+    this.setState({sDate: event.target.value});
+    event.target.value ? this.setState({searchDate: date}) : this.setState({searchDate:''})
 
     console.log("in date",event.target.value)
 
@@ -85,7 +88,12 @@ render(){
 
       filteredDate = filtered.filter(
         (ev)=>{
-          return ev.text.date.toString().indexOf(this.state.searchDate.toLowerCase()) !== -1;
+
+        let date = new Date(ev.text.date).toDateString().replace(/\//g,'-');
+
+          console.log(date);
+          console.log(this.state.searchDate);
+          return date.indexOf(this.state.searchDate) !== -1;
         })
       };
       sorted = filteredDate.sort(
@@ -117,8 +125,9 @@ render(){
             <div className="form-group">
               <label htmlFor="datepicker">Date </label>
               <input type="date" id="datepicker" className="form-control" name="start"
-                value={this.state.searchDate}
+                value={this.state.sDate}
                 onChange={this.updateDateSearch.bind(this)}/>
+              <label>   {this.state.searchDate ? this.state.searchDate : "All events" }</label>
             </div>
           </div>
         </form>
