@@ -81,7 +81,6 @@ export default class Event extends Component {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-console.log("where is date????::: ", this.props.event.text)
 
     return (
       <div>
@@ -100,20 +99,34 @@ console.log("where is date????::: ", this.props.event.text)
           <div className="modal fade" id={this.props.event._id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
+                <div className='row'>
+                  <div className="col-xs-12">
+                    <span className='glyphicon glyphicon-remove pull-right p10' data-dismiss="modal" />
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className="col-xs-12 m10 image-holder">
+                    <span className='glyphicon glyphicon-picture image'/>
+                  </div>
+                </div>
+              <div className='row'>
                 <div className="modal-body col-xs-6">
-                <h3>{this.props.event.text.activity}</h3>
-                <ul>
-                  <li>Where: {this.props.event.text.location}</li>
-                  <li>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime.toString()} - {this.props.event.text.endTime.toString()}</li>
-                  <li>Address: {this.props.event.text.address}</li>
-                  <li>Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max}</li>
-                  <li>Price: ${this.props.event.text.price} </li>
-                  <li>Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "0! Be the first to register!"}</li>
-                  <li><ShowGuideProfile userId={this.props.event.owner}/></li>
-                </ul>
-              </div>
-              <div className="modal-body col-xs-6">
-                <img className="avatar" src='https://cdn1.iconfinder.com/data/icons/trycons/32/user-512.png'/>
+                  <h1>{capitalizeFirstLetter(this.props.event.text.activity)}</h1>
+
+                  <ul>
+                    <li>Where: {this.props.event.text.location}</li>
+                    <li>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime.toString()} - {this.props.event.text.endTime.toString()}</li>
+                    <li>Address: {this.props.event.text.address}</li>
+                    <li>Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max}</li>
+                    <li>Price: ${this.props.event.text.price} </li>
+                    <li>Participants Registered: {this.props.event.participants ? this.props.event.participants.length : "0! Be the first to register!"}</li>
+                  </ul>
+                </div>
+                <div className="modal-body col-xs-6">
+
+                  <span className="glyphicon glyphicon-user avatar" />
+                  <ShowGuideProfile userId={this.props.event.owner}/>
+                </div>
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
