@@ -88,7 +88,7 @@ console.log("where is date????::: ", this.props.event.text)
             {areTheyTheOwner(this.props.event.owner,this.props.event._id)}
             <h3 className="card-title shadow">{capitalizeFirstLetter(this.props.event.text.activity)}</h3>
             <p className="card-text">Where: {this.props.event.text.location}
-              <br/>When: {this.props.event.text.date.toDateString()} at {this.props.event.text.startTime}
+              <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime}
               <br/>
               <button type="button" className="btn btn-default more-detail" data-toggle="modal" data-target={'#'+this.props.event._id}>
                 More Details
