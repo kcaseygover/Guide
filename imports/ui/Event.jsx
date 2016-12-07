@@ -89,7 +89,7 @@ export default class Event extends Component {
             {areTheyTheOwner(this.props.event.owner,this.props.event._id)}
             <h3 className="card-title shadow">{capitalizeFirstLetter(this.props.event.text.activity)}</h3>
             <p className="card-text">Where: {this.props.event.text.location}
-              <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime}
+              <br/>When: {this.props.event.text.date.toString().split('/').reverse().join('-')} at {this.props.event.text.startTime}
               <br/>
               <button type="button" className="btn btn-default more-detail" data-toggle="modal" data-target={'#'+this.props.event._id}>
                 More Details
@@ -115,7 +115,7 @@ export default class Event extends Component {
 
                   <ul>
                     <li>Where: {this.props.event.text.location}</li>
-                    <li>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime.toString()} - {this.props.event.text.endTime.toString()}</li>
+                    <li>When: {this.props.event.text.date.toString().split('/').reverse().join('-')} at {this.props.event.text.startTime.toString()} - {this.props.event.text.endTime.toString()}</li>
                     <li>Address: {this.props.event.text.address}</li>
                     <li>Participants: Min: {this.props.event.text.min} Max: {this.props.event.text.max}</li>
                     <li>Price: ${this.props.event.text.price} </li>
@@ -135,7 +135,7 @@ export default class Event extends Component {
                   <button type="button" className="btn btn-default " onClick={()=>interestedUser(this.props.event._id)} >
                     Join Event
                   </button>
-                ):<button type="button" className="btn btn-default " >
+                ):<button type="button" className="btn btn-default" >
                 Please Login to Register
               </button>}
               </div>
