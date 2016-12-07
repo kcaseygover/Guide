@@ -26,6 +26,12 @@ export default class Event extends Component {
     this.setState({eventId:this.props.event._id});
   }
 
+ setVar() {
+    Session.set('Meteor.loginButtons.dropdownVisible', true);
+  }
+
+
+
   render() {
 
     console.log("in events", this.props.event);
@@ -66,8 +72,8 @@ export default class Event extends Component {
     } if(show){return (  <button type="button" data={eventId} className="btn btn-default " onClick={()=>interestedUser(eventId)}  >
                   Join Event
                 </button>
-        )}else{return (<button type="button"  className="btn btn-default "  >
-                  Now Registered !
+        )}else{return (<button type="button"  className="btn btn-default" data-dismiss="modal"  >
+                  You're Registered !
                 </button>)}
   }
 
@@ -135,7 +141,7 @@ export default class Event extends Component {
                   <button type="button" className="btn btn-default " onClick={()=>interestedUser(this.props.event._id)} >
                     Join Event
                   </button>
-                ):<button type="button" className="btn btn-default" >
+                ):<button className="sign_up_button btn btn-default" data-dismiss="modal" onClick={this.setVar}>
                 Please Login to Register
               </button>}
               </div>
@@ -148,6 +154,8 @@ export default class Event extends Component {
     );
   }
 };
+
+
 
 Event.propTypes = {
   // This component gets the task to display through a React prop.

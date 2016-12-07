@@ -108,7 +108,7 @@ render(){
         <form>
           <div >
             <div className="form-group">
-              <label>Filter:</label>
+              <label>Search:</label>
             </div>
             <div className="form-group">
               <label htmlFor="filterByActivity">Activity </label>
