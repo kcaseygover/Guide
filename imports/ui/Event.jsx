@@ -91,9 +91,12 @@ export default class Event extends Component {
             <p className="card-text">Where: {this.props.event.text.location}
               <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime}
               <br/>
-              <button type="button" className="btn btn-default more-detail" data-toggle="modal" data-target={'#'+this.props.event._id}>
+              {Meteor.user() ?
+                (<button type="button" className="btn btn-default more-detail" data-toggle="modal" data-target={'#'+this.props.event._id}>
                 More Details
-              </button>
+              </button>) :
+              <label className='col-xs-12'>Please Login to see more Details</label>}
+
             </p>
           </div>
           <div className="modal fade" id={this.props.event._id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
