@@ -91,12 +91,9 @@ export default class Event extends Component {
             <p className="card-text">Where: {this.props.event.text.location}
               <br/>When: {this.props.event.text.date.toString()} at {this.props.event.text.startTime}
               <br/>
-              {Meteor.user() ?
-                (<button type="button" className="btn btn-default more-detail" data-toggle="modal" data-target={'#'+this.props.event._id}>
+              <button type="button" className="btn btn-default more-detail" data-toggle="modal" data-target={'#'+this.props.event._id}>
                 More Details
-              </button>) :
-              <label className='col-xs-12'>Please Login to see more Details</label>}
-
+              </button>
             </p>
           </div>
           <div className="modal fade" id={this.props.event._id} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -133,11 +130,14 @@ export default class Event extends Component {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                {this.props.event.participants ? areTheyRegistered(this.props.event.participants,this.props.event._id) :
+
+                {Meteor.user() ? (this.props.event.participants ? areTheyRegistered(this.props.event.participants,this.props.event._id) :
                   <button type="button" className="btn btn-default " onClick={()=>interestedUser(this.props.event._id)} >
                     Join Event
                   </button>
-                }
+                ):<button type="button" className="btn btn-default " >
+                Please Login to Register
+              </button>}
               </div>
             </div>
           </div>
