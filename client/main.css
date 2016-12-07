@@ -14,7 +14,7 @@ nav a {
 }
 
 header a {
-  color: green;
+  color: #085252;
   padding-top: 2em;
 }
 nav .glyphicon-tree-conifer{
@@ -23,7 +23,7 @@ nav .glyphicon-tree-conifer{
 }
 
 nav {
-  color: green;
+
   margin-top: -70px;
   padding-right: 15px;
   height: 5em;
@@ -38,7 +38,7 @@ nav {
 
 h1 {
   text-align: center;
-  color: green;
+  /*color: green;*/
 
 }
 .avatar {
@@ -117,7 +117,7 @@ top:100px;
   background: #40766D;
   margin-top: 3em;
   padding-bottom: 3em;
-  color:white;
+  color: white;
 
 }
 .card:hover{
