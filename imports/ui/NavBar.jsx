@@ -25,9 +25,10 @@ export default class NavBar extends Component {
         <nav className="nav">
           <AccountsUIWrapper />
           <div className="btn-group nav-links">
-            <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+          {Meteor.user() ?  (<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                <span className="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-            </button>
+            </button>) :""}
+
             <ul className="dropdown-menu dropdown-menu-right">
               <li>{Meteor.user() ? (<a href='/editprofile'>Edit Profile</a>):''}</li>
               <li>{Meteor.user() ? (<a href='/my_events'>My Events</a>):''}</li>

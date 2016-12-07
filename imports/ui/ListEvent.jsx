@@ -127,7 +127,6 @@ render(){
               <input type="date" id="datepicker" className="form-control" name="start"
                 value={this.state.sDate}
                 onChange={this.updateDateSearch.bind(this)}/>
-              <label>   {this.state.searchDate ? this.state.searchDate : "All events" }</label>
             </div>
           </div>
         </form>
