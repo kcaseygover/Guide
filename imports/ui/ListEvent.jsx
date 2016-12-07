@@ -58,6 +58,7 @@ class ListEvent extends Component {
     // console.log("in location  event.target.value:   ", event.target.value.substr(0, 20))
   }
   updateDateSearch(event) {
+    debugger;
     this.setState({searchDate: event.target.value});
 
     console.log("in date",event.target.value)
