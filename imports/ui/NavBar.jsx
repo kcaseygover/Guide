@@ -30,9 +30,9 @@ export default class NavBar extends Component {
             </button>
             <ul className="dropdown-menu dropdown-menu-right">
               <li>{Meteor.user() ? (<a href='/editprofile'>Edit Profile</a>):''}</li>
-              <li>{areTheyAGuide() ? (<a href='/events/new'>New Event</a>):''}</li>
-              <li>{Meteor.user() ? (<a href='/guideapplication'>Become A Guide</a>):''}</li>
               <li>{Meteor.user() ? (<a href='/my_events'>My Events</a>):''}</li>
+              <li>{Meteor.user() ? (<a href='/guideapplication'>Become A Guide</a>):''}</li>
+              <li>{areTheyAGuide() ? (<a href='/events/new'>New Event</a>):''}</li>
             </ul>
           </div>
         </nav>
