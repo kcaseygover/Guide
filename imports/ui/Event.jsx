@@ -111,7 +111,7 @@ export default class Event extends Component {
                 </div>
               <div className='row'>
                 <div className="modal-body col-xs-6">
-                  <h1>{capitalizeFirstLetter(this.props.event.text.activity)}</h1>
+                  <h1 className='pb20'>{capitalizeFirstLetter(this.props.event.text.activity)}</h1>
 
                   <ul>
                     <li>Where: {this.props.event.text.location}</li>
