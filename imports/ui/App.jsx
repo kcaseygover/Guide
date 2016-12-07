@@ -57,9 +57,7 @@ import Seed from './Seed.jsx'
         <NavBar/>
         <div className="jumbotron jumbotron-fluid">
           <div className="container text-center">
-            <p className="display-3 glyphicon glyphicon-tree-conifer"></p>
             <h1 className="lead">Guide Me</h1>
-
             {Meteor.user() ? "" :<button className="sign_up_button btn btn-default" onClick={this.setVar}>Sign Up</button>}
           </div>
         </div>
