@@ -45,10 +45,7 @@ export default class NewEvent extends Component {
     }else{
       alert('Please Fill out all required fields');
     }
-    debugger;
-    Meteor.call('events.insert', this.state);
-    console.log("in new event submit: ")
-    // FlowRouter.go('/');
+
   }
 
 
