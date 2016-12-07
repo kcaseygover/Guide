@@ -39,6 +39,13 @@ export default class NewEvent extends Component {
   }
 
   handleNewEventSubmit() {
+    let t = this.state
+    if(t.title && t.activity && t.location && t.address && t.date && t.startTime && t.endTime && t.price ){
+      Meteor.call('events.insert', this.state);
+    }else{
+      alert('Please Fill out all required fields');
+    }
+    debugger;
     Meteor.call('events.insert', this.state);
     console.log("in new event submit: ")
     // FlowRouter.go('/');
@@ -74,25 +81,25 @@ export default class NewEvent extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="inputTitle1" className="col-sm-offset-2 col-sm-2 control-label">Title:</label>
+            <label htmlFor="inputTitle1" className="col-sm-offset-2 col-sm-2 control-label">Title*:</label>
             <div className="col-sm-4">
               <input className="form-control" id="inputTitle1" type="text"  value={this.state.title}  onChange={this.updateTitle} />
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="inputActivity1" className="col-sm-offset-2 col-sm-2 control-label">Activity:</label>
+            <label htmlFor="inputActivity1" className="col-sm-offset-2 col-sm-2 control-label">Activity*:</label>
             <div className="col-sm-4">
               <input className="form-control" id="inputActivity1" type="text"  value={this.state.activity}  onChange={this.updateActivity} />
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="inputLocation1" className=" col-sm-offset-2 col-sm-2 control-label">Location Name:</label>
+            <label htmlFor="inputLocation1" className=" col-sm-offset-2 col-sm-2 control-label">Location Name*:</label>
             <div className="col-sm-4">
               <input className="form-control" id="inputLocation1" type="text"  value={this.state.location}  onChange={this.updateLocation} />
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="inputAddress1" className="col-sm-offset-2 col-sm-2 control-label">Address:</label>
+            <label htmlFor="inputAddress1" className="col-sm-offset-2 col-sm-2 control-label">Address*:</label>
             <div className="col-sm-4">
               <input className="form-control" id="inputAddress1" type="text"  value={this.state.address}  onChange={this.updateAddress} />
             </div>
@@ -116,13 +123,13 @@ export default class NewEvent extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="inputStart1" className="col-sm-offset-2 col-sm-2 control-label">Start Time:</label>
+            <label htmlFor="inputStart1" className="col-sm-offset-2 col-sm-2 control-label">Start Time*:</label>
             <div className="col-sm-4">
               <input className="form-control" id="inputStart1" type="time" value={this.state.startTime} onChange={this.updateStartTime}/>
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="inputEnd1" className="col-sm-offset-2 col-sm-2 control-label">End Time:</label>
+            <label htmlFor="inputEnd1" className="col-sm-offset-2 col-sm-2 control-label">End Time*:</label>
             <div className="col-sm-4">
               <input className="form-control" id="inputEnd1" type="time" value={this.state.endTime} onChange={this.updateEndTime}/>
             </div>
@@ -140,11 +147,12 @@ export default class NewEvent extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="inputPrice1" className="col-sm-offset-2 col-sm-2 control-label">Price:</label>
+            <label htmlFor="inputPrice1" className="col-sm-offset-2 col-sm-2 control-label">Price*:</label>
             <div className="col-sm-4">
               <input className="form-control" id="inputPrice1" type="number" min="0" value={this.state.price}  onChange={this.updatePrice} />
             </div>
           </div>
+          <label className="col-sm-offset-2 col-sm-2 control-label ">* Required Field</label>
           <div className="form-group">
             <div className="col-sm-offset-4 col-sm-4">
               <input className="btn btn-default" type="submit" />
