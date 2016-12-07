@@ -169,7 +169,13 @@ font-size: 16px;
 
 #login-buttons {
   display: block;
+
 }
+#login-buttons ::before{
+
+
+}
+
 
 /*h1 {
   font-size: 1.5em;
@@ -205,7 +211,10 @@ form {
 /*.new-task input:focus{
   outline: 0;
 }*/
-
+.noResults {
+height:500px;
+padding:20%;
+}
 ul {
   margin: 0;
   padding: 0;

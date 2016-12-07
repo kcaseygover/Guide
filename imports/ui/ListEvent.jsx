@@ -131,11 +131,18 @@ render(){
             </div>
           </div>
         </form>
-        <div>{sorted.map((event) => {
+        <div>
+
+        {(sorted.length > 0) ? sorted.map((event) => {
+
           return <Event
             event={event}
             key={event._id}/>
-          })}
+          }):(
+          <div className='col-xs-12 noResults row'>
+          <h1>No Results were found</h1>
+          </div>)
+          }
         </div>
       </div>
 
