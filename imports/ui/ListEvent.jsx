@@ -98,8 +98,9 @@ render(){
       };
       sorted = filteredDate.sort(
         (a,b)=>{
-          return a.text.date - b.text.date;
-
+          let aReal = new Date(a.text.date);
+          let bReal = new Date(b.text.date);
+          return (aReal.getTime() - bReal.getTime())
       });
 
     return (
