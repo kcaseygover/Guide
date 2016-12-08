@@ -38,56 +38,48 @@ export default class Profile extends Component {
     return (
       <div>
         <NavBar/>
-          <div className="guide-app container" id="accordion" role="tablist" aria-multiselectable="true">
-            <div className="header" role="tab" id="headingOne">
-              <h5 className="col-sm-offset-4">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Click to Become a Guide
-                </a>
-              </h5>
-            </div>
-            <div id="collapseOne" className="collapse in" role="tabpanel" aria-labelledby="headingOne">
-              <div className="block">
-                <form className= "form-horizontal profile" onSubmit={this.handleProfileSubmit.bind(this)}>
-                  <div className="form-group">
-                    <div className="col-sm-offset-4 col-sm-4">
-                      <strong>Edit Your Guide Profile</strong>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="inputOutline" className="col-sm-4 control-label">Please outline your plan for events:</label>
-                    <div className="col-sm-4">
-                      <textarea className="form-control" id="inputOutline" type="text" value={this.state.plan}  onChange={this.updatePlan} />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="inputCertifications" className="col-sm-4 control-label">Certifications:</label>
-                    <div className="col-sm-4">
-                      <textarea className="form-control" id="inputCertifications" type="text" value={this.state.certifications}  onChange={this.updateCerts} />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="inputExperience" className="col-sm-4 control-label">Experience:</label>
-                    <div className="col-sm-4">
-                      <textarea className="form-control" id="inputExperience" type="text" value={this.state.experience}  onChange={this.updateExperience} />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="inputDrive" className="col-sm-4 control-label">What drives you?:</label>
-                    <div className="col-sm-4">
-                      <textarea className="form-control" id="inputDrive" type="text" value={this.state.why} onChange={this.updateWhy} />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <div className="col-sm-offset-4 col-sm-4">
-                      <input className="btn btn-default" type="submit"/>
-                    </div>
-                  </div>
-                </form>
+        <div className="guide-app container">
+          <div className="block">
+            <form className= "form-horizontal profile" onSubmit={this.handleProfileSubmit.bind(this)}>
+              <div className="form-group">
+                <div className="col-sm-offset-4 col-sm-4">
+                  <strong>Edit Your Guide Profile</strong>
+                </div>
               </div>
-            </div>
+              <div className="form-group">
+                <label htmlFor="inputOutline" className="col-sm-4 control-label">Please outline your plan for events:</label>
+                <div className="col-sm-4">
+                  <textarea className="form-control" id="inputOutline" type="text" value={this.state.plan}  onChange={this.updatePlan} />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputCertifications" className="col-sm-4 control-label">Certifications:</label>
+                <div className="col-sm-4">
+                  <textarea className="form-control" id="inputCertifications" type="text" value={this.state.certifications}  onChange={this.updateCerts} />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputExperience" className="col-sm-4 control-label">Experience:</label>
+                <div className="col-sm-4">
+                  <textarea className="form-control" id="inputExperience" type="text" value={this.state.experience}  onChange={this.updateExperience} />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="inputDrive" className="col-sm-4 control-label">What drives you?:</label>
+                <div className="col-sm-4">
+                  <textarea className="form-control" id="inputDrive" type="text" value={this.state.why} onChange={this.updateWhy} />
+                </div>
+              </div>
+              <div className="form-group">
+                <div className="col-sm-offset-4 col-sm-4">
+                  <input className="btn btn-default" type="submit"/>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
+
+      </div>
     );
   }
 }

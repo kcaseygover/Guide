@@ -1,4 +1,4 @@
-.show-modal{
+/*.show-modal{
     display: block;
 }
 
@@ -18,7 +18,7 @@ nav a {
   /*padding-left: 50px;*/
   /*float: left;*/
 
-}
+/*}
 header a {
   color: #085252;
   padding-top: 2em;
@@ -30,22 +30,22 @@ nav {
   height: 5em;
   background-color: white;
   /*position: fixed;*/
-  width: 100%;
+  /*width: 100%;
   z-index: 1;
-  color: #085252;
+  color: #085252;*/
 
   /*margin-bottom: 2em;*/
   /*Andreas:;
   position:relative;
   z-index: :-1;*/
-  /*font-family: sans-serif;*/
+  /*font-family: sans-serif;*//*
 }
 
 h1 {
   text-align: center;
   color: #085252;
   /*color: green;*/
-
+/*
 }
 .avatar {
   height:110%;
@@ -83,7 +83,7 @@ textarea {
   padding-top: 10em;
   margin-bottom: 0px;
   /*z-index: 2;*/
-  width: 100%;
+  /*width: 100%;
   height: 100vh;
   text-align: center;
   background-size: cover;
@@ -103,7 +103,7 @@ top:100px;
 
 .profile {
   /*border: 1px solid;*/
-  padding:20px;
+  /*padding:20px;
 
 }
 
@@ -177,7 +177,7 @@ font-size: 16px;
   margin-right: 1em;
 }*/
 
-input[type=search]::-webkit-search-cancel-button {
+/*input[type=search]::-webkit-search-cancel-button {
     -webkit-appearance: searchfield-cancel-button;
 }
 
@@ -204,7 +204,7 @@ form {
   outline: 0;
 }*/
 
-ul {
+/*ul {
   margin: 0;
   padding: 0;
   background: white;
@@ -266,4 +266,4 @@ header .hide-completed {
   .new-task input {
     padding-bottom: 5px;
   }
-}
+}*/

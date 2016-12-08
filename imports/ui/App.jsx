@@ -24,7 +24,7 @@ import Modal from './Modal.jsx';
 
 import Seed from './Seed.jsx'
 
-
+import { Tracker } from 'meteor/tracker'
 
 // App component - represents the whole app
  class App extends Component {
@@ -37,6 +37,12 @@ import Seed from './Seed.jsx'
   componentDidMount() {
 
   }
+  // Tracker.autorun(function () {
+  //   if (!Meteor.user()) {
+  //    Flowrouter.go('/')
+  //   }
+
+  // });
 
   setVar() {
     Session.set('Meteor.loginButtons.dropdownVisible', true);

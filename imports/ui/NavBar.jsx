@@ -20,10 +20,11 @@ export default class NavBar extends Component {
     }
 
     return(
-      <header>
-        <h1><a href='/'>Guide Me</a></h1>
+
         <nav className="nav">
-          <AccountsUIWrapper />
+         <AccountsUIWrapper />
+          <a href='/' className="title"><h1>Guide Me</h1></a>
+
           <div className="btn-group nav-links">
           {Meteor.user() ?  (<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                <span className="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
@@ -37,7 +38,7 @@ export default class NavBar extends Component {
             </ul>
           </div>
         </nav>
-      </header>
+
 
     );
   }

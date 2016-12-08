@@ -105,3 +105,9 @@ FlowRouter.route('/seed', {
 
     }
 });
+// Flowrouter.route ('/logout', {
+//   name: 'logout',
+//   action: function(){
+//     Meteor.logout{FlowRouter.go('/')}
+//   }
+// });
