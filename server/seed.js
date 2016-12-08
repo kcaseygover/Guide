@@ -138,7 +138,7 @@ Meteor.methods({
               location:faker.address.state(),
               latitude:faker.address.latitude(),
               longitude:faker.address.longitude(),
-              date:new Date(faker.date.future()).toLocaleDateString(),
+              date:new Date(faker.date.future()).toDateString(),
               startTime:'10:00',
               endTime:'02:00',
               min:faker.random.number(1,5),
