@@ -107,7 +107,7 @@ render(){
 
       <div className="form-inline browse">
         <form>
-          <div >
+          <div className="footer">
             <div className="form-group">
               <label>Search:</label>
             </div>
