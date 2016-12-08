@@ -42,6 +42,7 @@ export default class NewEvent extends Component {
     let t = this.state
     if(t.title && t.activity && t.location && t.address && t.date && t.startTime && t.endTime && t.price ){
       Meteor.call('events.insert', this.state);
+      FlowRouter.go('/')
     }else{
       alert('Please Fill out all required fields');
     }

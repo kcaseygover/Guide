@@ -46,7 +46,6 @@ class ShowGuideProfile extends Component {
 
           <ul className="show-guide" >
                   <li>Your Guide: {user[0].info.firstName} {user[0].info.lastName} </li>
-                  <li>Date of Birth: {user[0].info.dob.toDateString} </li>
                   <li>Bio: {user[0].info.bio} </li>
                   <li>Interests: {user[0].info.interests} </li>
                   <li>Certifications: {user[0].guideInfo.certifications} </li>
@@ -62,7 +61,6 @@ class ShowGuideProfile extends Component {
       if(currentUser){
         return <span className="text">
         <div>Name:  </div> <div> {currentUser.info.lastName} </div><br/>
-        <div>Date of Birth: {currentUser.info.dob} </div><br/>
         <div>Bio: {currentUser.info.bio} </div><br/>
         <div>Interests: {currentUser.info.interests} </div><br/>
 
@@ -99,3 +97,7 @@ Meteor.subscribe("allUsers");
    users: Meteor.users.find({},{sort:{_id:-1}}).fetch(),
   };
 }, ShowGuideProfile);
+
+//<div>Date of Birth: {currentUser.info.dob} </div><br/>
+//                  <li>Date of Birth: {user[0].info.dob.toDateString} </li>
+

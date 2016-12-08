@@ -63,7 +63,7 @@ import { Tracker } from 'meteor/tracker'
         <NavBar/>
         <div className="jumbotron jumbotron-fluid">
           <div className="container text-center">
-            <h1 className="lead">Guide Me</h1>
+            <h1 className="lead">Our Guides. Your Adventure.</h1>
             {Meteor.user() ? "" :<button className="sign_up_button btn btn-default" onClick={this.setVar}>Sign Up</button>}
           </div>
         </div>
