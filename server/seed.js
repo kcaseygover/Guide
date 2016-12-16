@@ -127,13 +127,13 @@ Meteor.methods({
     } else {
       console.log(collection);
       Seed( collection , {
-        min: 20,
+        min: 10,
         environments: [ 'development', 'staging', 'production' ],
         model( index ) {
           return {
 
               title:faker.hacker.noun(),
-              activity:"Sailing",
+              activity:"paddleboarding",
               address:faker.address.streetAddress(),
               location:faker.address.state(),
               latitude:faker.address.latitude(),
