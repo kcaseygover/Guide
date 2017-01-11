@@ -27,7 +27,7 @@ class ListEvent extends Component {
   }
 
   renderEvents() {
-    console.log("uselessshit", this.props.events)
+    console.log("this.props.events", this.props.events)
     let filteredEvents = this.props.events;
     return filteredEvents.map((event) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
